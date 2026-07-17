@@ -3,9 +3,19 @@
 // Project Name:  OpenTarget-I3C Controller
 // Module Name:   i3c_protocol_fsm
 // Description:   Central State Machine for I3C Target Protocol (SDR Mode)
-//                handles bus framing (Start, Address, R/W, ACK, Data, T-Bit),
-//                detects I3C Broadcasts (7'h7E), and manages physical layer 
-//                drive mode handoffs (Open-Drain to Push-Pull).
+//                handles core bus framing (Start, Address, R/W, ACK, Data, T-Bit),
+//                and manages physical layer drive mode handoffs (Open-Drain to 
+//                Push-Pull) while safely ignoring unsupported HDR traffic.
+//
+//                Acts as the central integration hub for the MAC layer: 
+//                - Detects I3C Broadcasts (7'h7E) and routes Common Command 
+//                  Codes (CCC) to the CCC Decoder, safeguarding Direct CCC 
+//                  contexts across Repeated STARTs.
+//                - Manages Address Header arbitration handoffs, allowing the 
+//                  IBI/Hot-Join Controller to seamlessly inject In-Band Interrupts 
+//                  or Hot-Join requests (7'h02).
+//                - Routes standard Private Read/Write payloads to and from the 
+//                  First-Word Fall-Through (FWFT) Dual-Clock APB FIFOs.
 //////////////////////////////////////////////////////////////////////////////////
 
 module i3c_protocol_fsm #(
@@ -32,10 +42,30 @@ module i3c_protocol_fsm #(
     output reg        dyn_addr_vld_o,    // Valid flag for Dynamic Address
 
     // FIFO / Data Interface 
+    input      [7:0]  tx_data_i,
+    output reg        tx_req_o,
     output reg [7:0]  rx_data_o,
     output reg        rx_valid_o,
-    input      [7:0]  tx_data_i,
-    output reg        tx_req_o
+
+    // CCC Decoder Interface
+    input      [7:0]  ccc_tx_byte_i,     // Read-back data path for GET CCCs
+    input             ccc_tx_last_i,     // 1 = Final byte of the GET CCC payload
+    input             ccc_nack_req_i,    // 1 = SW-backed GET is pending; FSM must NACK
+    output reg        ccc_cmd_phase_o,   // '1' while the byte on rx_data_o is the CCC opcode
+    output reg        ccc_broadcast_o,   // '1' if header address was 7'h7E (broadcast), '0' if Direct
+    output reg        ccc_byte_valid_o,  // strobe: rx_data_o is valid this cycle for CCC
+    output reg        ccc_rnw_o,         // Direct CCC direction: 1 = GET, 0 = SET
+    output reg        ccc_tx_req_o,      // FSM wants the next byte to shift out for GET CCC
+    
+    // IBI / Hot-Join Interface
+    input             ibi_req_i,         // IBI controller attempting an IBI
+    input             hj_req_i,          // HJ controller attempting Hot-Join
+    input      [7:0]  ibi_tx_byte_i,     // Byte-serial data path (Mandatory Data Byte (MDB), then optional payload byte)
+    input             ibi_tx_last_i,     // 1 = Final byte of the IBI payload
+    output reg        ibi_fsm_grant_o,   // Bus is available, Target FSM attempting IBI/HJ request
+    output reg        ibi_fsm_ack_o,     // Controller ACKed our request address
+    output reg        ibi_fsm_nack_o,    // Controller NACKed / we lost arbitration
+    output reg        ibi_fsm_byte_req_o // FSM wants the next byte to shift out (MDB / payload)
 );
 
     //------------------------------------------------------------------------
@@ -73,6 +103,17 @@ module i3c_protocol_fsm #(
     reg       is_read_op;     // 1 = Controller Reading (Target TX), 0 = Controller Writing
     reg       addr_matched;   // Flag to hold if the address matched us
 
+    // Variables for CCC tracking and IBI/HJ Arbitration 
+    reg       ccc_is_active;
+    reg       ccc_is_cmd_phase;
+    reg       arbitrating_ibi;
+    reg       arbitrating_hj;
+    reg       lost_arbitration;
+    
+    wire [7:0] target_ibi_addr, target_hj_addr;
+    assign target_ibi_addr = {dyn_addr_o, 1'b1}; // Dynamic address + R/W=1
+    assign target_hj_addr  = 8'h05;              // 7'h02 + R/W=1 -> 0000_010_1
+
     //------------------------------------------------------------------------
     // 3. FSM Sequential Logic
     //------------------------------------------------------------------------
@@ -90,11 +131,33 @@ module i3c_protocol_fsm #(
             tx_mode_pp_o   <= 1'b0;
             rx_valid_o     <= 1'b0;
             tx_req_o       <= 1'b0;
+            
+            ccc_cmd_phase_o    <= 1'b0;
+            ccc_broadcast_o    <= 1'b0;
+            ccc_byte_valid_o   <= 1'b0;
+            ccc_rnw_o          <= 1'b0;
+            ccc_tx_req_o       <= 1'b0;
+            
+            ibi_fsm_grant_o    <= 1'b0;
+            ibi_fsm_ack_o      <= 1'b0;
+            ibi_fsm_nack_o     <= 1'b0;
+            ibi_fsm_byte_req_o <= 1'b0;
+            
+            // Internal Registers
+            ccc_is_active      <= 1'b0;
+            ccc_is_cmd_phase   <= 1'b0;
+            arbitrating_ibi    <= 1'b0;
+            arbitrating_hj     <= 1'b0;
+            lost_arbitration   <= 1'b0;
+            
         end else if (stop_det_i) begin
-            // STOP immediately resets the bus state
-            state          <= IDLE;
-            tx_en_o        <= 1'b0;
-            tx_mode_pp_o   <= 1'b0;
+            // STOP immediately resets the bus state and CCC active state
+            state            <= IDLE;
+            tx_en_o          <= 1'b0;
+            tx_mode_pp_o     <= 1'b0;            
+            ccc_is_active    <= 1'b0;
+            ccc_is_cmd_phase <= 1'b0;
+            
         end else if (start_det_i) begin
             // START or Repeated START initiates a new address header
             state          <= ADDR_HEADER;
@@ -102,22 +165,68 @@ module i3c_protocol_fsm #(
             tx_en_o        <= 1'b0;
             tx_mode_pp_o   <= 1'b0;
             addr_matched   <= 1'b0;
-        end else begin
             
+            // START or Repeated START triggers arbitration if we have a pending IBI or HJ
+            if (ibi_req_i) begin
+                arbitrating_ibi <= 1'b1;
+                arbitrating_hj  <= 1'b0;
+                ibi_fsm_grant_o <= 1'b1; // Grant bus to IBI
+            end else if (hj_req_i) begin
+                arbitrating_ibi <= 1'b0;
+                arbitrating_hj  <= 1'b1;
+                ibi_fsm_grant_o <= 1'b1; // Grant bus to HJ
+            end else begin
+                arbitrating_ibi <= 1'b0;
+                arbitrating_hj  <= 1'b0;
+            end
+            lost_arbitration <= 1'b0;
+            
+            // Direct CCCs use Repeated START to address targets.
+            // If we are not active in a CCC context, we drop the cmd phase flag.
+            if (!ccc_is_active) begin
+                ccc_is_cmd_phase <= 1'b0;
+            end
+            
+        end else begin 
             // Default single-cycle strobes
-            rx_valid_o <= 1'b0;
-            tx_req_o   <= 1'b0;
+            rx_valid_o         <= 1'b0;
+            tx_req_o           <= 1'b0;            
+            ccc_byte_valid_o   <= 1'b0;
+            ccc_tx_req_o       <= 1'b0;
+            ibi_fsm_byte_req_o <= 1'b0;
 
             case (state)
                 IDLE: begin
-                    tx_en_o <= 1'b0;
+                    tx_en_o         <= 1'b0;                    
+                    ibi_fsm_grant_o <= 1'b0;
+                    ibi_fsm_ack_o   <= 1'b0;
+                    ibi_fsm_nack_o  <= 1'b0;
                 end
 
                 // Address Header Phase (7 bits Address + 1 bit R/W)
                 ADDR_HEADER: begin
+                    // Drive Address bit on negedge if we are actively attempting IBI/HJ
+                    if (scl_negedge && (arbitrating_ibi || arbitrating_hj) && !lost_arbitration) begin
+                        tx_en_o      <= 1'b1;
+                        tx_mode_pp_o <= 1'b0; // Open-Drain for Arbitration
+                        if (arbitrating_ibi)
+                            tx_data_o <= target_ibi_addr[7 - bit_cnt];
+                        else
+                            tx_data_o <= target_hj_addr[7 - bit_cnt];
+                    end
+
                     if (scl_posedge) begin
                         shift_reg <= {shift_reg[6:0], sda_i};
-                        bit_cnt   <= bit_cnt + 4'd1;
+                        if ((arbitrating_ibi || arbitrating_hj) && !lost_arbitration) begin
+                            // If we transmitted a 1 (High-Z) but the physical bus SDA is 0, we lost
+                            if (tx_en_o && tx_data_o == 1'b1 && sda_i == 1'b0) begin
+                                lost_arbitration <= 1'b1;
+                                tx_en_o          <= 1'b0;
+                                ibi_fsm_nack_o   <= 1'b1; // Inform auxiliary controller of loss
+                            end
+                        end
+                        
+                        bit_cnt <= bit_cnt + 4'd1;
                         
                         // 8th bit is the R/W bit
                         if (bit_cnt == 4'd7) begin
@@ -132,6 +241,23 @@ module i3c_protocol_fsm #(
                                 addr_matched <= 1'b0;
                             end
                             
+                            // Set Context Flags for CCC execution 
+                            if (shift_reg[6:0] == I3C_BROADCAST_ADDR && sda_i == 1'b0) begin
+                                // 7'h7E + W indicates a CCC Command Phase follows
+                                ccc_is_active    <= 1'b1;
+                                ccc_is_cmd_phase <= 1'b1;
+                                ccc_cmd_phase_o  <= 1'b1;
+                                ccc_broadcast_o  <= 1'b1; 
+                                ccc_rnw_o        <= 1'b0;
+                            end else if (addr_matched) begin
+                                if (ccc_is_active) begin
+                                    // Targeted phase of a Direct CCC sequence
+                                    ccc_broadcast_o <= 1'b0;
+                                    ccc_rnw_o       <= sda_i;
+                                    ccc_cmd_phase_o <= 1'b0;
+                                end
+                            end
+                            
                             state <= ACK_NACK;
                         end
                     end
@@ -141,7 +267,15 @@ module i3c_protocol_fsm #(
                 ACK_NACK: begin
                     // Drive ACK on falling edge before the 9th clock
                     if (scl_negedge && bit_cnt == 4'd8) begin
-                        if (addr_matched) begin
+                        // CCC Decoder requested a NACK 
+                        if (ccc_is_active && ccc_nack_req_i) begin
+                            tx_en_o      <= 1'b1;
+                            tx_data_o    <= 1'b1; // NACK is High-Z / 1
+                            tx_mode_pp_o <= 1'b0; 
+                        end else if ((arbitrating_ibi || arbitrating_hj) && !lost_arbitration) begin
+                            // Arbitration won. Controller will drive the ACK/NACK bit & Release bus.
+                            tx_en_o      <= 1'b0;
+                        end else if (addr_matched) begin
                             tx_en_o      <= 1'b1;
                             tx_data_o    <= 1'b0; // ACK is pulling line LOW
                             tx_mode_pp_o <= 1'b0; // ACK is always Open-Drain
@@ -154,16 +288,45 @@ module i3c_protocol_fsm #(
                         tx_en_o <= 1'b0; // Release ACK
                         bit_cnt <= 4'd0;
                         
-                        if (!addr_matched) begin
+                        if (ccc_is_active && ccc_nack_req_i) begin
+                            state <= IDLE; 
+                        
+                        end else if ((arbitrating_ibi || arbitrating_hj) && !lost_arbitration) begin
+                            // Verify if Controller ACKed or NACKed the successful IBI/HJ request
+                            if (sda_i == 1'b0) begin
+                                // Controller ACKed
+                                ibi_fsm_ack_o      <= 1'b1;
+                                state              <= TX_DATA;       // Proceed to send MDB
+                                shift_reg          <= ibi_tx_byte_i; // Pre-load MDB
+                                ibi_fsm_byte_req_o <= 1'b1;          // Fetch next
+                            end else begin
+                                // Controller NACKed
+                                ibi_fsm_nack_o     <= 1'b1;
+                                state              <= IDLE;
+                            end
+                            // Terminate arbitration session
+                            arbitrating_ibi <= 1'b0;
+                            arbitrating_hj  <= 1'b0;
+                        
+                        end else if (!addr_matched) begin
                             state <= IDLE; // Not I3C address, go idle
+                        
                         end else if (shift_reg[7:1] == I3C_BROADCAST_ADDR && is_read_op) begin
                             // 7'h7E + Read = HDR Entry Command. HDR is not supported.
                             state <= HDR_IGNORE; 
+                        
                         end else if (is_read_op) begin
                             // Transition to TX Data in Push-Pull Mode
-                            state        <= TX_DATA;
-                            shift_reg    <= tx_data_i; // Load from FIFO
-                            tx_req_o     <= 1'b1;      // Fetch next byte
+                            state <= TX_DATA;
+                            // Route TX data directly from CCC decoder if active, else fallback to standard FIFO
+                            if (ccc_is_active) begin
+                                shift_reg    <= ccc_tx_byte_i;
+                                ccc_tx_req_o <= 1'b1;
+                            end else begin
+                                shift_reg    <= tx_data_i; // Load from FIFO
+                                tx_req_o     <= 1'b1;      // Fetch next byte
+                            end
+                            
                         end else begin
                             state <= RX_DATA;
                         end
@@ -177,9 +340,21 @@ module i3c_protocol_fsm #(
                         bit_cnt   <= bit_cnt + 1'b1;
                         
                         if (bit_cnt == 4'd7) begin
-                            rx_data_o  <= {shift_reg[6:0], sda_i};
-                            rx_valid_o <= 1'b1; // Push to FIFO
-                            state      <= T_BIT_RX;
+                            // Route RX payload to CCC Decoder or APB FIFO 
+                            if (ccc_is_active) begin
+                                rx_data_o        <= {shift_reg[6:0], sda_i};
+                                ccc_byte_valid_o <= 1'b1;
+                            end else begin
+                                rx_data_o        <= {shift_reg[6:0], sda_i};
+                                rx_valid_o       <= 1'b1; // Push to APB FIFO
+                            end
+                            
+                            if (ccc_is_cmd_phase) begin
+                                ccc_cmd_phase_o  <= 1'b0;
+                                ccc_is_cmd_phase <= 1'b0;
+                            end
+                            
+                            state <= T_BIT_RX;
                         end
                     end
                 end
@@ -219,22 +394,46 @@ module i3c_protocol_fsm #(
                     // T-Bit in read mode indicates End-of-Data. 1 = More Data, 0 = End.
                     if (scl_negedge && bit_cnt == 4'd8) begin
                         tx_en_o      <= 1'b1;
-                        tx_data_o    <= 1'b1; // Asserting we have more data
+                        
+                        if (ccc_is_active) begin
+                            tx_data_o <= !ccc_tx_last_i; // Inverse mapping (1 = more data, 0 = end)
+                        end else if (ibi_fsm_ack_o || ibi_fsm_grant_o) begin
+                            tx_data_o <= !ibi_tx_last_i; 
+                        end else begin
+                            tx_data_o <= 1'b1;           // Normal APB TX: Asserting we have more data
+                        end
+                        
                         tx_mode_pp_o <= 1'b0; // T-bit switches back to Open-Drain
                         bit_cnt      <= 4'd9;
                     end
+                    
                     if (scl_negedge && bit_cnt == 4'd9) begin
-                        tx_req_o  <= 1'b1;      // Fetch next byte from FIFO
-                        shift_reg <= tx_data_i; 
-                        bit_cnt   <= 4'd0;
-                        state     <= TX_DATA;
+                        // Fetch next byte based on active subsystem 
+                        if (ccc_is_active) begin
+                            shift_reg    <= ccc_tx_byte_i;
+                            ccc_tx_req_o <= 1'b1;
+                            state        <= TX_DATA;
+                        end else if (ibi_fsm_ack_o || ibi_fsm_grant_o) begin
+                            if (ibi_tx_last_i) begin
+                                state    <= IDLE;   // IBI payload transmission complete
+                            end else begin
+                                shift_reg          <= ibi_tx_byte_i;
+                                ibi_fsm_byte_req_o <= 1'b1;
+                                state              <= TX_DATA;
+                            end
+                        end else begin
+                            tx_req_o  <= 1'b1;      // Fetch next byte from FIFO
+                            shift_reg <= tx_data_i; 
+                            state     <= TX_DATA;
+                        end
+                        
+                        bit_cnt <= 4'd0;
                     end
                 end
 
                 // HDR Ignore Phase
                 HDR_IGNORE: begin
-                    // Remain silent. The stop_det_i interrupt at 
-                    // the top of the block will return state to IDLE safely.
+                    // Remain silent. The stop_det_i interrupt at the top of the block will return state to IDLE safely.
                     tx_en_o <= 1'b0;
                 end
                 

@@ -1,77 +1,74 @@
-// =============================================================================
-// i3c_fifo_cdc.v
-//
-// Module 7: Dual-Clock Transmit/Receive FIFOs
-//
-// Parameterizable async-FIFO block bridging the I3C_SCL wire-clock domain
-// (up to 12.5 MHz) and the internal host SoC clk_i domain. Provides deep
-// data decoupling for seamless high-speed read/write bursts without
-// stalling the bus lines.
-//
-// Implementation: standard 2-flop gray-code pointer synchronizer CDC FIFO,
-// instantiated twice at the top level (once per direction: TX and RX).
-// =============================================================================
-
-`default_nettype none
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Project Name:  OpenTarget-I3C Controller
+// Module Name:   i3c_fifo_cdc
+// Description:   Dual-Clock Transmit/Receive async-FIFO bridges the I3C_SCL 
+//                wire-clock domain (up to 12.5 MHz) and the internal host SoC 
+//                clk_i domain. Provides deep data decoupling for seamless 
+//                high-speed read/write bursts without stalling the bus lines.
+//                Uses standard 2-flop gray-code pointer synchronizer CDC FIFO,
+//                instantiated twice at the top level (once per direction: 
+//                TX and RX).
+//////////////////////////////////////////////////////////////////////////////////
 
 module i3c_fifo_cdc #(
-    parameter integer DATA_WIDTH = 8,
-    parameter integer ADDR_WIDTH = 4          // depth = 2**ADDR_WIDTH
-) (
-    // ---------------- Write-side (producer) domain ----------------
-    input  wire                    wr_clk,
-    input  wire                    wr_rst_n,
-    input  wire                    wr_en,
-    input  wire [DATA_WIDTH-1:0]   wr_data,
-    output wire                    wr_full,
-    output wire                    wr_almost_full,
+    parameter DATA_WIDTH = 8,
+    parameter ADDR_WIDTH = 4          
+)(
+    // Write-side (producer) domain 
+    input                   wr_clk,
+    input                   wr_rst_n,
+    input                   wr_en,
+    input  [DATA_WIDTH-1:0] wr_data,
+    output                  wr_full,
+    output                  wr_almost_full,
 
-    // ---------------- Read-side (consumer) domain ------------------
-    input  wire                    rd_clk,
-    input  wire                    rd_rst_n,
-    input  wire                    rd_en,
-    output reg  [DATA_WIDTH-1:0]   rd_data,
-    output wire                    rd_empty,
-    output wire                    rd_almost_empty
+    // Read-side (consumer) domain 
+    input                   rd_clk,
+    input                   rd_rst_n,
+    input                   rd_en,    
+    output [DATA_WIDTH-1:0] rd_data,
+    output                  rd_empty,
+    output                  rd_almost_empty
 );
 
-    localparam integer DEPTH = (1 << ADDR_WIDTH);
-    // Explicitly sized to the pointer width (ADDR_WIDTH+1 bits) so
-    // comparisons against pointer-difference values don't implicitly
-    // promote to a 32-bit integer (flagged by strict lint, e.g. Vivado
-    // xvlog / Verilator --lint-only). The truncation from the 32-bit
-    // DEPTH-1 constant is intentional and always safe (value fits).
-    /* verilator lint_off WIDTHTRUNC */
-    localparam [ADDR_WIDTH:0] DEPTH_M1_SIZED = DEPTH - 1;
-    /* verilator lint_on WIDTHTRUNC */
+    localparam DEPTH = (1 << ADDR_WIDTH);
+    localparam [ADDR_WIDTH:0] DEPTH_SIZED = DEPTH - 1;
 
     // Memory array: DEPTH x DATA_WIDTH
     reg [DATA_WIDTH-1:0] mem [0:DEPTH-1];
 
-    // Binary + gray pointers, one extra MSB bit for full/empty wrap detection
-    reg  [ADDR_WIDTH:0] wr_bin, wr_bin_next;
-    reg  [ADDR_WIDTH:0] wr_gray, wr_gray_next;
-    reg  [ADDR_WIDTH:0] rd_bin, rd_bin_next;
-    reg  [ADDR_WIDTH:0] rd_gray, rd_gray_next;
+    // Pointers are 1 bit wider than ADDR_WIDTH (the MSB acts as a wrap bit). 
+    // This allows the logic to safely distinguish between 'Full' (wrap bits differ, 
+    // but address bits match) and 'Empty' (all bits match identically).
+    reg [ADDR_WIDTH:0] wr_bin, wr_bin_next;
+    reg [ADDR_WIDTH:0] wr_gray, wr_gray_next;
+    reg [ADDR_WIDTH:0] rd_bin, rd_bin_next;
+    reg [ADDR_WIDTH:0] rd_gray, rd_gray_next;
 
     // Synchronized copies of the opposite-domain gray pointers
+    // A 2-stage flip-flop synchronizer is used to mitigate metastability 
+    // when crossing asynchronous clock domains.
     reg [ADDR_WIDTH:0] rd_gray_sync1, rd_gray_sync2; // read ptr synced into wr_clk
     reg [ADDR_WIDTH:0] wr_gray_sync1, wr_gray_sync2; // write ptr synced into rd_clk
 
-    // -------------------------------------------------------------------
+    //------------------------------------------------------------------------
     // Write domain
-    // -------------------------------------------------------------------
-    wire [ADDR_WIDTH-1:0] wr_addr = wr_bin[ADDR_WIDTH-1:0];
-    // wr_valid gates off the *registered* wr_full flag from the previous
-    // cycle (not a same-cycle combinational value), avoiding a combinational
-    // loop between pointer increment and full-flag computation.
-    wire                  wr_valid = wr_en && !wr_full;
-    reg                   wr_full_r;
-    reg                   wr_almost_full_r;
-
+    //------------------------------------------------------------------------
+    wire [ADDR_WIDTH-1:0] wr_addr;
+    wire                  wr_valid;
+    reg                   wr_full_r, wr_almost_full_r; // Registered versions of write-full flags
+    
+    // The actual memory address drops the MSB wrap bit
+    assign wr_addr        = wr_bin[ADDR_WIDTH-1:0];
+    
+    // Gate the write enable with the full flag to safely prevent overflow
+    assign wr_valid       = wr_en && !wr_full;
+    
     assign wr_full        = wr_full_r;
     assign wr_almost_full = wr_almost_full_r;
 
+    // Update binary and gray write pointers on the write clock
     always @(posedge wr_clk or negedge wr_rst_n) begin
         if (!wr_rst_n) begin
             wr_bin  <= {(ADDR_WIDTH+1){1'b0}};
@@ -82,17 +79,20 @@ module i3c_fifo_cdc #(
         end
     end
 
-    always @* begin
+    // Combinational logic for the next pointer states
+    always @(*) begin
         wr_bin_next  = wr_bin + (wr_valid ? {{ADDR_WIDTH{1'b0}},1'b1} : {(ADDR_WIDTH+1){1'b0}});
+        // Binary to Gray code conversion: shift right by 1 and XOR with the original binary value
         wr_gray_next = (wr_bin_next >> 1) ^ wr_bin_next;
     end
 
+    // Memory write operation
     always @(posedge wr_clk) begin
         if (wr_valid)
             mem[wr_addr] <= wr_data;
     end
 
-    // Synchronize the read pointer (gray) into the write clock domain
+    // 2-stage synchronizer: safely move the Read Gray pointer into the Write clock domain
     always @(posedge wr_clk or negedge wr_rst_n) begin
         if (!wr_rst_n) begin
             rd_gray_sync1 <= {(ADDR_WIDTH+1){1'b0}};
@@ -103,9 +103,10 @@ module i3c_fifo_cdc #(
         end
     end
 
-    // Full flag is REGISTERED: computed from wr_gray_next, which itself
-    // only depends on the *previous* cycle's wr_full (through wr_valid).
-    // There is therefore no same-cycle combinational loop.
+    // Full flag generation: 
+    // In Gray code, a full condition occurs when the write pointer catches up to the read 
+    // pointer from behind (meaning it has wrapped around exactly once). This translates to 
+    // the MSB and 2nd MSB being inverted, while all remaining lower bits match.
     always @(posedge wr_clk or negedge wr_rst_n) begin
         if (!wr_rst_n) begin
             wr_full_r <= 1'b0;
@@ -115,49 +116,57 @@ module i3c_fifo_cdc #(
         end
     end
 
-    // Almost-full: one free slot remaining (also registered, same rationale)
+    // To calculate 'almost full', the synchronized gray read pointer must be converted 
+    // back to binary so standard subtraction can determine the exact fill level.
     wire [ADDR_WIDTH:0] wr_bin_from_rd_gray;
     assign wr_bin_from_rd_gray = gray2bin(rd_gray_sync2);
+    
     always @(posedge wr_clk or negedge wr_rst_n) begin
         if (!wr_rst_n)
             wr_almost_full_r <= 1'b0;
         else
-            wr_almost_full_r <= ((wr_bin_next - wr_bin_from_rd_gray) >= DEPTH_M1_SIZED);
+            // Almost full triggers when depth hits (DEPTH - 1)
+            wr_almost_full_r <= ((wr_bin_next - wr_bin_from_rd_gray) >= DEPTH_SIZED);
     end
 
     // -------------------------------------------------------------------
     // Read domain
     // -------------------------------------------------------------------
-    wire [ADDR_WIDTH-1:0] rd_addr = rd_bin[ADDR_WIDTH-1:0];
-    // rd_valid gates off the *registered* rd_empty flag from the previous
-    // cycle, avoiding a combinational loop between pointer increment and
-    // empty-flag computation.
-    wire                  rd_valid = rd_en && !rd_empty;
-    reg                   rd_empty_r;
-    reg                   rd_almost_empty_r;
-
+    wire [ADDR_WIDTH-1:0] rd_addr;
+    wire                  rd_valid;
+    reg                   rd_empty_r, rd_almost_empty_r;
+    
+    assign rd_addr         = rd_bin[ADDR_WIDTH-1:0];
+    
+    // Gate the read enable with the empty flag to safely prevent underflow
+    assign rd_valid        = rd_en && !rd_empty;
     assign rd_empty        = rd_empty_r;
     assign rd_almost_empty = rd_almost_empty_r;
 
+    // First-Word Fall-Through (FWFT) Assignment:
+    // The data at the current read pointer is continuously available on rd_data 
+    // without requiring a read clock edge to fetch it. This provides a zero-cycle 
+    // read latency to the connected FSM.
+    assign rd_data = mem[rd_addr];
+
+    // Update binary and gray read pointers on the read clock
     always @(posedge rd_clk or negedge rd_rst_n) begin
         if (!rd_rst_n) begin
             rd_bin  <= {(ADDR_WIDTH+1){1'b0}};
-            rd_gray <= {(ADDR_WIDTH+1){1'b0}};
-            rd_data <= {DATA_WIDTH{1'b0}};
+            rd_gray <= {(ADDR_WIDTH+1){1'b0}};            
         end else begin
             rd_bin  <= rd_bin_next;
-            rd_gray <= rd_gray_next;
-            if (rd_valid)
-                rd_data <= mem[rd_addr];
+            rd_gray <= rd_gray_next;            
         end
     end
 
-    always @* begin
+    // Combinational logic for the next read pointer states
+    always @(*) begin
         rd_bin_next  = rd_bin + (rd_valid ? {{ADDR_WIDTH{1'b0}},1'b1} : {(ADDR_WIDTH+1){1'b0}});
         rd_gray_next = (rd_bin_next >> 1) ^ rd_bin_next;
     end
 
-    // Synchronize the write pointer (gray) into the read clock domain
+    // 2-stage synchronizer: safely move the Write Gray pointer into the Read clock domain
     always @(posedge rd_clk or negedge rd_rst_n) begin
         if (!rd_rst_n) begin
             wr_gray_sync1 <= {(ADDR_WIDTH+1){1'b0}};
@@ -168,8 +177,9 @@ module i3c_fifo_cdc #(
         end
     end
 
-    // Empty flag is REGISTERED: computed from rd_gray_next, which itself
-    // only depends on the *previous* cycle's rd_empty (through rd_valid).
+    // Empty flag generation:
+    // An empty condition occurs when the next read pointer exactly matches the 
+    // synchronized write pointer, indicating all written data has been consumed.
     always @(posedge rd_clk or negedge rd_rst_n) begin
         if (!rd_rst_n)
             rd_empty_r <= 1'b1;
@@ -177,8 +187,11 @@ module i3c_fifo_cdc #(
             rd_empty_r <= (rd_gray_next == wr_gray_sync2);
     end
 
+    // To calculate 'almost empty', the synchronized gray write pointer is converted 
+    // back to binary to evaluate the distance to the next read pointer.
     wire [ADDR_WIDTH:0] rd_bin_from_wr_gray;
     assign rd_bin_from_wr_gray = gray2bin(wr_gray_sync2);
+    
     always @(posedge rd_clk or negedge rd_rst_n) begin
         if (!rd_rst_n)
             rd_almost_empty_r <= 1'b1;
@@ -188,6 +201,7 @@ module i3c_fifo_cdc #(
 
     // -------------------------------------------------------------------
     // gray2bin helper (combinational function)
+    // Converts Gray code back to Binary via an XOR cascade. 
     // -------------------------------------------------------------------
     function [ADDR_WIDTH:0] gray2bin;
         input [ADDR_WIDTH:0] g;
@@ -200,5 +214,3 @@ module i3c_fifo_cdc #(
     endfunction
 
 endmodule
-
-`default_nettype wire
