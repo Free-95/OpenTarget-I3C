@@ -52,7 +52,7 @@ module i3c_ccc_decoder (
     // Status / handshake flags
     output reg        ccc_active_o,       // 1 = CCC is currently being processed
     output reg        ccc_unrecognized_o, // 1 = unsupported CCC received
-    output reg        nack_req_o,         // 1 = request FSM to NACK (for retry model)
+    output            nack_req_o,         // 1 = request FSM to NACK (for retry model)
     output reg        retry_exhausted_o   // 1 = second read attempt occurs before data is ready
 );
 
@@ -87,7 +87,7 @@ module i3c_ccc_decoder (
 
     reg [2:0] state;
     reg [7:0] opcode;
-    reg       is_broadcast;
+    //reg       is_broadcast;
     reg [1:0] wr_byte_cnt;    // Counter for multi-byte SET payloads (e.g., SETMWL)
     reg [7:0] wr_byte0;       // Stores the first byte (MSB) of a 2-byte payload
     reg [3:0] rd_byte_cnt;    // Counter for multi-byte GET responses (e.g., GETPID)
@@ -127,6 +127,12 @@ module i3c_ccc_decoder (
                                 (opcode == CCC_SETMRL_D)  ||
                                 (opcode == CCC_RSTACT_D);
 
+    // NACK Request Logic
+    assign nack_req_o = ccc_active_o && is_sw_backed_get && get_data_pending_i && !retry_seen;
+
+    // Combinational output logic so FSM sees the end-of-data before deciding the T-Bit
+    //assign tx_last_o = (state == RD_DATA) && ((opcode != CCC_GETPID) || (rd_byte_cnt == 4'd5));
+    
     //-------------------------------------------------------------------
     // Main FSM
     //-------------------------------------------------------------------
@@ -134,7 +140,7 @@ module i3c_ccc_decoder (
         if (!rst_ni) begin
             state              <= IDLE;
             opcode             <= 8'h00;
-            is_broadcast       <= 1'b0;
+            //is_broadcast       <= 1'b0;
             wr_byte_cnt        <= 2'd0;
             wr_byte0           <= 8'h00;
             rd_byte_cnt        <= 4'd0;
@@ -154,11 +160,10 @@ module i3c_ccc_decoder (
 
             tx_byte_o          <= 8'h00;
             tx_byte_valid_o    <= 1'b0;
-            tx_last_o          <= 1'b0;
+            //tx_last_o          <= 1'b0;
 
             ccc_active_o       <= 1'b0;
             ccc_unrecognized_o <= 1'b0;
-            nack_req_o         <= 1'b0;
             retry_exhausted_o  <= 1'b0;
             
         end else begin
@@ -170,8 +175,7 @@ module i3c_ccc_decoder (
             setmwl_valid_o     <= 1'b0;
             setmrl_valid_o     <= 1'b0;
             tx_byte_valid_o    <= 1'b0;
-            tx_last_o          <= 1'b0;
-            nack_req_o         <= 1'b0;
+            //tx_last_o          <= 1'b0;
             retry_exhausted_o  <= 1'b0;
             ccc_unrecognized_o <= 1'b0;
 
@@ -197,7 +201,7 @@ module i3c_ccc_decoder (
                                 retry_seen <= 1'b0; 
                                 
                             opcode       <= byte_data_i;
-                            is_broadcast <= is_broadcast_i;
+                            //is_broadcast <= is_broadcast_i;
                             ccc_active_o <= 1'b1;
                             wr_byte_cnt  <= 2'd0;
                             rd_byte_cnt  <= 4'd0;
@@ -208,7 +212,7 @@ module i3c_ccc_decoder (
                     // OPCODE: One cycle to qualify opcode recognition and 
                     // process simple no-payload Broadcast commands (e.g., RSTDAA).
                     OPCODE: begin
-                        if (is_broadcast) begin
+                        if (opcode[7] == 1'b0) begin
                             // Verify the broadcast CCC is supported
                             if (!is_known_broadcast) begin
                                 ccc_unrecognized_o <= 1'b1;
@@ -296,8 +300,7 @@ module i3c_ccc_decoder (
                         if (tx_req_i) begin
                             // Evaluate the retry mechanism for SW-backed data 
                             if (is_sw_backed_get && get_data_pending_i && !retry_seen) begin
-                                // First attempt: Data not ready. Ask FSM to NACK the address phase.
-                                nack_req_o   <= 1'b1;
+                                // First attempt: Data not ready. Ask FSM to retry.
                                 retry_seen   <= 1'b1; // Mark that one retry is used 
                                 ccc_active_o <= 1'b0;
                                 state        <= IDLE;
@@ -323,8 +326,9 @@ module i3c_ccc_decoder (
                                             tx_last_o    <= 1'b1;
                                             rd_byte_cnt  <= 4'd0;
                                             ccc_active_o <= 1'b0;
-                                            state        <= IDLE;
+                                            //state        <= IDLE;
                                         end else begin
+                                            tx_last_o    <= 1'b0;
                                             rd_byte_cnt  <= rd_byte_cnt + 4'd1;
                                         end
                                     end
@@ -332,31 +336,31 @@ module i3c_ccc_decoder (
                                         tx_byte_o    <= bcr_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        state        <= IDLE;
+                                        //state        <= IDLE;
                                     end
                                     CCC_GETDCR: begin
                                         tx_byte_o    <= dcr_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        state        <= IDLE;
+                                        //state        <= IDLE;
                                     end
                                     CCC_GETSTATUS: begin
                                         tx_byte_o    <= status_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        state        <= IDLE;
+                                        //state        <= IDLE;
                                     end
                                     CCC_GETMXDS: begin
                                         tx_byte_o    <= mxds_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        state        <= IDLE;
+                                        //state        <= IDLE;
                                     end
                                     default: begin
                                         tx_byte_o    <= 8'h00;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        state        <= IDLE;
+                                        //state        <= IDLE;
                                     end
                                 endcase
                             end

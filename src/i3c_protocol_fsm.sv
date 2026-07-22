@@ -37,7 +37,7 @@ module i3c_protocol_fsm #(
     input      [6:0]  static_addr_i,     // Static Address (if configured)
     input             static_addr_vld_i, // Valid flag for Static Address
     input      [31:0] core_ctrl_i,       // IP Configuration
-    output reg [31:0] core_status_o,     // Status flags
+    output     [31:0] core_status_o,     // Status flags
     output reg [6:0]  dyn_addr_o,        // Dynamic Address assigned by Controller
     output reg        dyn_addr_vld_o,    // Valid flag for Dynamic Address
 
@@ -95,7 +95,7 @@ module i3c_protocol_fsm #(
         T_BIT_TX      = 4'h6,  // Transmitting Transition Bit
         HDR_IGNORE    = 4'h7;  // Safely ignoring HDR traffic
 
-    reg [3:0] state, next_state;
+    reg [3:0] state;
     
     // Internal Counters & Shift Registers
     reg [3:0] bit_cnt;
@@ -109,11 +109,29 @@ module i3c_protocol_fsm #(
     reg       arbitrating_ibi;
     reg       arbitrating_hj;
     reg       lost_arbitration;
+    reg       ibi_is_active;
+    reg       wait_tx_data; 
+    reg       load_tx_data; 
     
     wire [7:0] target_ibi_addr, target_hj_addr;
-    assign target_ibi_addr = {dyn_addr_o, 1'b1}; // Dynamic address + R/W=1
+    assign target_ibi_addr = dyn_addr_vld_o ? {dyn_addr_o, 1'b1} : {static_addr_i, 1'b1}; // Dynamic address + R/W=1
     assign target_hj_addr  = 8'h05;              // 7'h02 + R/W=1 -> 0000_010_1
 
+    // Pack internal state into the 32-bit APB status register
+    assign core_status_o = {
+        20'd0,              // [31:12] Reserved
+        ibi_is_active,      // [11]    IBI transmission in progress
+        ccc_is_active,      // [10]    CCC processing in progress
+        arbitrating_hj,     // [9]     Hot-Join Arbitration in progress
+        arbitrating_ibi,    // [8]     IBI Arbitration in progress
+        4'd0,               // [7:4]   Reserved
+        state               // [3:0]   Current FSM state
+    };
+    
+    // Sink unused APB control inputs to prevent linter warnings in isolated MAC testing
+    wire _unused_ctrl;
+    assign _unused_ctrl = &core_ctrl_i;
+    
     //------------------------------------------------------------------------
     // 3. FSM Sequential Logic
     //------------------------------------------------------------------------
@@ -131,6 +149,8 @@ module i3c_protocol_fsm #(
             tx_mode_pp_o   <= 1'b0;
             rx_valid_o     <= 1'b0;
             tx_req_o       <= 1'b0;
+            dyn_addr_o     <= 7'h00;
+            dyn_addr_vld_o <= 1'b0;
             
             ccc_cmd_phase_o    <= 1'b0;
             ccc_broadcast_o    <= 1'b0;
@@ -149,6 +169,9 @@ module i3c_protocol_fsm #(
             arbitrating_ibi    <= 1'b0;
             arbitrating_hj     <= 1'b0;
             lost_arbitration   <= 1'b0;
+            ibi_is_active      <= 1'b0;
+            wait_tx_data       <= 1'b0; 
+            load_tx_data       <= 1'b0; 
             
         end else if (stop_det_i) begin
             // STOP immediately resets the bus state and CCC active state
@@ -157,6 +180,9 @@ module i3c_protocol_fsm #(
             tx_mode_pp_o     <= 1'b0;            
             ccc_is_active    <= 1'b0;
             ccc_is_cmd_phase <= 1'b0;
+            ibi_is_active    <= 1'b0;
+            wait_tx_data     <= 1'b0; 
+            load_tx_data     <= 1'b0; 
             
         end else if (start_det_i) begin
             // START or Repeated START initiates a new address header
@@ -195,6 +221,12 @@ module i3c_protocol_fsm #(
             ccc_tx_req_o       <= 1'b0;
             ibi_fsm_byte_req_o <= 1'b0;
 
+            // Advance the 1-cycle pipeline delay for IBI payloads
+            if (wait_tx_data) begin
+                wait_tx_data <= 1'b0;
+                load_tx_data <= 1'b1;
+            end
+            
             case (state)
                 IDLE: begin
                     tx_en_o         <= 1'b0;                    
@@ -237,27 +269,25 @@ module i3c_protocol_fsm #(
                                (dyn_addr_vld_o && shift_reg[6:0] == dyn_addr_o) ||
                                (static_addr_vld_i && shift_reg[6:0] == static_addr_i)) begin
                                 addr_matched <= 1'b1;
-                            end else begin
-                                addr_matched <= 1'b0;
-                            end
-                            
-                            // Set Context Flags for CCC execution 
-                            if (shift_reg[6:0] == I3C_BROADCAST_ADDR && sda_i == 1'b0) begin
-                                // 7'h7E + W indicates a CCC Command Phase follows
-                                ccc_is_active    <= 1'b1;
-                                ccc_is_cmd_phase <= 1'b1;
-                                ccc_cmd_phase_o  <= 1'b1;
-                                ccc_broadcast_o  <= 1'b1; 
-                                ccc_rnw_o        <= 1'b0;
-                            end else if (addr_matched) begin
-                                if (ccc_is_active) begin
+
+                                // Set Context Flags for CCC execution 
+                                if (shift_reg[6:0] == I3C_BROADCAST_ADDR && sda_i == 1'b0) begin
+                                    // 7'h7E + W indicates a CCC Command Phase follows
+                                    ccc_is_active    <= 1'b1;
+                                    ccc_is_cmd_phase <= 1'b1;
+                                    ccc_cmd_phase_o  <= 1'b1;
+                                    ccc_broadcast_o  <= 1'b1; 
+                                    ccc_rnw_o        <= 1'b0;
+                                end else if (ccc_is_active) begin
                                     // Targeted phase of a Direct CCC sequence
                                     ccc_broadcast_o <= 1'b0;
                                     ccc_rnw_o       <= sda_i;
                                     ccc_cmd_phase_o <= 1'b0;
                                 end
+                            end else begin
+                                addr_matched <= 1'b0;
                             end
-                            
+
                             state <= ACK_NACK;
                         end
                     end
@@ -289,7 +319,8 @@ module i3c_protocol_fsm #(
                         bit_cnt <= 4'd0;
                         
                         if (ccc_is_active && ccc_nack_req_i) begin
-                            state <= IDLE; 
+                            state <= IDLE;
+                            ccc_tx_req_o <= 1'b1;
                         
                         end else if ((arbitrating_ibi || arbitrating_hj) && !lost_arbitration) begin
                             // Verify if Controller ACKed or NACKed the successful IBI/HJ request
@@ -297,8 +328,17 @@ module i3c_protocol_fsm #(
                                 // Controller ACKed
                                 ibi_fsm_ack_o      <= 1'b1;
                                 state              <= TX_DATA;       // Proceed to send MDB
-                                shift_reg          <= ibi_tx_byte_i; // Pre-load MDB
-                                ibi_fsm_byte_req_o <= 1'b1;          // Fetch next
+                                ibi_is_active      <= 1'b1;
+                                wait_tx_data  <= 1'b1; // Trigger pipeline delay
+                                //ibi_fsm_byte_req_o <= 1'b1;          // Fetch next
+                                //shift_reg          <= ibi_tx_byte_i; // Pre-load MDB
+                                
+                                // Drive the first bit of MDB immediately before the next SCL edge
+                                //tx_en_o            <= 1'b1;
+                                //tx_data_o          <= ibi_tx_byte_i[7];
+                                //tx_mode_pp_o       <= 1'b1;
+                                //shift_reg          <= {ibi_tx_byte_i[6:0], 1'b0};
+                                bit_cnt            <= 4'd1;
                             end else begin
                                 // Controller NACKed
                                 ibi_fsm_nack_o     <= 1'b1;
@@ -320,13 +360,30 @@ module i3c_protocol_fsm #(
                             state <= TX_DATA;
                             // Route TX data directly from CCC decoder if active, else fallback to standard FIFO
                             if (ccc_is_active) begin
-                                shift_reg    <= ccc_tx_byte_i;
+                                // BUGFIX: i3c_ccc_decoder's tx_byte_o is request/response
+                                // (only updates the cycle AFTER a tx_req_i pulse), unlike the
+                                // FWFT FIFO's tx_data_i or the IBI controller's pre-loaded
+                                // ibi_tx_byte_i, both of which are already valid combinationally
+                                // at this point. We MUST fire the request pulse here (the
+                                // moment the Direct GET CCC's target address is ACKed) so
+                                // ccc_tx_byte_i is valid two cycles later, when the
+                                // wait_tx_data->load_tx_data pipeline below captures it.
+                                // Previously this was left at 1'b0, so the decoder was never
+                                // asked for byte 0: the FSM shifted out whatever stale/reset
+                                // value sat in tx_byte_o (0x00), and every subsequent byte
+                                // (fetched by the T_BIT_TX prefetch pulses) landed one position
+                                // late -- e.g. GETPID sent byte1..byte6 instead of byte0..byte5,
+                                // silently dropping PID[7:0] entirely, and GETBCR/GETDCR/
+                                // GETSTATUS/GETMXDS (single-byte GETs) sent 0x00 every time.
+                                //shift_reg    <= ccc_tx_byte_i;
                                 ccc_tx_req_o <= 1'b1;
                             end else begin
-                                shift_reg    <= tx_data_i; // Load from FIFO
-                                tx_req_o     <= 1'b1;      // Fetch next byte
+                                //shift_reg    <= tx_data_i; // Load from FIFO
+                                tx_req_o     <= 1'b0;      // Fetch next byte
                             end
                             
+                            wait_tx_data <= 1'b1; // Trigger pipeline delay
+                            bit_cnt      <= 4'd1;
                         end else begin
                             state <= RX_DATA;
                         end
@@ -337,7 +394,7 @@ module i3c_protocol_fsm #(
                 RX_DATA: begin
                     if (scl_posedge) begin
                         shift_reg <= {shift_reg[6:0], sda_i};
-                        bit_cnt   <= bit_cnt + 1'b1;
+                        bit_cnt   <= bit_cnt + 4'b1;
                         
                         if (bit_cnt == 4'd7) begin
                             // Route RX payload to CCC Decoder or APB FIFO 
@@ -348,12 +405,7 @@ module i3c_protocol_fsm #(
                                 rx_data_o        <= {shift_reg[6:0], sda_i};
                                 rx_valid_o       <= 1'b1; // Push to APB FIFO
                             end
-                            
-                            if (ccc_is_cmd_phase) begin
-                                ccc_cmd_phase_o  <= 1'b0;
-                                ccc_is_cmd_phase <= 1'b0;
-                            end
-                            
+                                                        
                             state <= T_BIT_RX;
                         end
                     end
@@ -366,6 +418,13 @@ module i3c_protocol_fsm #(
                         tx_data_o    <= 1'b0; // T-Bit = 0 (ACK)
                         tx_mode_pp_o <= 1'b0; // Open-Drain for T-Bit
                         bit_cnt      <= 4'd9;
+                        
+                        // Clear the command phase safely after the byte_valid pulse ends
+                        if (ccc_is_cmd_phase) begin
+                            ccc_cmd_phase_o  <= 1'b0;
+                            ccc_is_cmd_phase <= 1'b0;
+                        end
+
                     end
                     if (scl_negedge && bit_cnt == 4'd9) begin
                         tx_en_o <= 1'b0;
@@ -376,15 +435,31 @@ module i3c_protocol_fsm #(
 
                 // Transmit Data Phase (Target Writing to Controller)
                 TX_DATA: begin
-                    if (scl_negedge) begin
+                    if (load_tx_data) begin
+                        tx_en_o       <= 1'b1;
+                        tx_mode_pp_o  <= 1'b1;
+                        // Dynamically route the TX data based on active subsystem
+                        if (ccc_is_active) begin
+                            tx_data_o <= ccc_tx_byte_i[7];
+                            shift_reg <= {ccc_tx_byte_i[6:0], 1'b0};
+                        end else if (ibi_is_active) begin
+                            tx_data_o <= ibi_tx_byte_i[7];
+                            shift_reg <= {ibi_tx_byte_i[6:0], 1'b0};
+                        end else begin
+                            tx_data_o <= tx_data_i[7];
+                            shift_reg <= {tx_data_i[6:0], 1'b0};
+                        end
+                        load_tx_data <= 1'b0;
+                        
+                    end else if (scl_negedge) begin
                         tx_en_o      <= 1'b1;
                         tx_data_o    <= shift_reg[7]; // MSB first
                         tx_mode_pp_o <= 1'b1;         // Data is PUSH-PULL
                         
                         shift_reg <= {shift_reg[6:0], 1'b0};
-                        bit_cnt   <= bit_cnt + 1'b1;
+                        bit_cnt   <= bit_cnt + 4'd1;
                         
-                        if (bit_cnt == 4'd8) begin
+                        if (bit_cnt == 4'd7) begin
                             state <= T_BIT_TX;
                         end
                     end
@@ -397,7 +472,7 @@ module i3c_protocol_fsm #(
                         
                         if (ccc_is_active) begin
                             tx_data_o <= !ccc_tx_last_i; // Inverse mapping (1 = more data, 0 = end)
-                        end else if (ibi_fsm_ack_o || ibi_fsm_grant_o) begin
+                        end else if (ibi_is_active) begin
                             tx_data_o <= !ibi_tx_last_i; 
                         end else begin
                             tx_data_o <= 1'b1;           // Normal APB TX: Asserting we have more data
@@ -410,24 +485,39 @@ module i3c_protocol_fsm #(
                     if (scl_negedge && bit_cnt == 4'd9) begin
                         // Fetch next byte based on active subsystem 
                         if (ccc_is_active) begin
-                            shift_reg    <= ccc_tx_byte_i;
                             ccc_tx_req_o <= 1'b1;
-                            state        <= TX_DATA;
-                        end else if (ibi_fsm_ack_o || ibi_fsm_grant_o) begin
-                            if (ibi_tx_last_i) begin
-                                state    <= IDLE;   // IBI payload transmission complete
+                            if (ccc_tx_last_i) begin
+                                state         <= IDLE;
+                                ccc_is_active <= 1'b0;
+                                bit_cnt       <= 4'd0;
                             end else begin
-                                shift_reg          <= ibi_tx_byte_i;
-                                ibi_fsm_byte_req_o <= 1'b1;
+                                wait_tx_data  <= 1'b1;
+                                state         <= TX_DATA;
+                                bit_cnt       <= 4'd1;
+                            end
+                            
+                        end else if (ibi_is_active) begin
+                            ibi_fsm_byte_req_o <= 1'b1; 
+                            if (ibi_tx_last_i) begin
+                                state         <= IDLE;   // IBI payload transmission complete
+                                ibi_is_active <= 1'b0;
+                                bit_cnt       <= 4'd0;
+                            end else begin
+                                wait_tx_data <= 1'b1; // Trigger pipeline
+                                //shift_reg          <= ibi_tx_byte_i;
+                                //ibi_fsm_byte_req_o <= 1'b1;
                                 state              <= TX_DATA;
+                                bit_cnt       <= 4'd1; // Shifted 1 bit already
                             end
                         end else begin
                             tx_req_o  <= 1'b1;      // Fetch next byte from FIFO
-                            shift_reg <= tx_data_i; 
+                            wait_tx_data <= 1'b1;
+                            //shift_reg <= tx_data_i; 
                             state     <= TX_DATA;
+                            bit_cnt   <= 4'd1;
                         end
                         
-                        bit_cnt <= 4'd0;
+                        //bit_cnt <= 4'd0;
                     end
                 end
 

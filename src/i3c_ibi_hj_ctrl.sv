@@ -50,9 +50,9 @@ module i3c_ibi_hj_ctrl #(
     output reg [SRC_IDX_W-1:0]     ibi_active_src_o, // The specific source currently being handled
 
     // Byte-serial data pipeline to FSM
-    output reg [7:0]               tx_byte_o,        // Data byte to shift out
+    output     [7:0]               tx_byte_o,        // Data byte to shift out
     output reg                     tx_byte_valid_o,  // Valid strobe for tx_byte_o
-    output reg                     tx_last_o,        // 1 = Final byte of the transmission
+    output                         tx_last_o,        // 1 = Final byte of the transmission
 
     // Status flags
     output reg                     prn_pending_o,    // Sticky: Controller must perform Private Read
@@ -75,12 +75,9 @@ module i3c_ibi_hj_ctrl #(
     reg [1:0] state;
     
     // Captured transaction context to ensure stability during the bus transfer
-    reg                 is_hj;
+    reg                 is_hj, has_payload, is_prn;
     reg [SRC_IDX_W-1:0] src;
-    reg                 has_payload;
-    reg                 is_prn;
-    reg [7:0]           mdb_byte;
-    reg [7:0]           payload_byte;
+    reg [7:0]           mdb_byte, payload_byte;
 
     // -------------------------------------------------------------------
     // Internal Priority Arbitration
@@ -111,8 +108,10 @@ module i3c_ibi_hj_ctrl #(
     // Continuous outputs
     assign hj_req_o      = (state == WAIT_ACK) && is_hj;
     assign ibi_req_o     = (state == WAIT_ACK) && !is_hj;
-    assign hj_pending_o  = hj_enabled_i && !da_assigned_i;
+    assign hj_pending_o  = hj_enabled_i && !da_assigned_i && bus_idle_i;
     assign ibi_pending_o = any_ibi;
+    assign tx_byte_o     = (state == SEND_PAYLOAD) ? payload_byte : mdb_byte;
+    assign tx_last_o     = (state == SEND_PAYLOAD) ? 1'b1 : ((state == SEND_MDB) ? !has_payload : 1'b0);
 
     // -------------------------------------------------------------------
     // Main FSM
@@ -128,9 +127,8 @@ module i3c_ibi_hj_ctrl #(
             payload_byte     <= 8'h00;
 
             ibi_active_src_o <= {SRC_IDX_W{1'b0}};
-            tx_byte_o        <= 8'h00;
             tx_byte_valid_o  <= 1'b0;
-            tx_last_o        <= 1'b0;
+            //tx_last_o        <= 1'b0;
             prn_pending_o    <= 1'b0;
             arb_lost_o       <= 1'b0;
             ibi_done_o       <= 1'b0;
@@ -139,7 +137,7 @@ module i3c_ibi_hj_ctrl #(
         end else begin
             // Default pulse de-assertions
             tx_byte_valid_o <= 1'b0;
-            tx_last_o       <= 1'b0;
+            //tx_last_o       <= 1'b0;
             arb_lost_o      <= 1'b0;
             ibi_done_o      <= 1'b0;
 
@@ -147,7 +145,7 @@ module i3c_ibi_hj_ctrl #(
                 // IDLE: Wait for Protocol FSM to grant an arbitration attempt
                 IDLE: begin
                     if (fsm_grant_i) begin
-                        if (want_hj) begin
+                        if (hj_enabled_i && !da_assigned_i) begin
                             // Initiate Hot-Join Request
                             is_hj <= 1'b1;
                             state <= WAIT_ACK;
@@ -190,13 +188,12 @@ module i3c_ibi_hj_ctrl #(
                 // SEND_MDB: Provide the Mandatory Data Byte to the bus
                 SEND_MDB: begin
                     if (fsm_byte_req_i) begin
-                        tx_byte_o       <= mdb_byte;
                         tx_byte_valid_o <= 1'b1;
                         
                         if (has_payload) begin
                             state <= SEND_PAYLOAD;
                         end else begin
-                            tx_last_o <= 1'b1; // Mark end of transmission
+                            //tx_last_o <= 1'b1; // Mark end of transmission
                             if (is_prn) 
                                 prn_pending_o <= 1'b1; // Assert sticky PRN flag
                                 
@@ -210,9 +207,8 @@ module i3c_ibi_hj_ctrl #(
                 // SEND_PAYLOAD: Provide the optional extra payload byte
                 SEND_PAYLOAD: begin
                     if (fsm_byte_req_i) begin
-                        tx_byte_o       <= payload_byte;
                         tx_byte_valid_o <= 1'b1;
-                        tx_last_o       <= 1'b1; // Mark end of transmission
+                        //tx_last_o       <= 1'b1; // Mark end of transmission
                         
                         if (is_prn)
                             prn_pending_o <= 1'b1; // Assert sticky PRN flag

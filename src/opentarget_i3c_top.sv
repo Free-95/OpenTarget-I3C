@@ -105,7 +105,7 @@ module opentarget_i3c_top #(
     
     // FSM to IBI/HJ Controller
     wire        ibi_grant, ibi_ack, ibi_nack, ibi_byte_req;
-    wire        hj_req_int, ibi_req_int;
+    wire        hj_pending_int, ibi_pending_int;
     wire [7:0]  ibi_tx_byte;
     wire        ibi_tx_last;
     
@@ -242,8 +242,8 @@ module opentarget_i3c_top #(
         .ccc_tx_req_o       (ccc_tx_req),
         
         // IBI / Hot-Join routing
-        .ibi_req_i          (ibi_req_int),
-        .hj_req_i           (hj_req_int),
+        .ibi_req_i          (ibi_pending_int),
+        .hj_req_i           (hj_pending_int),
         .ibi_tx_byte_i      (ibi_tx_byte),
         .ibi_tx_last_i      (ibi_tx_last),
         .ibi_fsm_grant_o    (ibi_grant),
@@ -324,8 +324,8 @@ module opentarget_i3c_top #(
         .fsm_nack_i        (ibi_nack),
         .fsm_byte_req_i    (ibi_byte_req),
         .prn_serviced_i    (host_prn_serviced_i),
-        .hj_req_o          (hj_req_int),
-        .ibi_req_o         (ibi_req_int),
+        .hj_req_o          (),
+        .ibi_req_o         (),
         .ibi_active_src_o  (),
         
         // Payload Transmission
@@ -335,8 +335,8 @@ module opentarget_i3c_top #(
         
         // Status reporting
         .prn_pending_o     (),
-        .hj_pending_o      (),
-        .ibi_pending_o     (),
+        .hj_pending_o      (hj_pending_int),
+        .ibi_pending_o     (ibi_pending_int),
         .arb_lost_o        (),
         .ibi_done_o        (host_ibi_done_o),
         .ibi_done_src_o    ()
