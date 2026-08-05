@@ -82,7 +82,7 @@ module opentarget_i3c_top #(
     
     // PHY to FSM & Bus Detector
     wire phy_scl_int, phy_sda_int;
-    wire fsm_tx_en, fsm_tx_data, fsm_tx_mode_pp;
+    wire fsm_tx_en, fsm_tx_data, fsm_tx_mode_pp, fsm_tx_empty;
     
     // Bus Detector to FSM
     wire bus_scl_sync, bus_sda_sync;
@@ -227,6 +227,7 @@ module opentarget_i3c_top #(
         
         // FIFO / Data routing
         .tx_data_i          (fsm_tx_data_fifo),
+        .tx_empty_i         (fsm_tx_empty),
         .tx_req_o           (fsm_tx_req),
         .rx_data_o          (fsm_rx_data),
         .rx_valid_o         (fsm_rx_valid),
@@ -358,7 +359,7 @@ module opentarget_i3c_top #(
         .rd_rst_n        (rst_ni),
         .rd_en           (fsm_tx_req),
         .rd_data         (fsm_tx_data_fifo),
-        .rd_empty        (), // Empty tracking can be handled by FSM or APB if necessary
+        .rd_empty        (fsm_tx_empty), // now wired to the FSM instead of left dangling
         .rd_almost_empty ()
     );
 

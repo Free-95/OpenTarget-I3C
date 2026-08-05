@@ -280,3 +280,76 @@ async def test_pready_handshake(dut):
     await Timer(1, unit="ns")
     # pready_o should drop immediately when psel drops
     assert dut.pready_o.value == 0, "pready_o failed to de-assert after transaction ended"
+
+
+@cocotb.test()
+async def test_reset_mid_transaction(dut):
+    """Verify asserting rst_ni mid-transaction (access phase already
+    started) cleanly clears all registers and bus state, and that a fresh
+    transaction immediately afterward works normally.
+
+    Note: this models a well-behaved host that releases psel/penable when
+    it observes reset, matching standard APB etiquette. If the host instead
+    holds psel/penable/pwrite asserted straight through reset deassertion,
+    the pending write will correctly complete the instant reset lifts --
+    that is expected APB behavior (the master owns aborting its own
+    request), not a defect, and is not what this test is checking."""
+    cocotb.start_soon(Clock(dut.clk_i, 10, unit="ns").start())
+    await reset_dut(dut)
+
+    dut.paddr_i.value = REG_CTRL
+    dut.pwrite_i.value = 1
+    dut.pwdata_i.value = 0xABCDEF01
+    dut.psel_i.value = 1
+    dut.penable_i.value = 0
+    await RisingEdge(dut.clk_i)
+    dut.penable_i.value = 1
+    await RisingEdge(dut.clk_i)
+
+    dut.rst_ni.value = 0
+    dut.psel_i.value = 0
+    dut.penable_i.value = 0
+    dut.pwrite_i.value = 0
+    await Timer(25, unit="ns")
+    dut.rst_ni.value = 1
+    await RisingEdge(dut.clk_i)
+
+    assert int(dut.core_ctrl_o.value) == 0, "core_ctrl_o did not clear on reset asserted mid-transaction"
+    assert dut.pready_o.value == 0, "pready_o did not clear on reset"
+    assert dut.pslverr_o.value == 0, "pslverr_o did not clear on reset"
+
+    err = await apb_write(dut, REG_CTRL, 0x12345678)
+    assert err == 0, "Unexpected pslverr_o on the first write after a mid-transaction reset"
+    rd_data, err = await apb_read(dut, REG_CTRL)
+    assert err == 0 and rd_data == 0x12345678, "Register interface did not recover cleanly after reset"
+
+
+@cocotb.test()
+async def test_register_state_protected_across_rejected_writes(dut):
+    """Verify that a rejected write (read-only register, or out-of-bounds
+    address) never corrupts existing register contents, and that
+    pslverr_o never leaks into a subsequent valid transaction."""
+    cocotb.start_soon(Clock(dut.clk_i, 10, unit="ns").start())
+    await reset_dut(dut)
+
+    err = await apb_write(dut, REG_CTRL, 0xDEADBEEF)
+    assert err == 0
+    assert dut.core_ctrl_o.value == 0xDEADBEEF
+
+    # Rejected: write to a read-only register
+    err = await apb_write(dut, REG_STATUS, 0xFFFFFFFF)
+    assert err == 1, "Failed to reject the write to read-only REG_STATUS"
+    assert dut.core_ctrl_o.value == 0xDEADBEEF, "core_ctrl_o was corrupted by a rejected RO write"
+
+    # Rejected: out-of-bounds address
+    err = await apb_write(dut, 0x1C, 0xFFFFFFFF)
+    assert err == 1, "Failed to reject an out-of-bounds write"
+    assert dut.core_ctrl_o.value == 0xDEADBEEF, "core_ctrl_o was corrupted by a rejected OOB write"
+
+    # A valid transaction immediately afterward must be unaffected
+    err = await apb_write(dut, REG_CTRL, 0xCAFEF00D)
+    assert err == 0, "pslverr_o leaked into a subsequent valid transaction"
+    assert dut.core_ctrl_o.value == 0xCAFEF00D
+
+    rd_data, err = await apb_read(dut, REG_CTRL)
+    assert err == 0 and rd_data == 0xCAFEF00D, "Register readback incorrect after the error sequence"

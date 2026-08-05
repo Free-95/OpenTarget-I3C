@@ -147,7 +147,7 @@ module i3c_fifo_cdc #(
     // The data at the current read pointer is continuously available on rd_data 
     // without requiring a read clock edge to fetch it. This provides a zero-cycle 
     // read latency to the connected FSM.
-    assign rd_data = mem[rd_addr];
+    assign rd_data = rd_empty ? {DATA_WIDTH{1'b0}} : mem[rd_addr];
 
     // Update binary and gray read pointers on the read clock
     always @(posedge rd_clk or negedge rd_rst_n) begin

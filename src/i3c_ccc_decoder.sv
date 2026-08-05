@@ -130,8 +130,12 @@ module i3c_ccc_decoder (
     // NACK Request Logic
     assign nack_req_o = ccc_active_o && is_sw_backed_get && get_data_pending_i && !retry_seen;
 
-    // Combinational output logic so FSM sees the end-of-data before deciding the T-Bit
-    //assign tx_last_o = (state == RD_DATA) && ((opcode != CCC_GETPID) || (rd_byte_cnt == 4'd5));
+    // tx_last_o is intentionally a registered, fetch-and-hold output (like
+    // tx_byte_o), set once per tx_req_i pulse and held until the next one.
+    // A purely combinational version off (state, rd_byte_cnt) was tried and
+    // reverted: rd_byte_cnt resets to 0 in the same cycle the final GETPID
+    // byte is fetched, which would flip a combinational tx_last_o back to 0
+    // before the FSM ever samples it for the T-bit decision.
     
     //-------------------------------------------------------------------
     // Main FSM
@@ -160,7 +164,12 @@ module i3c_ccc_decoder (
 
             tx_byte_o          <= 8'h00;
             tx_byte_valid_o    <= 1'b0;
-            //tx_last_o          <= 1'b0;
+            // BUGFIX: this reset assignment was commented out, leaving tx_last_o
+            // (an `output reg`, not combinational despite the stale comment at the
+            // top of this file) undriven/X from time 0 until the first Direct GET
+            // CCC response ever ran -- which then propagated X into the FSM's
+            // T-bit decision and, from there, onto sda_pad_o.
+            tx_last_o          <= 1'b0;
 
             ccc_active_o       <= 1'b0;
             ccc_unrecognized_o <= 1'b0;

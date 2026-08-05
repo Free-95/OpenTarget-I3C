@@ -582,6 +582,176 @@ async def test_standard_private_read_write(dut):
     
     await read_req_task
     assert read_byte == 0xC3, "FSM failed to fetch private read data from APB TX FIFO"
+
+
+@cocotb.test()
+async def test_ibi_multi_source_priority(dut):
+    """Verify that when multiple IBI sources request simultaneously, the
+    priority encoder (i3c_ibi_hj_ctrl.sel_ibi_src) selects the correct
+    winner. Every other IBI/PRN test in this file only ever drives one
+    source bit at a time -- this is the only test that exercises the
+    encoder with a genuine multi-source conflict."""
+    cocotb.start_soon(Clock(dut.clk_i, 20, unit="ns").start())
+    await init_cluster(dut)
+    bfm = MacLayerBfm(dut)
+
+    mdbs = [0x11, 0x22, 0x33, 0x44]
+    packed_mdb = 0
+    for i, v in enumerate(mdbs):
+        packed_mdb |= (v << (8 * i))
+
+    # Sources 1 and 2 both request at once; per sel_ibi_src's overwrite-
+    # downward loop (evaluates index NUM_IBI_SRC-1 down to 0, last match
+    # wins), the LOWEST set index wins -- source 1 here.
+    dut.ibi_req_i.value = 0b0110
+    dut.ibi_has_payload_i.value = 0
+    dut.ibi_mdb_i.value = packed_mdb
+    await ClockCycles(dut.clk_i, 5)
+
+    done_task = cocotb.start_soon(with_timeout(RisingEdge(dut.ibi_done_o), 50, "us"))
+    await bfm.start()
+    await bfm.execute_arbitration(0x7E << 1)
+    await bfm.write_bit(0)
+    mdb = await bfm.read_byte()
+    await bfm.read_bit()
+    await bfm.stop()
+    await done_task
+
+    assert mdb == mdbs[1], f"Expected source 1 (mdb={hex(mdbs[1])}) to win priority, got {hex(mdb)}"
+    assert dut.u_ibi.ibi_active_src_o.value == 1, "ibi_active_src_o did not reflect the winning source"
+
+
+@cocotb.test()
+async def test_ccc_rstdaa(dut):
+    """Verify the no-payload broadcast RSTDAA CCC (0x06) is recognized."""
+    cocotb.start_soon(Clock(dut.clk_i, 20, unit="ns").start())
+    await init_cluster(dut)
+    bfm = MacLayerBfm(dut)
+
+    rstdaa_mon = cocotb.start_soon(with_timeout(RisingEdge(dut.u_ccc.rstdaa_valid_o), 40, "us"))
+    await bfm.start()
+    await bfm.write_byte(0x7E << 1)
+    await bfm.read_bit()
+    await bfm.write_byte(0x06)  # CCC_RSTDAA
+    await bfm.write_bit(0)
+    await bfm.stop()
+    await rstdaa_mon
+
+
+@cocotb.test()
+async def test_ccc_setmwl_setmrl_broadcast(dut):
+    """Verify the 2-byte broadcast SETMWL/SETMRL CCCs are parsed correctly
+    (MSB-then-LSB), exercising the decoder's wr_byte_cnt multi-byte payload
+    counter, which no other test in this file reaches."""
+    cocotb.start_soon(Clock(dut.clk_i, 20, unit="ns").start())
+    await init_cluster(dut)
+    bfm = MacLayerBfm(dut)
+
+    setmwl_mon = cocotb.start_soon(with_timeout(RisingEdge(dut.u_ccc.setmwl_valid_o), 70, "us"))
+    await bfm.start()
+    await bfm.write_byte(0x7E << 1)
+    await bfm.read_bit()
+    await bfm.write_byte(0x09)  # CCC_SETMWL_B
+    await bfm.write_bit(0)
+    await bfm.write_byte(0x01)  # MSB
+    await bfm.write_bit(0)
+    await bfm.write_byte(0x00)  # LSB
+    await bfm.write_bit(0)
+    await bfm.stop()
+    await setmwl_mon
+    assert int(dut.u_ccc.setmwl_len_o.value) == 0x0100, \
+        f"SETMWL length mismatch: got {hex(int(dut.u_ccc.setmwl_len_o.value))}"
+
+    setmrl_mon = cocotb.start_soon(with_timeout(RisingEdge(dut.u_ccc.setmrl_valid_o), 70, "us"))
+    await bfm.start()
+    await bfm.write_byte(0x7E << 1)
+    await bfm.read_bit()
+    await bfm.write_byte(0x0A)  # CCC_SETMRL_B
+    await bfm.write_bit(0)
+    await bfm.write_byte(0x00)
+    await bfm.write_bit(0)
+    await bfm.write_byte(0x40)
+    await bfm.write_bit(0)
+    await bfm.stop()
+    await setmrl_mon
+    assert int(dut.u_ccc.setmrl_len_o.value) == 0x0040, \
+        f"SETMRL length mismatch: got {hex(int(dut.u_ccc.setmrl_len_o.value))}"
+
+
+@cocotb.test()
+async def test_ccc_setmwl_direct(dut):
+    """Verify the Direct (targeted) form of SETMWL, reached via Sr + a
+    direct address, separately from the broadcast form above."""
+    cocotb.start_soon(Clock(dut.clk_i, 20, unit="ns").start())
+    await init_cluster(dut)  # DA = 0x5A assigned
+    bfm = MacLayerBfm(dut)
+
+    setmwl_mon = cocotb.start_soon(with_timeout(RisingEdge(dut.u_ccc.setmwl_valid_o), 70, "us"))
+    await bfm.start()
+    await bfm.write_byte(0x7E << 1)
+    await bfm.read_bit()
+    await bfm.write_byte(0x89)  # CCC_SETMWL_D
+    await bfm.write_bit(0)
+    await bfm.repeated_start()
+    await bfm.write_byte(0x5A << 1)  # direct address, write
+    await bfm.read_bit()
+    await bfm.write_byte(0x00)
+    await bfm.write_bit(0)
+    await bfm.write_byte(0x20)
+    await bfm.write_bit(0)
+    await bfm.stop()
+    await setmwl_mon
+    assert int(dut.u_ccc.setmwl_len_o.value) == 0x0020, \
+        f"Direct SETMWL length mismatch: got {hex(int(dut.u_ccc.setmwl_len_o.value))}"
+
+
+@cocotb.test()
+async def test_ccc_rstact(dut):
+    """Verify the single-byte broadcast RSTACT CCC (0x2A) is parsed."""
+    cocotb.start_soon(Clock(dut.clk_i, 20, unit="ns").start())
+    await init_cluster(dut)
+    bfm = MacLayerBfm(dut)
+
+    rstact_mon = cocotb.start_soon(with_timeout(RisingEdge(dut.u_ccc.rstact_valid_o), 50, "us"))
+    await bfm.start()
+    await bfm.write_byte(0x7E << 1)
+    await bfm.read_bit()
+    await bfm.write_byte(0x2A)  # CCC_RSTACT_B
+    await bfm.write_bit(0)
+    await bfm.write_byte(0x02)  # reset action code
+    await bfm.write_bit(0)
+    await bfm.stop()
+    await rstact_mon
+    assert int(dut.u_ccc.rstact_data_o.value) == 0x02, \
+        f"RSTACT data mismatch: got {hex(int(dut.u_ccc.rstact_data_o.value))}"
+
+
+@cocotb.test()
+async def test_ccc_unrecognized_opcode(dut):
+    """Verify an unsupported/reserved CCC opcode asserts ccc_unrecognized_o
+    and that the decoder recovers cleanly -- a subsequent, valid CCC must
+    still work afterward."""
+    cocotb.start_soon(Clock(dut.clk_i, 20, unit="ns").start())
+    await init_cluster(dut)
+    bfm = MacLayerBfm(dut)
+
+    unrec_mon = cocotb.start_soon(with_timeout(RisingEdge(dut.u_ccc.ccc_unrecognized_o), 40, "us"))
+    await bfm.start()
+    await bfm.write_byte(0x7E << 1)
+    await bfm.read_bit()
+    await bfm.write_byte(0x02)  # not a known broadcast opcode
+    await bfm.write_bit(0)
+    await bfm.stop()
+    await unrec_mon
+
+    recovery_mon = cocotb.start_soon(with_timeout(RisingEdge(dut.u_ccc.rstdaa_valid_o), 40, "us"))
+    await bfm.start()
+    await bfm.write_byte(0x7E << 1)
+    await bfm.read_bit()
+    await bfm.write_byte(0x06)  # CCC_RSTDAA
+    await bfm.write_bit(0)
+    await bfm.stop()
+    await recovery_mon
     
     
 #@cocotb.test()

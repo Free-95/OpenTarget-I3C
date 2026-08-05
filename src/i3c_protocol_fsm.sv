@@ -43,6 +43,7 @@ module i3c_protocol_fsm #(
 
     // FIFO / Data Interface 
     input      [7:0]  tx_data_i,
+    input             tx_empty_i,       // TX FIFO empty (FWFT, non-CCC/non-IBI reads only)
     output reg        tx_req_o,
     output reg [7:0]  rx_data_o,
     output reg        rx_valid_o,
@@ -446,8 +447,21 @@ module i3c_protocol_fsm #(
                             tx_data_o <= ibi_tx_byte_i[7];
                             shift_reg <= {ibi_tx_byte_i[6:0], 1'b0};
                         end else begin
-                            tx_data_o <= tx_data_i[7];
-                            shift_reg <= {tx_data_i[6:0], 1'b0};
+                            // BUGFIX: previously loaded tx_data_i unconditionally, even once
+                            // the TX FIFO ran dry (rd_empty was left unconnected at the top
+                            // level). Once the controller kept clocking past the last byte the
+                            // host ever pushed, this drove X from the empty FIFO straight onto
+                            // sda_pad_o -- a physical bus pin. tx_empty_i is race-free here
+                            // (unlike at the T_BIT_TX decision point above, one cycle earlier,
+                            // where the FIFO's registered/look-ahead empty flag hasn't yet
+                            // absorbed the pop that feeds this load).
+                            if (tx_empty_i) begin
+                                state   <= IDLE;
+                                tx_en_o <= 1'b0;
+                            end else begin
+                                tx_data_o <= tx_data_i[7];
+                                shift_reg <= {tx_data_i[6:0], 1'b0};
+                            end
                         end
                         load_tx_data <= 1'b0;
                         
@@ -475,7 +489,11 @@ module i3c_protocol_fsm #(
                         end else if (ibi_is_active) begin
                             tx_data_o <= !ibi_tx_last_i; 
                         end else begin
-                            tx_data_o <= 1'b1;           // Normal APB TX: Asserting we have more data
+                            tx_data_o <= 1'b1;           // Normal APB TX: offering more data;
+                                                          // the actual safety-net against an
+                                                          // empty FIFO lives at load_tx_data
+                                                          // below, where tx_empty_i is race-free
+                                                          // (see comment there).
                         end
                         
                         tx_mode_pp_o <= 1'b0; // T-bit switches back to Open-Drain
@@ -510,11 +528,16 @@ module i3c_protocol_fsm #(
                                 bit_cnt       <= 4'd1; // Shifted 1 bit already
                             end
                         end else begin
-                            tx_req_o  <= 1'b1;      // Fetch next byte from FIFO
+                            tx_req_o     <= 1'b1;      // Fetch next byte from FIFO
                             wait_tx_data <= 1'b1;
-                            //shift_reg <= tx_data_i; 
-                            state     <= TX_DATA;
-                            bit_cnt   <= 4'd1;
+                            state        <= TX_DATA;
+                            bit_cnt      <= 4'd1;
+                            // NOTE: tx_empty_i is NOT checked here on purpose -- rd_empty is a
+                            // registered/look-ahead flag that still reflects the *pre-pop* state
+                            // in this same cycle (the tx_req_o pulse above hasn't been absorbed
+                            // by the FIFO yet). Checking it here would read a stale value one
+                            // cycle too early. The real safety-net is at load_tx_data below,
+                            // where tx_empty_i is guaranteed settled.
                         end
                         
                         //bit_cnt <= 4'd0;
