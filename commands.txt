@@ -1,0 +1,8 @@
+# Run complete flow
+make librelane PDK_ROOT=/foss/pdks 2>&1 | tee build.log
+
+# View GDS file
+make librelane-klayout
+
+# Save layout as image
+make render-image

@@ -11,6 +11,7 @@
 module spi_opentarget_i3c_top (
     // ---- System Clock & Reset ----
     input  wire        clk_i,
+    input  wire        host_clk_i,
     input  wire        rst_ni,
 
     // ---- SPI Slave Interface (To External Tester) ----
@@ -155,7 +156,7 @@ module spi_opentarget_i3c_top (
         // Tie both core and host clock to the system clock for synchronous operation
         .clk_i                  (clk_i),
         .rst_ni                 (rst_ni),
-        .host_clk_i             (clk_i),
+        .host_clk_i             (host_clk_i),
         .host_rst_ni            (rst_ni),
 
         // APB interface (Gated by sel_i3c_core)

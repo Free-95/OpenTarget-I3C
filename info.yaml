@@ -1,0 +1,15 @@
+# ----- ------ ----- ----- ------ ----- ----- ------ -----
+# Chipathon 2026: Project configuration
+# LICENSE: Apache License Version 2.0
+# http://www.apache.org/licenses/
+# ----- ------ ----- ----- ------ ----- ----- ------ -----
+
+# ======================================================
+# Project metadata (used for documentation / review)
+# ======================================================
+project:
+  title: "OpenTarget I3C Controller"
+  team: "A63 Technocrats"
+  discord: "freeman.95"
+  description: "I3C Target Controller with SPI-to-APB Bridge for MPC Integration"
+  lvs_config: "lvs_config.json"
