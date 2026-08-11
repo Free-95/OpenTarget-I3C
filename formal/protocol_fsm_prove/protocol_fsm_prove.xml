@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-08-11T13:12:30" hostname="bb5c60909b77" package="protocol_fsm" id="0" name="prove" tests="0" errors="0" failures="0" time="1" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="prove" name="build execution" time="0">
+</testcase>
+<system-out>SBY 13:12:28 [formal/protocol_fsm_prove] Removing directory '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_prove'.
+SBY 13:12:28 [formal/protocol_fsm_prove] Copy '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_formal.sv' to '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_prove/src/protocol_fsm_formal.sv'.
+SBY 13:12:28 [formal/protocol_fsm_prove] Copy '/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv' to '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_prove/src/i3c_protocol_fsm.sv'.
+SBY 13:12:28 [formal/protocol_fsm_prove] engine_0: smtbmc yices
+SBY 13:12:28 [formal/protocol_fsm_prove] base: starting process &quot;cd formal/protocol_fsm_prove/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 13:12:29 [formal/protocol_fsm_prove] base: finished (returncode=0)
+SBY 13:12:29 [formal/protocol_fsm_prove] prep: starting process &quot;cd formal/protocol_fsm_prove/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 13:12:29 [formal/protocol_fsm_prove] prep: finished (returncode=0)
+SBY 13:12:29 [formal/protocol_fsm_prove] smt2: starting process &quot;cd formal/protocol_fsm_prove/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 13:12:29 [formal/protocol_fsm_prove] smt2: finished (returncode=0)
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: starting process &quot;cd formal/protocol_fsm_prove; yosys-smtbmc -s yices --presat --unroll --noprogress -t 45  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.induction: starting process &quot;cd formal/protocol_fsm_prove; yosys-smtbmc -s yices --presat --unroll -i --noprogress -t 45  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.induction: ##   0:00:00  Trying induction in step 45..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.induction: ##   0:00:00  Status: passed
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.induction: finished (returncode=0)
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.induction: Status returned by engine for induction: pass
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 12..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 12..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 13..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 13..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 14..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 14..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 15..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 15..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 16..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 16..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 17..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 17..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 18..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 18..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 19..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 19..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 20..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 20..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 21..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 21..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 22..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 22..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 23..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 23..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 24..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 24..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 25..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 25..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 26..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 26..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 27..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 27..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 28..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 28..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 29..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 29..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 30..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 30..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 31..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 31..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 32..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 32..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 33..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 33..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 34..
+SBY 13:12:29 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 34..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 35..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 35..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 36..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 36..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 37..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 37..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 38..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 38..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 39..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 39..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 40..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 40..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 41..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 41..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 42..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 42..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 43..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 43..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 44..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 44..
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: ##   0:00:00  Status: passed
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: finished (returncode=0)
+SBY 13:12:30 [formal/protocol_fsm_prove] engine_0.basecase: Status returned by engine for basecase: pass
+SBY 13:12:30 [formal/protocol_fsm_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 13:12:30 [formal/protocol_fsm_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 13:12:30 [formal/protocol_fsm_prove] summary: engine_0 (smtbmc yices) returned pass for basecase
+SBY 13:12:30 [formal/protocol_fsm_prove] summary: engine_0 (smtbmc yices) returned pass for induction
+SBY 13:12:30 [formal/protocol_fsm_prove] summary: engine_0 did not produce any traces
+SBY 13:12:30 [formal/protocol_fsm_prove] summary: successful proof by k-induction.
+SBY 13:12:30 [formal/protocol_fsm_prove] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

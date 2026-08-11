@@ -60,11 +60,12 @@ module spi_opentarget_i3c_top (
     reg [7:0]  ibi_mdb_r;
     reg [15:0] ibi_payload_r;
     
-    reg [7:0]  sys_status_r;
+    reg [7:0]  sys_status_r; 
     reg [7:0]  sys_mxds_r;
 
-    // IBI request auto-clears when the I3C core signals completion
-    wire ibi_done_w;
+    // IBI request auto-clears when the synchronized I3C core signals completion
+    wire ibi_done_sync; // Sourced from CDC block below
+    
     always @(posedge clk_i or negedge rst_ni) begin
         if (!rst_ni) begin
             ibi_req_r         <= 1'b0;
@@ -75,8 +76,8 @@ module spi_opentarget_i3c_top (
             sys_status_r      <= 8'h00;
             sys_mxds_r        <= 8'h00;
         end else begin
-            // Clear IBI request flag when transaction finishes
-            if (ibi_done_w) begin
+            // Clear IBI request flag when synchronized transaction finishes
+            if (ibi_done_sync) begin
                 ibi_req_r <= 1'b0;
             end
             
@@ -97,15 +98,112 @@ module spi_opentarget_i3c_top (
         end
     end
 
+//    // -------------------------------------------------------------------------
+//    // FIFO Glue Logic
+//    // -------------------------------------------------------------------------
+//    // Generate single-cycle pulse for FIFO Write (TX) and Read (RX)
+//    wire host_tx_wr_en = (psel_w && penable_w && pwrite_w && sel_tx_fifo);
+//    wire host_rx_rd_en = (psel_w && penable_w && !pwrite_w && sel_rx_fifo);
+//    
+//    wire [7:0] host_rx_data_w;
+//    wire       host_rx_empty_w;
+//
+//    // -------------------------------------------------------------------------
+//    // APB Read Mux & Ready Logic
+//    // -------------------------------------------------------------------------
+//    wire [31:0] core_prdata_w;
+//    wire        core_pready_w;
+//    wire        core_pslverr_w;
+//
+//    // Route read data based on address. 
+//    // If reading RX FIFO, return data and an empty flag for software polling.
+//    assign prdata_w = sel_i3c_core ? core_prdata_w :
+//                      sel_rx_fifo  ? {23'd0, host_rx_empty_w, host_rx_data_w} :
+//                      32'h00000000;
+//
+//    // Wrapper registers are 0-wait state
+//    assign pready_w  = sel_i3c_core ? core_pready_w : 1'b1;
+//    assign pslverr_w = sel_i3c_core ? core_pslverr_w : 1'b0;
+
     // -------------------------------------------------------------------------
-    // FIFO Glue Logic
+    // CDC: APB (clk_i) to Host (host_clk_i)
     // -------------------------------------------------------------------------
-    // Generate single-cycle pulse for FIFO Write (TX) and Read (RX)
-    wire host_tx_wr_en = (psel_w && penable_w && pwrite_w && sel_tx_fifo);
-    wire host_rx_rd_en = (psel_w && penable_w && !pwrite_w && sel_rx_fifo);
     
+    // 1. TX Write Pulse & Data (clk_i -> host_clk_i)
+    reg        tx_tog_clk_i;
+    reg [7:0]  tx_data_clk_i;
+    always @(posedge clk_i or negedge rst_ni) begin
+        if (!rst_ni) begin
+            tx_tog_clk_i  <= 1'b0;
+            tx_data_clk_i <= 8'h00;
+        end else if (psel_w && penable_w && pwrite_w && sel_tx_fifo) begin
+            tx_tog_clk_i  <= ~tx_tog_clk_i;
+            tx_data_clk_i <= pwdata_w[7:0];
+        end
+    end
+
+    reg [2:0] tx_tog_sync;
+    always @(posedge host_clk_i or negedge rst_ni) begin
+        if (!rst_ni) tx_tog_sync <= 3'b000;
+        else         tx_tog_sync <= {tx_tog_sync[1:0], tx_tog_clk_i};
+    end
+    wire host_tx_wr_en_sync = (tx_tog_sync[2] ^ tx_tog_sync[1]);
+
+    // 2. RX Read Pulse (clk_i -> host_clk_i)
+    reg rx_tog_clk_i;
+    always @(posedge clk_i or negedge rst_ni) begin
+        if (!rst_ni) rx_tog_clk_i <= 1'b0;
+        else if (psel_w && penable_w && !pwrite_w && sel_rx_fifo) begin
+            rx_tog_clk_i <= ~rx_tog_clk_i;
+        end
+    end
+
+    reg [2:0] rx_tog_sync;
+    always @(posedge host_clk_i or negedge rst_ni) begin
+        if (!rst_ni) rx_tog_sync <= 3'b000;
+        else         rx_tog_sync <= {rx_tog_sync[1:0], rx_tog_clk_i};
+    end
+    wire host_rx_rd_en_sync = (rx_tog_sync[2] ^ rx_tog_sync[1]);
+
+    // 3. Sideband & IBI Config (clk_i -> host_clk_i)
+    // NOTE: Only synchronize the request pulse. The configuration registers 
+    // (prn, payload, mdb) are static and must be passed directly to avoid CDC skew/races.
+    reg [1:0] ibi_req_sync;
+    always @(posedge host_clk_i or negedge rst_ni) begin
+        if (!rst_ni) begin
+            ibi_req_sync <= 2'b00;
+        end else begin
+            ibi_req_sync <= {ibi_req_sync[0], ibi_req_r};
+        end
+    end
+
+    // -------------------------------------------------------------------------
+    // CDC: Host (host_clk_i) to APB (clk_i)
+    // -------------------------------------------------------------------------
     wire [7:0] host_rx_data_w;
     wire       host_rx_empty_w;
+    wire       ibi_done_w;
+
+    // 1. RX Empty Flag (host_clk_i -> clk_i)
+    reg [1:0] rx_empty_sync;
+    always @(posedge clk_i or negedge rst_ni) begin
+        if (!rst_ni) rx_empty_sync <= 2'b11; // Default to empty
+        else         rx_empty_sync <= {rx_empty_sync[0], host_rx_empty_w};
+    end
+
+    // 2. IBI Done Pulse (host_clk_i -> clk_i)
+    reg ibi_done_tog_host;
+    always @(posedge host_clk_i or negedge rst_ni) begin
+        if (!rst_ni) ibi_done_tog_host <= 1'b0;
+        else if (ibi_done_w) ibi_done_tog_host <= ~ibi_done_tog_host;
+    end
+
+    reg [2:0] ibi_done_tog_sync;
+    always @(posedge clk_i or negedge rst_ni) begin
+        if (!rst_ni) ibi_done_tog_sync <= 3'b000;
+        else         ibi_done_tog_sync <= {ibi_done_tog_sync[1:0], ibi_done_tog_host};
+    end
+    assign ibi_done_sync = (ibi_done_tog_sync[2] ^ ibi_done_tog_sync[1]);
 
     // -------------------------------------------------------------------------
     // APB Read Mux & Ready Logic
@@ -115,15 +213,14 @@ module spi_opentarget_i3c_top (
     wire        core_pslverr_w;
 
     // Route read data based on address. 
-    // If reading RX FIFO, return data and an empty flag for software polling.
+    // Return synchronized empty flag to prevent false reads across domains.
     assign prdata_w = sel_i3c_core ? core_prdata_w :
-                      sel_rx_fifo  ? {23'd0, host_rx_empty_w, host_rx_data_w} :
+                      sel_rx_fifo  ? {23'd0, rx_empty_sync[1], host_rx_data_w} :
                       32'h00000000;
 
-    // Wrapper registers are 0-wait state
     assign pready_w  = sel_i3c_core ? core_pready_w : 1'b1;
     assign pslverr_w = sel_i3c_core ? core_pslverr_w : 1'b0;
-
+    
     // -------------------------------------------------------------------------
     // Module Instantiations
     // -------------------------------------------------------------------------
@@ -175,27 +272,27 @@ module spi_opentarget_i3c_top (
         .sda_pad_o              (sda_pad_o),
         .sda_pad_oe             (sda_pad_oe),
 
-        // TX/RX FIFOs (Routed from APB Mux)
-        .host_tx_wr_en_i        (host_tx_wr_en),
-        .host_tx_data_i         (pwdata_w[7:0]),
+        // TX/RX FIFOs (Routed from CDC logic)
+        .host_tx_wr_en_i        (host_tx_wr_en_sync),
+        .host_tx_data_i         (tx_data_clk_i), 
         .host_tx_full_o         (), // Ignored (handled by software pacing)
         
-        .host_rx_rd_en_i        (host_rx_rd_en),
+        .host_rx_rd_en_i        (host_rx_rd_en_sync),
         .host_rx_data_o         (host_rx_data_w),
         .host_rx_empty_o        (host_rx_empty_w),
 
-        // Sideband & Config (Routed from wrapper registers)
+        // Sideband & Config (Stable multi-bit paths safe across CDC due to software timing)
         .host_status_i          (sys_status_r),
         .host_mxds_i            (sys_mxds_r),
-        .host_get_data_pend_i   (1'b0), // Hardcoded 0 for simplicity
+        .host_get_data_pend_i   (1'b0),
 
-        // IBI Triggers (Routed from wrapper registers)
-        .host_ibi_req_i         ({3'b000, ibi_req_r}),
+        // IBI Triggers (Request synchronized, payload stable)
+        .host_ibi_req_i         ({3'b000, ibi_req_sync[1]}),
         .host_ibi_is_prn_i      ({3'b000, ibi_is_prn_r}),
         .host_ibi_has_payload_i ({3'b000, ibi_has_payload_r}),
         .host_ibi_mdb_i         ({24'h000000, ibi_mdb_r}),
         .host_ibi_payload_i     ({16'h0000, ibi_payload_r}),
-        .host_prn_serviced_i    (1'b0), // Auto-service disabled in this wrapper
+        .host_prn_serviced_i    (1'b0),
         .host_ibi_done_o        (ibi_done_w),
 
         // Interrupts

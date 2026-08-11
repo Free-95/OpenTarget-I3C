@@ -1,0 +1,62 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `i3c_ibi_hj_ctrl'. Setting top module to i3c_ibi_hj_ctrl.
+
+2.1. Analyzing design hierarchy..
+Top module:  \i3c_ibi_hj_ctrl
+
+2.2. Analyzing design hierarchy..
+Top module:  \i3c_ibi_hj_ctrl
+Removed 0 unused modules.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== i3c_ibi_hj_ctrl ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      143 wires
+      382 wire bits
+       54 public wires
+      173 public wire bits
+       30 ports
+      110 port bits
+      124 cells
+        1   $and
+       13   $anyinit
+        1   $assume
+        3   $eq
+        5   $logic_and
+        4   $logic_not
+       86   $mux
+        1   $not
+        4   $pmux
+        2   $reduce_or
+        4   $shiftx
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module i3c_ibi_hj_ctrl.
+
+End of script. Logfile hash: c9ec74f068, time: 0.03s, user: 0.03s, system: 0.01s, MEM: 33.60 MB peak
+Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+Time spent: 62% 2x write_smt2 (0 sec), 24% 2x read_rtlil (0 sec), ...

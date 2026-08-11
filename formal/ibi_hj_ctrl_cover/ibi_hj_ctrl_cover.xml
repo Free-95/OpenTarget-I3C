@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-08-11T13:17:50" hostname="bb5c60909b77" package="ibi_hj_ctrl" id="0" name="cover" tests="0" errors="0" failures="0" time="0" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="cover" name="build execution" time="0">
+</testcase>
+<system-out>SBY 13:17:49 [formal/ibi_hj_ctrl_cover] Removing directory '/foss/designs/OpenTarget-I3C/formal/ibi_hj_ctrl_cover'.
+SBY 13:17:49 [formal/ibi_hj_ctrl_cover] Copy '/foss/designs/OpenTarget-I3C/formal/ibi_hj_ctrl_formal.sv' to '/foss/designs/OpenTarget-I3C/formal/ibi_hj_ctrl_cover/src/ibi_hj_ctrl_formal.sv'.
+SBY 13:17:49 [formal/ibi_hj_ctrl_cover] Copy '/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv' to '/foss/designs/OpenTarget-I3C/formal/ibi_hj_ctrl_cover/src/i3c_ibi_hj_ctrl.sv'.
+SBY 13:17:49 [formal/ibi_hj_ctrl_cover] engine_0: smtbmc yices
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] base: starting process &quot;cd formal/ibi_hj_ctrl_cover/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] base: finished (returncode=0)
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] prep: starting process &quot;cd formal/ibi_hj_ctrl_cover/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] prep: finished (returncode=0)
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] smt2: starting process &quot;cd formal/ibi_hj_ctrl_cover/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] smt2: finished (returncode=0)
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] engine_0: starting process &quot;cd formal/ibi_hj_ctrl_cover; yosys-smtbmc -s yices --presat --unroll -c --noprogress -t 20  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2&quot;
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] engine_0: ##   0:00:00  Solver: yices
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] engine_0: ##   0:00:00  Status: passed
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] engine_0: finished (returncode=0)
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] engine_0: Status returned by engine: pass
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] summary: engine_0 (smtbmc yices) returned pass
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] summary: engine_0 did not produce any traces
+SBY 13:17:50 [formal/ibi_hj_ctrl_cover] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

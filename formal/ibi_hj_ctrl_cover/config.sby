@@ -1,0 +1,17 @@
+[options]
+mode cover
+# 20 cycles is plenty to jump through the 4 states of this FSM
+depth 20
+
+[engines]
+# Use the Yices engine, which we previously verified works in your container
+smtbmc yices
+
+[script]
+read -formal ibi_hj_ctrl_formal.sv
+read -sv i3c_ibi_hj_ctrl.sv
+prep -top i3c_ibi_hj_ctrl
+
+[files]
+formal/ibi_hj_ctrl_formal.sv
+src/i3c_ibi_hj_ctrl.sv

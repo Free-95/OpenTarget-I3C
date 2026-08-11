@@ -6,3 +6,12 @@ make librelane-klayout
 
 # Save layout as image
 make render-image
+
+# Run formal verification with safety proofs
+sby -f formal/protocol_fsm.sby prove
+
+# Run formal verification with reachability covers
+sby -f formal/protocol_fsm.sby cover
+
+# Run default formal verification
+sby -f formal/protocol_fsm.sby

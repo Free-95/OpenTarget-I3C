@@ -1,0 +1,13 @@
+# running in formal/fifo_cdc/src/
+# SBY flattens copied files into its working directory,
+# so we only use the raw filenames here
+read -formal fifo_cdc_formal.sv
+read -sv i3c_fifo_cdc.sv
+
+# Prepare the top module
+prep -top i3c_fifo_cdc
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

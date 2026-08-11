@@ -1,0 +1,22 @@
+[tasks]
+prove
+cover
+
+[options]
+prove: mode prove
+cover: mode cover
+# Depth must be long enough to mathematically step through a full I3C frame
+depth 45
+
+[engines]
+# Yices is extremely fast for FSMs and bit-vectors
+smtbmc yices
+
+[script]
+read -formal protocol_fsm_formal.sv
+read -sv i3c_protocol_fsm.sv
+prep -top i3c_protocol_fsm
+
+[files]
+formal/protocol_fsm_formal.sv
+src/i3c_protocol_fsm.sv

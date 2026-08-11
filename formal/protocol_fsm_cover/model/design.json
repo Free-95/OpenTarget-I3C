@@ -1,0 +1,3795 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "i3c_protocol_fsm",
+        "cell_sorts": [
+          {
+            "type": "$sub",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [5, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$sub$i3c_protocol_fsm.sv:248$20",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:248.57-248.68"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000101"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$adff",
+            "ports": [
+                {
+                  "name": "ARST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$1007",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1012",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1017",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1022",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1027",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1032",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1037",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1042",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1047",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1052",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1057",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$1062",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$1067",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$1072",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1077",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1082",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1087",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1092",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1097",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1102",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1107",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1112",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1117",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$1122",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:77.5-80.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "1",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$970",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$975",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "1",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$980",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$985",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000111"
+                  }
+                },
+                {
+                  "name": "$procdff$990",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$995",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$1002",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:139.5-556.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_or$i3c_protocol_fsm.sv:269$34",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:269.33-270.80"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$i3c_protocol_fsm.sv:269$37",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:269.33-271.86"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$i3c_protocol_fsm.sv:326$50",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:326.39-326.72"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$shiftx",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [5, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$shiftx$i3c_protocol_fsm.sv:246$19",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:246.57-246.70"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000101",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$shiftx$i3c_protocol_fsm.sv:248$21",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:248.56-248.69"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000101",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_not$i3c_protocol_fsm.sv:326$51",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:326.77-326.94"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$i3c_protocol_fsm.sv:488$67",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:488.42-488.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$i3c_protocol_fsm.sv:490$68",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:490.42-490.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$959_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:231.25-231.25|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:242$15",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:242.25-242.75"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:242$17",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:242.25-242.96"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:255$26",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:255.33-255.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:255$28",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:255.33-255.78"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:270$33",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:270.33-270.79"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:271$36",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:271.33-271.85"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:275$40",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:275.37-275.90"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:322$49",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:322.29-322.60"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:326$52",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:326.38-326.94"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:355$56",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:355.38-355.88"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:484$66",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:484.25-484.55"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:503$70",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.25-503.55"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:83$5",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:83.26-83.62"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$i3c_protocol_fsm.sv:84$8",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:84.26-84.62"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [7, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [7, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:270$32",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:270.51-270.79"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000111",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000111",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:271$35",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:271.54-271.85"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000111",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000111",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:275$38",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:275.37-275.73"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000111",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000111",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:355$55",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:355.38-355.74"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000111",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000111",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:476$64",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:476.29-476.44"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:484$65",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:484.40-484.55"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:503$69",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.40-503.55"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$785_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:392.20-392.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$913_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:545.20-545.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$916_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$931_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:435.20-435.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$936_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:413.20-413.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$949_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:295.20-295.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$958_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:237.20-237.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$auto$proc_dff.cc:242:proc_dff$1000",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$103",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.25-503.55|i3c_protocol_fsm.sv:503.21-544.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$125",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$129",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$132",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$140",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:517.38-517.51|i3c_protocol_fsm.sv:517.34-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$143",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:505.29-505.42|i3c_protocol_fsm.sv:505.25-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$145",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.25-503.55|i3c_protocol_fsm.sv:503.21-544.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$151",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:328.33-328.46|i3c_protocol_fsm.sv:328.29-347.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$153",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:326.38-326.94|i3c_protocol_fsm.sv:326.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$156",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:322.29-322.60|i3c_protocol_fsm.sv:322.25-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$158",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$162",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$165",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$174",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:255.33-255.78|i3c_protocol_fsm.sv:255.29-259.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$176",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:253.29-253.85|i3c_protocol_fsm.sv:253.25-260.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$178",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$180",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:237.20-237.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$183",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$186",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$195",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:326.38-326.94|i3c_protocol_fsm.sv:326.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$198",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:322.29-322.60|i3c_protocol_fsm.sv:322.25-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$200",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$202",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:295.20-295.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$206",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:201.26-201.34|i3c_protocol_fsm.sv:201.22-208.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$209",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:197.17-197.26|i3c_protocol_fsm.sv:197.13-208.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$211",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$214",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$223",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:326.38-326.94|i3c_protocol_fsm.sv:326.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$226",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:322.29-322.60|i3c_protocol_fsm.sv:322.25-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$228",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$230",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:295.20-295.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$236",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:197.17-197.26|i3c_protocol_fsm.sv:197.13-208.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$238",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$241",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$249",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:417.25-417.55|i3c_protocol_fsm.sv:417.21-429.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$255",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:275.37-275.90|i3c_protocol_fsm.sv:275.33-287.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$257",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:269.33-271.86|i3c_protocol_fsm.sv:269.29-290.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$259",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:265.29-265.44|i3c_protocol_fsm.sv:265.25-293.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$261",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$265",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:213.17-213.31|i3c_protocol_fsm.sv:213.13-215.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$267",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$270",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$278",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:505.29-505.42|i3c_protocol_fsm.sv:505.25-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$280",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.25-503.55|i3c_protocol_fsm.sv:503.21-544.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$286",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:275.37-275.90|i3c_protocol_fsm.sv:275.33-287.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$288",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:269.33-271.86|i3c_protocol_fsm.sv:269.29-290.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$290",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:265.29-265.44|i3c_protocol_fsm.sv:265.25-293.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$292",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$296",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$299",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$309",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:269.33-271.86|i3c_protocol_fsm.sv:269.29-290.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$311",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:265.29-265.44|i3c_protocol_fsm.sv:265.25-293.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$313",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$315",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:237.20-237.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$318",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$321",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$330",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:265.29-265.44|i3c_protocol_fsm.sv:265.25-293.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$332",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$334",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:237.20-237.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$337",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$340",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$345",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:468.34-468.45|i3c_protocol_fsm.sv:468.30-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$349",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:458.33-458.43|i3c_protocol_fsm.sv:458.29-464.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$352",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:446.38-446.51|i3c_protocol_fsm.sv:446.34-465.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$355",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:443.29-443.42|i3c_protocol_fsm.sv:443.25-465.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$357",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:439.25-439.37|i3c_protocol_fsm.sv:439.21-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$364",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$368",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$371",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$379",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:519.33-519.46|i3c_protocol_fsm.sv:519.29-529.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$381",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:517.38-517.51|i3c_protocol_fsm.sv:517.34-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$385",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:507.33-507.46|i3c_protocol_fsm.sv:507.29-515.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$387",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:505.29-505.42|i3c_protocol_fsm.sv:505.25-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$389",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.25-503.55|i3c_protocol_fsm.sv:503.21-544.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$393",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:468.34-468.45|i3c_protocol_fsm.sv:468.30-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$396",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:439.25-439.37|i3c_protocol_fsm.sv:439.21-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$401",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:430.25-430.55|i3c_protocol_fsm.sv:430.21-434.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$407",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:300.25-300.55|i3c_protocol_fsm.sv:300.21-315.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$410",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:359.38-359.48|i3c_protocol_fsm.sv:359.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$413",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:355.38-355.88|i3c_protocol_fsm.sv:355.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$416",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:352.38-352.51|i3c_protocol_fsm.sv:352.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$420",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:328.33-328.46|i3c_protocol_fsm.sv:328.29-347.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$422",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:326.38-326.94|i3c_protocol_fsm.sv:326.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$425",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:322.29-322.60|i3c_protocol_fsm.sv:322.25-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$427",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$430",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$434",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$437",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$444",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:519.33-519.46|i3c_protocol_fsm.sv:519.29-529.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$446",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:517.38-517.51|i3c_protocol_fsm.sv:517.34-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$450",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:507.33-507.46|i3c_protocol_fsm.sv:507.29-515.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$452",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:505.29-505.42|i3c_protocol_fsm.sv:505.25-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$454",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.25-503.55|i3c_protocol_fsm.sv:503.21-544.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$457",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:476.29-476.44|i3c_protocol_fsm.sv:476.25-478.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$459",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:468.34-468.45|i3c_protocol_fsm.sv:468.30-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$463",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:458.33-458.43|i3c_protocol_fsm.sv:458.29-464.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$466",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:446.38-446.51|i3c_protocol_fsm.sv:446.34-465.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$469",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:443.29-443.42|i3c_protocol_fsm.sv:443.25-465.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$471",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:439.25-439.37|i3c_protocol_fsm.sv:439.21-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$474",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:430.25-430.55|i3c_protocol_fsm.sv:430.21-434.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$477",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:400.29-400.44|i3c_protocol_fsm.sv:400.25-411.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$479",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:396.25-396.36|i3c_protocol_fsm.sv:396.21-412.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$483",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:359.38-359.48|i3c_protocol_fsm.sv:359.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$486",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:355.38-355.88|i3c_protocol_fsm.sv:355.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$489",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:352.38-352.51|i3c_protocol_fsm.sv:352.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$493",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:328.33-328.46|i3c_protocol_fsm.sv:328.29-347.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$495",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:326.38-326.94|i3c_protocol_fsm.sv:326.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$498",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:322.29-322.60|i3c_protocol_fsm.sv:322.25-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$500",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$503",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:265.29-265.44|i3c_protocol_fsm.sv:265.25-293.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$505",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$510",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$513",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$518",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:517.38-517.51|i3c_protocol_fsm.sv:517.34-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$521",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:505.29-505.42|i3c_protocol_fsm.sv:505.25-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$523",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.25-503.55|i3c_protocol_fsm.sv:503.21-544.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$525",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$528",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$531",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$541",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:328.33-328.46|i3c_protocol_fsm.sv:328.29-347.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$543",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:326.38-326.94|i3c_protocol_fsm.sv:326.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$546",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:322.29-322.60|i3c_protocol_fsm.sv:322.25-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$548",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$552",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:255.33-255.78|i3c_protocol_fsm.sv:255.29-259.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$554",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:253.29-253.85|i3c_protocol_fsm.sv:253.25-260.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$556",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$561",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$564",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$574",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:328.33-328.46|i3c_protocol_fsm.sv:328.29-347.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$576",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:326.38-326.94|i3c_protocol_fsm.sv:326.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$579",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:322.29-322.60|i3c_protocol_fsm.sv:322.25-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$581",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$587",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$590",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$600",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:231.25-231.25|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$604",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:201.26-201.34|i3c_protocol_fsm.sv:201.22-208.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$607",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:197.17-197.26|i3c_protocol_fsm.sv:197.13-208.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$609",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$612",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$619",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.25-503.55|i3c_protocol_fsm.sv:503.21-544.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$627",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:359.38-359.48|i3c_protocol_fsm.sv:359.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$630",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:355.38-355.88|i3c_protocol_fsm.sv:355.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$633",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:352.38-352.51|i3c_protocol_fsm.sv:352.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$636",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:326.38-326.94|i3c_protocol_fsm.sv:326.34-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$639",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:322.29-322.60|i3c_protocol_fsm.sv:322.25-390.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$641",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$645",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$648",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$658",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:282.46-282.59|i3c_protocol_fsm.sv:282.42-287.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$661",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:275.37-275.90|i3c_protocol_fsm.sv:275.33-287.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$663",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:269.33-271.86|i3c_protocol_fsm.sv:269.29-290.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$665",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:265.29-265.44|i3c_protocol_fsm.sv:265.25-293.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$667",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$669",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:237.20-237.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$672",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$675",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$683",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:402.33-402.46|i3c_protocol_fsm.sv:402.29-408.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$685",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:400.29-400.44|i3c_protocol_fsm.sv:400.25-411.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$687",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:396.25-396.36|i3c_protocol_fsm.sv:396.21-412.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$689",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:392.20-392.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$692",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$695",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$705",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:282.46-282.59|i3c_protocol_fsm.sv:282.42-287.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$708",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:275.37-275.90|i3c_protocol_fsm.sv:275.33-287.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$71",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:226.17-226.29|i3c_protocol_fsm.sv:226.13-229.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$710",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:269.33-271.86|i3c_protocol_fsm.sv:269.29-290.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$712",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:265.29-265.44|i3c_protocol_fsm.sv:265.25-293.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$714",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$716",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:237.20-237.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$719",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$722",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$728",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:424.29-424.45|i3c_protocol_fsm.sv:424.25-427.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$730",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:417.25-417.55|i3c_protocol_fsm.sv:417.21-429.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$735",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:282.46-282.59|i3c_protocol_fsm.sv:282.42-287.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$738",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:275.37-275.90|i3c_protocol_fsm.sv:275.33-287.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$740",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:269.33-271.86|i3c_protocol_fsm.sv:269.29-290.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$742",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:265.29-265.44|i3c_protocol_fsm.sv:265.25-293.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$744",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$748",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$751",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$759",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:402.33-402.46|i3c_protocol_fsm.sv:402.29-408.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$761",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:400.29-400.44|i3c_protocol_fsm.sv:400.25-411.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$763",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:396.25-396.36|i3c_protocol_fsm.sv:396.21-412.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$765",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:392.20-392.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$768",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$77",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:439.25-439.37|i3c_protocol_fsm.sv:439.21-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$771",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$780",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:400.29-400.44|i3c_protocol_fsm.sv:400.25-411.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$782",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:396.25-396.36|i3c_protocol_fsm.sv:396.21-412.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$784",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:392.20-392.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$787",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$79",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:435.20-435.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$790",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$795",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:517.38-517.51|i3c_protocol_fsm.sv:517.34-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$798",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:505.29-505.42|i3c_protocol_fsm.sv:505.25-541.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$800",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:503.25-503.55|i3c_protocol_fsm.sv:503.21-544.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$802",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$818",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$82",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$821",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$829",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:468.34-468.45|i3c_protocol_fsm.sv:468.30-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$832",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:439.25-439.37|i3c_protocol_fsm.sv:439.21-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$835",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:417.25-417.55|i3c_protocol_fsm.sv:417.21-429.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$838",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:309.38-309.50|i3c_protocol_fsm.sv:309.34-313.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$841",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:306.38-306.94|i3c_protocol_fsm.sv:306.34-313.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$844",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:302.29-302.60|i3c_protocol_fsm.sv:302.25-313.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$846",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:300.25-300.55|i3c_protocol_fsm.sv:300.21-315.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$849",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:242.25-242.96|i3c_protocol_fsm.sv:242.21-249.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$85",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$853",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$856",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$861",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:489.38-489.51|i3c_protocol_fsm.sv:489.34-497.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$864",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:487.29-487.42|i3c_protocol_fsm.sv:487.25-497.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$866",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:484.25-484.55|i3c_protocol_fsm.sv:484.21-501.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$870",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:468.34-468.45|i3c_protocol_fsm.sv:468.30-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$874",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:458.33-458.43|i3c_protocol_fsm.sv:458.29-464.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$877",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:446.38-446.51|i3c_protocol_fsm.sv:446.34-465.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$880",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:443.29-443.42|i3c_protocol_fsm.sv:443.25-465.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$882",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:439.25-439.37|i3c_protocol_fsm.sv:439.21-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$885",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:417.25-417.55|i3c_protocol_fsm.sv:417.21-429.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$888",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:309.38-309.50|i3c_protocol_fsm.sv:309.34-313.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$891",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:306.38-306.94|i3c_protocol_fsm.sv:306.34-313.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$894",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:302.29-302.60|i3c_protocol_fsm.sv:302.25-313.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$896",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:300.25-300.55|i3c_protocol_fsm.sv:300.21-315.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$900",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:245.29-245.44|i3c_protocol_fsm.sv:245.25-248.70"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$902",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:242.25-242.96|i3c_protocol_fsm.sv:242.21-249.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$906",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$909",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$917",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:468.34-468.45|i3c_protocol_fsm.sv:468.30-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$921",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:458.33-458.43|i3c_protocol_fsm.sv:458.29-464.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$924",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:446.38-446.51|i3c_protocol_fsm.sv:446.34-465.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$927",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:443.29-443.42|i3c_protocol_fsm.sv:443.25-465.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$929",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:439.25-439.37|i3c_protocol_fsm.sv:439.21-479.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$932",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:417.25-417.55|i3c_protocol_fsm.sv:417.21-429.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$934",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:430.25-430.55|i3c_protocol_fsm.sv:430.21-434.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$937",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:309.38-309.50|i3c_protocol_fsm.sv:309.34-313.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$940",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:306.38-306.94|i3c_protocol_fsm.sv:306.34-313.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$943",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:302.29-302.60|i3c_protocol_fsm.sv:302.25-313.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$945",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:300.25-300.55|i3c_protocol_fsm.sv:300.21-315.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$947",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:318.25-318.55|i3c_protocol_fsm.sv:318.21-391.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$950",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:242.25-242.96|i3c_protocol_fsm.sv:242.21-249.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$952",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:255.33-255.78|i3c_protocol_fsm.sv:255.29-259.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$954",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:253.29-253.85|i3c_protocol_fsm.sv:253.25-260.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$956",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:251.25-251.36|i3c_protocol_fsm.sv:251.21-294.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$961",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:188.22-188.33|i3c_protocol_fsm.sv:188.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$964",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:177.22-177.32|i3c_protocol_fsm.sv:177.18-555.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$i3c_protocol_fsm.sv:118$9",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:118.30-118.89"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:275$39",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:275.77-275.90"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:83$4",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:83.46-83.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$i3c_protocol_fsm.sv:84$6",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:84.27-84.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$1125",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$1129",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$1131",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$105",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$147",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$251",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:413.20-413.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$282",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$359",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:435.20-435.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$391",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000101",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$440",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:545.20-545.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000111",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$550",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:295.20-295.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$583",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:295.20-295.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$621",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$732",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:413.20-413.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$827",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000100",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$868",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:480.20-480.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000101",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$912",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "i3c_protocol_fsm.sv:545.20-545.20|i3c_protocol_fsm.sv:231.13-554.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000110",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [4, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$i3c_protocol_fsm.sv:474$63",
+                  "attributes": {
+                    "src": "i3c_protocol_fsm.sv:474.38-474.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000100"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "hdlname": "i3c_protocol_fsm",
+            "top": "00000000000000000000000000000001",
+            "src": "i3c_protocol_fsm.sv:21.1-558.10"
+        }
+      }
+  ]
+}

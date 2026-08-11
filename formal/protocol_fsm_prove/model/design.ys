@@ -1,0 +1,9 @@
+# running in formal/protocol_fsm_prove/src/
+read -formal protocol_fsm_formal.sv
+read -sv i3c_protocol_fsm.sv
+prep -top i3c_protocol_fsm
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il
