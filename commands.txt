@@ -1,5 +1,5 @@
 # Run complete flow
-make librelane PDK_ROOT=/foss/pdks 2>&1 | tee build.log
+make librelane PDK_ROOT=/foss/pdks 2>&1 | tee build_signoff.log
 
 # View GDS file
 make librelane-klayout

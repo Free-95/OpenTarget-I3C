@@ -3,11 +3,11 @@ meta:
   flow: Classic
   substituting_steps:
     # Disable some signoff checks for this preliminary fast run
-    Magic.DRC: null
-    Checker.MagicDRC: null
-    KLayout.XOR: null
-    Netgen.LVS: null
-    Checker.LVS: null
+    # Magic.DRC: null
+    # Checker.MagicDRC: null
+    # KLayout.XOR: null
+    # Netgen.LVS: null
+    # Checker.LVS: null
 
 # ----------------------------------------------------
 # 1. Design & Source Files
@@ -31,6 +31,12 @@ VERILOG_FILES:
 CLOCK_PORT: "clk_i host_clk_i"
 CLOCK_PERIOD: 20.0
 
+# Restrict CTS to smaller, highly-routable buffers
+CTS_CLK_BUFFERS:
+  - gf180mcu_fd_sc_mcu7t5v0__clkbuf_1
+  - gf180mcu_fd_sc_mcu7t5v0__clkbuf_2
+  - gf180mcu_fd_sc_mcu7t5v0__clkbuf_4
+
 PNR_SDC_FILE: dir::chip_top.sdc
 SIGNOFF_SDC_FILE: dir::chip_top.sdc
 
@@ -40,9 +46,10 @@ SIGNOFF_SDC_FILE: dir::chip_top.sdc
 FP_SIZING: absolute
 DIE_AREA: [0, 0, 450, 450]
 CORE_AREA: [10, 10, 440, 440]
-FP_PIN_ORDER_CFG: dir::pin_order.cfg
+IO_PIN_ORDER_CFG: dir::pin_order.cfg
 
-PL_TARGET_DENSITY_PCT: 55
+# Lower density slightly to relieve routing congestion around the clock tree
+PL_TARGET_DENSITY_PCT: 50
 GRT_ALLOW_CONGESTION: true
 
 # ----------------------------------------------------
