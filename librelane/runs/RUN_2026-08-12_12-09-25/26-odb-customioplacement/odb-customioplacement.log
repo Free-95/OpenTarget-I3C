@@ -1,0 +1,32 @@
+[WARNING ORD-0039] .openroad ignored with -python
+Top-level design name: spi_opentarget_i3c_top
+Block boundaries: 0 0 900000 900000
+Horizontal Tracks Origin: 560, Count: 803, Step: 1120
+Vertical Tracks Origin: 560, Count: 803, Step: 1120
+Placement details for the N side
+Virtual pin count:  0
+Actual pin count:  5
+Total pin count:  5
+Tracks count:  402
+Tracks per pin:  80
+Used tracks count:  321
+Unused track count:  81
+Starting track index:  40
+Placement details for the E side
+Virtual pin count:  0
+Actual pin count:  3
+Total pin count:  3
+Tracks count:  402
+Tracks per pin:  134
+Used tracks count:  269
+Unused track count:  133
+Starting track index:  66
+Placement details for the S side
+Virtual pin count:  0
+Actual pin count:  4
+Total pin count:  4
+Tracks count:  402
+Tracks per pin:  100
+Used tracks count:  301
+Unused track count:  101
+Starting track index:  50

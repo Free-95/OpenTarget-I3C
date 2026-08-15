@@ -26,9 +26,14 @@ VERILOG_FILES:
   - dir::../src/i3c_phy_frontend.sv
 
 # ----------------------------------------------------
-# 2. Clocking (Includes both async clocks)
+# 2. Standard Cell Library (Stable 5V Library)
 # ----------------------------------------------------
-CLOCK_PORT: "clk_i host_clk_i"
+STD_CELL_LIBRARY: gf180mcu_fd_sc_mcu7t5v0
+
+# ----------------------------------------------------
+# 3. Clocking (Includes all async clocks)
+# ----------------------------------------------------
+CLOCK_PORT: "clk_i host_clk_i spi_sclk_i"
 CLOCK_PERIOD: 20.0
 
 # Restrict CTS to smaller, highly-routable buffers
@@ -41,7 +46,7 @@ PNR_SDC_FILE: dir::chip_top.sdc
 SIGNOFF_SDC_FILE: dir::chip_top.sdc
 
 # ----------------------------------------------------
-# 3. Floorplan Constraints (Sized for the Chipathon Slot)
+# 4. Floorplan Constraints (Sized for the Chipathon Slot)
 # ----------------------------------------------------
 FP_SIZING: absolute
 DIE_AREA: [0, 0, 450, 450]
@@ -53,7 +58,7 @@ PL_TARGET_DENSITY_PCT: 50
 GRT_ALLOW_CONGESTION: true
 
 # ----------------------------------------------------
-# 4. Power & Ground
+# 5. Power & Ground
 # ----------------------------------------------------
 VDD_NETS:
   - VDD

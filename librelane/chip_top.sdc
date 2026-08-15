@@ -47,6 +47,6 @@ set_output_delay -min 1.0 -clock [get_clocks {clk_i}] [get_ports {sda_pad_o sda_
 # Generic margins to ensure the macro routes safely inside the multi-project slot
 set_load 0.05 [all_outputs]
 set_clock_uncertainty 0.25 [all_clocks]
-set_clock_transition 0.15 [all_clocks]
+set_clock_transition 0.50 [all_clocks]
 set_timing_derate -early 0.95
 set_timing_derate -late 1.05
