@@ -39,7 +39,7 @@ pins:
   # I3C & Interrupt Interface (BOTTOM)
   - name: "scl_pad_i"
     io_type: "input_cmos"
-  - name: "sda_pad_io"
+  - name: "sda_pad"
     io_type: "bidirectional"
   - name: "irq_o"
     io_type: "bidirectional"
