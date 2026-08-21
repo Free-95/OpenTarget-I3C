@@ -13,3 +13,39 @@ project:
   discord: "freeman.95"
   description: "I3C Target Controller with SPI-to-APB Bridge for MPC Integration"
   lvs_config: "lvs_config.json"
+
+# ==============================================================================
+# Pad Ring / Pin Information
+# ==============================================================================
+pins:
+  # System & Clocks (RIGHT)
+  - name: "rst_ni"
+    io_type: "input_cmos"
+  - name: "clk_i"
+    io_type: "input_cmos"
+  - name: "host_clk_i"
+    io_type: "input_cmos"
+
+  # SPI Interface (TOP)
+  - name: "spi_sclk_i"
+    io_type: "input_cmos"
+  - name: "spi_cs_ni"
+    io_type: "input_cmos"
+  - name: "spi_mosi_i"
+    io_type: "input_cmos"
+  - name: "spi_miso_o"
+    io_type: "bidirectional"
+
+  # I3C & Interrupt Interface (BOTTOM)
+  - name: "scl_pad_i"
+    io_type: "input_cmos"
+  - name: "sda_pad_io"
+    io_type: "bidirectional"
+  - name: "irq_o"
+    io_type: "bidirectional"
+
+  # Power & Ground
+  - name: "VDD"
+    io_type: "power"
+  - name: "VSS"
+    io_type: "ground"
