@@ -359,7 +359,7 @@ module opentarget_i3c_top #(
         .rd_rst_n        (rst_ni),
         .rd_en           (fsm_tx_req),
         .rd_data         (fsm_tx_data_fifo),
-        .rd_empty        (fsm_tx_empty), // now wired to the FSM instead of left dangling
+        .rd_empty        (fsm_tx_empty), 
         .rd_almost_empty ()
     );
 
@@ -384,3 +384,4 @@ module opentarget_i3c_top #(
     );
 
 endmodule
+

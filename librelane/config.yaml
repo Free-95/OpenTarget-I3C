@@ -1,13 +1,13 @@
 meta:
   version: 3
   flow: Classic
-  substituting_steps:
-    # Disable some signoff checks for this preliminary fast run
-    # Magic.DRC: null
-    # Checker.MagicDRC: null
-    # KLayout.XOR: null
-    # Netgen.LVS: null
-    # Checker.LVS: null
+  # Disable some signoff checks for a preliminary fast run if needed
+#  substituting_steps:
+#    Magic.DRC: null
+#    Checker.MagicDRC: null
+#    KLayout.XOR: null
+#    Netgen.LVS: null
+#    Checker.LVS: null
 
 # ----------------------------------------------------
 # 1. Design & Source Files
@@ -42,11 +42,11 @@ CTS_CLK_BUFFERS:
   - gf180mcu_fd_sc_mcu7t5v0__clkbuf_2
   - gf180mcu_fd_sc_mcu7t5v0__clkbuf_4
 
-PNR_SDC_FILE: dir::chip_top.sdc
-SIGNOFF_SDC_FILE: dir::chip_top.sdc
+PNR_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
+SIGNOFF_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
 
 # ----------------------------------------------------
-# 4. Floorplan Constraints (Sized for the Chipathon Slot)
+# 4. Floorplan Constraints
 # ----------------------------------------------------
 FP_SIZING: absolute
 DIE_AREA: [0, 0, 450, 450]
@@ -67,3 +67,4 @@ GND_NETS:
 
 # Disable the top-level core ring since this is a macro
 PDN_CORE_RING: False
+

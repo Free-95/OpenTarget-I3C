@@ -35,8 +35,8 @@ module i3c_apb_regs #(
     output reg                      static_addr_valid_o,
 
     // Status inputs from FSM
-    input      [31:0]               core_status_i,  // Bus busy, error flags, IBI status
-    input      [6:0]                dyn_addr_i,     // Dynamic Address assigned by Controller
+    input      [31:0]               core_status_i,   // Bus busy, error flags, IBI status
+    input      [6:0]                dyn_addr_i,      // Dynamic Address assigned by Controller
     input                           dyn_addr_valid_i // Indicates if DAA was successful
 );
 

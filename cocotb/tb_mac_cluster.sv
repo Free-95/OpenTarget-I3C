@@ -19,8 +19,6 @@ module tb_mac_cluster #(
     input                      static_addr_vld_i,
     input  [31:0]              core_ctrl_i,
     output [31:0]              core_status_o,
-    //output [6:0]               dyn_addr_o,
-    //output                     dyn_addr_vld_o,
 
     // Simulated Host FIFO Boundary
     input  [7:0]               tx_data_i,
@@ -66,7 +64,6 @@ module tb_mac_cluster #(
         .tx_en_o(tx_en_o), .tx_data_o(tx_data_o), .tx_mode_pp_o(tx_mode_pp_o),
         .static_addr_i(static_addr_i), .static_addr_vld_i(static_addr_vld_i),
         .core_ctrl_i(core_ctrl_i), .core_status_o(core_status_o),
-        //.dyn_addr_o(dyn_addr_o), .dyn_addr_vld_o(dyn_addr_vld_o),
         .dyn_addr_o(), .dyn_addr_vld_o(),
         .tx_data_i(tx_data_i), .tx_req_o(tx_req_o), .rx_data_o(rx_data_o), .rx_valid_o(rx_valid_o),
         .ccc_tx_byte_i(ccc_tx_byte), .ccc_tx_last_i(ccc_tx_last), .ccc_nack_req_i(ccc_nack_req),

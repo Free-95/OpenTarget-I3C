@@ -10,7 +10,7 @@
 
 module i3c_bus_det #(
     // Timer Parameters (Defaults calculated for a 50 MHz internal clk_i)
-    // 50 MHz = 20ns period.
+    // 50 MHz = 20ns period
 
     // Bus Free (tFREE): ~500 ns after a STOP condition -> 500/20 = 25 cycles
     parameter CYCLES_BUS_FREE  = 25,

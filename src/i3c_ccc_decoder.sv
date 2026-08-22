@@ -87,7 +87,6 @@ module i3c_ccc_decoder (
 
     reg [2:0] state;
     reg [7:0] opcode;
-    //reg       is_broadcast;
     reg [1:0] wr_byte_cnt;    // Counter for multi-byte SET payloads (e.g., SETMWL)
     reg [7:0] wr_byte0;       // Stores the first byte (MSB) of a 2-byte payload
     reg [3:0] rd_byte_cnt;    // Counter for multi-byte GET responses (e.g., GETPID)
@@ -106,7 +105,7 @@ module i3c_ccc_decoder (
                                 (opcode == CCC_GETMXDS)   ||
                                 (opcode == CCC_RSTACT_D && rnw_i);
                                 
-    // Identifies GET CCCs that might require software intervention and could trigger the retry model
+    // Identify GET CCCs that might require software intervention and could trigger the retry model
     assign is_sw_backed_get   = (opcode == CCC_GETSTATUS); 
     
     // Grouping of all supported Broadcast opcodes
@@ -130,13 +129,6 @@ module i3c_ccc_decoder (
     // NACK Request Logic
     assign nack_req_o = ccc_active_o && is_sw_backed_get && get_data_pending_i && !retry_seen;
 
-    // tx_last_o is intentionally a registered, fetch-and-hold output (like
-    // tx_byte_o), set once per tx_req_i pulse and held until the next one.
-    // A purely combinational version off (state, rd_byte_cnt) was tried and
-    // reverted: rd_byte_cnt resets to 0 in the same cycle the final GETPID
-    // byte is fetched, which would flip a combinational tx_last_o back to 0
-    // before the FSM ever samples it for the T-bit decision.
-    
     //-------------------------------------------------------------------
     // Main FSM
     //-------------------------------------------------------------------
@@ -144,7 +136,6 @@ module i3c_ccc_decoder (
         if (!rst_ni) begin
             state              <= IDLE;
             opcode             <= 8'h00;
-            //is_broadcast       <= 1'b0;
             wr_byte_cnt        <= 2'd0;
             wr_byte0           <= 8'h00;
             rd_byte_cnt        <= 4'd0;
@@ -164,11 +155,6 @@ module i3c_ccc_decoder (
 
             tx_byte_o          <= 8'h00;
             tx_byte_valid_o    <= 1'b0;
-            // BUGFIX: this reset assignment was commented out, leaving tx_last_o
-            // (an `output reg`, not combinational despite the stale comment at the
-            // top of this file) undriven/X from time 0 until the first Direct GET
-            // CCC response ever ran -- which then propagated X into the FSM's
-            // T-bit decision and, from there, onto sda_pad_o.
             tx_last_o          <= 1'b0;
 
             ccc_active_o       <= 1'b0;
@@ -184,7 +170,6 @@ module i3c_ccc_decoder (
             setmwl_valid_o     <= 1'b0;
             setmrl_valid_o     <= 1'b0;
             tx_byte_valid_o    <= 1'b0;
-            //tx_last_o          <= 1'b0;
             retry_exhausted_o  <= 1'b0;
             ccc_unrecognized_o <= 1'b0;
 
@@ -210,7 +195,6 @@ module i3c_ccc_decoder (
                                 retry_seen <= 1'b0; 
                                 
                             opcode       <= byte_data_i;
-                            //is_broadcast <= is_broadcast_i;
                             ccc_active_o <= 1'b1;
                             wr_byte_cnt  <= 2'd0;
                             rd_byte_cnt  <= 4'd0;
@@ -233,7 +217,7 @@ module i3c_ccc_decoder (
                                 ccc_active_o   <= 1'b0;
                                 state          <= IDLE;
                             end else begin
-                                // All other supported broadcasts need 1 or more byte(s) of payload
+                                // All other supported broadcasts need 1 or more bytes of payload
                                 state <= WR_DATA; 
                             end
                         end else begin
@@ -335,7 +319,6 @@ module i3c_ccc_decoder (
                                             tx_last_o    <= 1'b1;
                                             rd_byte_cnt  <= 4'd0;
                                             ccc_active_o <= 1'b0;
-                                            //state        <= IDLE;
                                         end else begin
                                             tx_last_o    <= 1'b0;
                                             rd_byte_cnt  <= rd_byte_cnt + 4'd1;
@@ -345,33 +328,30 @@ module i3c_ccc_decoder (
                                         tx_byte_o    <= bcr_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        //state        <= IDLE;
                                     end
                                     CCC_GETDCR: begin
                                         tx_byte_o    <= dcr_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        //state        <= IDLE;
                                     end
                                     CCC_GETSTATUS: begin
                                         tx_byte_o    <= status_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        //state        <= IDLE;
                                     end
                                     CCC_GETMXDS: begin
                                         tx_byte_o    <= mxds_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        //state        <= IDLE;
                                     end
                                     default: begin
                                         tx_byte_o    <= 8'h00;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
-                                        //state        <= IDLE;
                                     end
                                 endcase
+                                
+                                state <= IDLE;
                             end
                         end
                     end
@@ -383,3 +363,4 @@ module i3c_ccc_decoder (
     end
 
 endmodule
+

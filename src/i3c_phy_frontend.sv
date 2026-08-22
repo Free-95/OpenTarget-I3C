@@ -2,14 +2,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Project Name:  OpenTarget-I3C Controller
 // Module Name:   i3c_phy_frontend
-// Description:   Physical Layer Front-End handles glitch filtering for incoming 
+// Description:   Physical Layer Front-end handles glitch filtering for incoming 
 //                SCL/SDA signals and dynamically multiplexes output drive modes 
 //                (Open-Drain & Push-Pull) based on the I3C protocol state.
 //////////////////////////////////////////////////////////////////////////////////
 
 module i3c_phy_frontend #(
     // Number of clock cycles for the digital glitch filter. 
-    // For a 50MHz clock (20ns period), a 2-stage filter rejects < 40ns spikes.
+    // For a 50MHz clock (20ns period), a 2-stage filter rejects <40ns spikes.
     // I3C specification permits spikes up to 50ns to be filtered.
     parameter GLITCH_FILTER_STAGES = 3 
 )(
@@ -113,3 +113,4 @@ module i3c_phy_frontend #(
     end
 
 endmodule
+

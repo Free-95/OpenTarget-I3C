@@ -1,9 +1,0 @@
-1. Compile verilog, run simulation, & dump waveform
-make WAVES=1 
-
-2. View waveform in GTKWave
-gtkwave dump.fst
-
-3. Check testbench code coverage
-make // With Verilator as simulator
-verilator_coverage --annotate coverage_reports coverage.dat

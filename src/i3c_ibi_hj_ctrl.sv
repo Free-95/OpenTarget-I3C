@@ -128,7 +128,6 @@ module i3c_ibi_hj_ctrl #(
 
             ibi_active_src_o <= {SRC_IDX_W{1'b0}};
             tx_byte_valid_o  <= 1'b0;
-            //tx_last_o        <= 1'b0;
             prn_pending_o    <= 1'b0;
             arb_lost_o       <= 1'b0;
             ibi_done_o       <= 1'b0;
@@ -137,7 +136,6 @@ module i3c_ibi_hj_ctrl #(
         end else begin
             // Default pulse de-assertions
             tx_byte_valid_o <= 1'b0;
-            //tx_last_o       <= 1'b0;
             arb_lost_o      <= 1'b0;
             ibi_done_o      <= 1'b0;
 
@@ -193,7 +191,6 @@ module i3c_ibi_hj_ctrl #(
                         if (has_payload) begin
                             state <= SEND_PAYLOAD;
                         end else begin
-                            //tx_last_o <= 1'b1; // Mark end of transmission
                             if (is_prn) 
                                 prn_pending_o <= 1'b1; // Assert sticky PRN flag
                                 
@@ -208,7 +205,6 @@ module i3c_ibi_hj_ctrl #(
                 SEND_PAYLOAD: begin
                     if (fsm_byte_req_i) begin
                         tx_byte_valid_o <= 1'b1;
-                        //tx_last_o       <= 1'b1; // Mark end of transmission
                         
                         if (is_prn)
                             prn_pending_o <= 1'b1; // Assert sticky PRN flag
@@ -230,3 +226,4 @@ module i3c_ibi_hj_ctrl #(
     end
 
 endmodule
+
