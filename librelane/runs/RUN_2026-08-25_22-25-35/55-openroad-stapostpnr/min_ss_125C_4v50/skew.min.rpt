@@ -1,0 +1,25 @@
+
+===========================================================================
+Clock Skew (Hold)
+============================================================================
+======================= min_ss_125C_4v50 Corner ===================================
+
+Clock clk_i
+1.766615 source latency _3129_/CLK ^
+-1.953136 target latency _3441_/CLK ^
+-0.250000 clock uncertainty
+-0.185904 CRPR
+--------------
+-0.622425 hold skew
+
+Clock host_clk_i
+1.327730 source latency _3342_/CLK ^
+-1.468579 target latency _3428_/CLK ^
+-0.250000 clock uncertainty
+-0.139379 CRPR
+--------------
+-0.530227 hold skew
+
+Clock spi_sclk_i
+No launch/capture paths found.
+

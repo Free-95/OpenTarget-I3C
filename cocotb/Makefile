@@ -16,7 +16,7 @@
 ifndef MODULE
 
 # 1. Define all available test targets based on the python testbenches
-TESTS = test_i3c_apb_regs \
+TESTS = test_apb_regs \
         test_phy_frontend \
         test_mac_cluster \
         test_opentarget_top \
@@ -35,7 +35,7 @@ all: $(TESTS)
 #    - Creates a dedicated build directory (build_$@)
 #    - Routes the XML results and SIM_BUILD into that directory
 #    - Moves waveform dumps into the directory after completion
-test_i3c_apb_regs:
+test_apb_regs:
 	@echo "Running $@..."
 	@mkdir -p build_$@
 	COCOTB_RESULTS_FILE=$(shell pwd)/build_$@/results.xml $(MAKE) MODULE=$@ TOPLEVEL=i3c_apb_regs SIM_BUILD=$(shell pwd)/build_$@/sim_build

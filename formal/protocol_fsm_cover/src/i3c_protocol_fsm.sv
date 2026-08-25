@@ -43,7 +43,7 @@ module i3c_protocol_fsm #(
 
     // FIFO / Data Interface 
     input      [7:0]  tx_data_i,
-    input             tx_empty_i,       // TX FIFO empty (FWFT, non-CCC/non-IBI reads only)
+    input             tx_empty_i,   // TX FIFO empty (FWFT, non-CCC/non-IBI reads only)
     output reg        tx_req_o,
     output reg [7:0]  rx_data_o,
     output reg        rx_valid_o,
@@ -102,7 +102,7 @@ module i3c_protocol_fsm #(
     reg [3:0] bit_cnt;
     reg [7:0] shift_reg;
     reg       is_read_op;     // 1 = Controller Reading (Target TX), 0 = Controller Writing
-    reg       addr_matched;   // Flag to hold if the address matched us
+    reg       addr_matched;   // Flag to hold if the address matched I3C IP
 
     // Variables for CCC tracking and IBI/HJ Arbitration 
     reg       ccc_is_active;
@@ -129,7 +129,7 @@ module i3c_protocol_fsm #(
         state               // [3:0]   Current FSM state
     };
     
-    // Sink unused APB control inputs to prevent linter warnings in isolated MAC testing
+    // Sink unused APB control inputs to prevent linter warnings
     wire _unused_ctrl;
     assign _unused_ctrl = &core_ctrl_i;
     
@@ -327,23 +327,15 @@ module i3c_protocol_fsm #(
                             // Verify if Controller ACKed or NACKed the successful IBI/HJ request
                             if (sda_i == 1'b0) begin
                                 // Controller ACKed
-                                ibi_fsm_ack_o      <= 1'b1;
-                                state              <= TX_DATA;       // Proceed to send MDB
-                                ibi_is_active      <= 1'b1;
-                                wait_tx_data  <= 1'b1; // Trigger pipeline delay
-                                //ibi_fsm_byte_req_o <= 1'b1;          // Fetch next
-                                //shift_reg          <= ibi_tx_byte_i; // Pre-load MDB
-                                
-                                // Drive the first bit of MDB immediately before the next SCL edge
-                                //tx_en_o            <= 1'b1;
-                                //tx_data_o          <= ibi_tx_byte_i[7];
-                                //tx_mode_pp_o       <= 1'b1;
-                                //shift_reg          <= {ibi_tx_byte_i[6:0], 1'b0};
-                                bit_cnt            <= 4'd1;
+                                ibi_fsm_ack_o <= 1'b1;
+                                state         <= TX_DATA;  // Proceed to send MDB
+                                ibi_is_active <= 1'b1;
+                                wait_tx_data  <= 1'b1;     // Trigger pipeline delay
+                                bit_cnt       <= 4'd1;
                             end else begin
                                 // Controller NACKed
-                                ibi_fsm_nack_o     <= 1'b1;
-                                state              <= IDLE;
+                                ibi_fsm_nack_o <= 1'b1;
+                                state          <= IDLE;
                             end
                             // Terminate arbitration session
                             arbitrating_ibi <= 1'b0;
@@ -361,25 +353,8 @@ module i3c_protocol_fsm #(
                             state <= TX_DATA;
                             // Route TX data directly from CCC decoder if active, else fallback to standard FIFO
                             if (ccc_is_active) begin
-                                // BUGFIX: i3c_ccc_decoder's tx_byte_o is request/response
-                                // (only updates the cycle AFTER a tx_req_i pulse), unlike the
-                                // FWFT FIFO's tx_data_i or the IBI controller's pre-loaded
-                                // ibi_tx_byte_i, both of which are already valid combinationally
-                                // at this point. We MUST fire the request pulse here (the
-                                // moment the Direct GET CCC's target address is ACKed) so
-                                // ccc_tx_byte_i is valid two cycles later, when the
-                                // wait_tx_data->load_tx_data pipeline below captures it.
-                                // Previously this was left at 1'b0, so the decoder was never
-                                // asked for byte 0: the FSM shifted out whatever stale/reset
-                                // value sat in tx_byte_o (0x00), and every subsequent byte
-                                // (fetched by the T_BIT_TX prefetch pulses) landed one position
-                                // late -- e.g. GETPID sent byte1..byte6 instead of byte0..byte5,
-                                // silently dropping PID[7:0] entirely, and GETBCR/GETDCR/
-                                // GETSTATUS/GETMXDS (single-byte GETs) sent 0x00 every time.
-                                //shift_reg    <= ccc_tx_byte_i;
                                 ccc_tx_req_o <= 1'b1;
                             end else begin
-                                //shift_reg    <= tx_data_i; // Load from FIFO
                                 tx_req_o     <= 1'b0;      // Fetch next byte
                             end
                             
@@ -404,7 +379,7 @@ module i3c_protocol_fsm #(
                                 ccc_byte_valid_o <= 1'b1;
                             end else begin
                                 rx_data_o        <= {shift_reg[6:0], sda_i};
-                                rx_valid_o       <= 1'b1; // Push to APB FIFO
+                                rx_valid_o       <= 1'b1;  // Push to APB FIFO
                             end
                                                         
                             state <= T_BIT_RX;
@@ -447,14 +422,6 @@ module i3c_protocol_fsm #(
                             tx_data_o <= ibi_tx_byte_i[7];
                             shift_reg <= {ibi_tx_byte_i[6:0], 1'b0};
                         end else begin
-                            // BUGFIX: previously loaded tx_data_i unconditionally, even once
-                            // the TX FIFO ran dry (rd_empty was left unconnected at the top
-                            // level). Once the controller kept clocking past the last byte the
-                            // host ever pushed, this drove X from the empty FIFO straight onto
-                            // sda_pad_o -- a physical bus pin. tx_empty_i is race-free here
-                            // (unlike at the T_BIT_TX decision point above, one cycle earlier,
-                            // where the FIFO's registered/look-ahead empty flag hasn't yet
-                            // absorbed the pop that feeds this load).
                             if (tx_empty_i) begin
                                 state   <= IDLE;
                                 tx_en_o <= 1'b0;
@@ -489,11 +456,7 @@ module i3c_protocol_fsm #(
                         end else if (ibi_is_active) begin
                             tx_data_o <= !ibi_tx_last_i; 
                         end else begin
-                            tx_data_o <= 1'b1;           // Normal APB TX: offering more data;
-                                                          // the actual safety-net against an
-                                                          // empty FIFO lives at load_tx_data
-                                                          // below, where tx_empty_i is race-free
-                                                          // (see comment there).
+                            tx_data_o <= 1'b1;           
                         end
                         
                         tx_mode_pp_o <= 1'b0; // T-bit switches back to Open-Drain
@@ -521,26 +484,16 @@ module i3c_protocol_fsm #(
                                 ibi_is_active <= 1'b0;
                                 bit_cnt       <= 4'd0;
                             end else begin
-                                wait_tx_data <= 1'b1; // Trigger pipeline
-                                //shift_reg          <= ibi_tx_byte_i;
-                                //ibi_fsm_byte_req_o <= 1'b1;
-                                state              <= TX_DATA;
-                                bit_cnt       <= 4'd1; // Shifted 1 bit already
+                                wait_tx_data <= 1'b1;  // Trigger pipeline
+                                state        <= TX_DATA;
+                                bit_cnt      <= 4'd1;  // Shifted 1 bit already
                             end
                         end else begin
-                            tx_req_o     <= 1'b1;      // Fetch next byte from FIFO
+                            tx_req_o     <= 1'b1;     // Fetch next byte from FIFO
                             wait_tx_data <= 1'b1;
                             state        <= TX_DATA;
                             bit_cnt      <= 4'd1;
-                            // NOTE: tx_empty_i is NOT checked here on purpose -- rd_empty is a
-                            // registered/look-ahead flag that still reflects the *pre-pop* state
-                            // in this same cycle (the tx_req_o pulse above hasn't been absorbed
-                            // by the FIFO yet). Checking it here would read a stale value one
-                            // cycle too early. The real safety-net is at load_tx_data below,
-                            // where tx_empty_i is guaranteed settled.
-                        end
-                        
-                        //bit_cnt <= 4'd0;
+                        end                        
                     end
                 end
 
@@ -556,3 +509,4 @@ module i3c_protocol_fsm #(
     end
 
 endmodule
+

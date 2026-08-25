@@ -88,5 +88,5 @@
 ##   0:00:00  Checking assumptions in step 43..
 ##   0:00:00  Checking assertions in step 43..
 ##   0:00:00  Checking assumptions in step 44..
-##   0:00:00  Checking assertions in step 44..
-##   0:00:00  Status: passed
+##   0:00:01  Checking assertions in step 44..
+##   0:00:01  Status: passed

@@ -57,6 +57,11 @@ IO_PIN_ORDER_CFG: dir::pin_order.cfg
 PL_TARGET_DENSITY_PCT: 50
 GRT_ALLOW_CONGESTION: true
 
+# Aggressive resizer and synthesis settings to avoid slew/cap violations
+PL_RESIZER_MAX_SLEW_MARGIN: 30
+PL_RESIZER_MAX_CAP_MARGIN: 30
+SYNTH_MAX_FANOUT: 10
+
 # ----------------------------------------------------
 # 5. Power & Ground
 # ----------------------------------------------------

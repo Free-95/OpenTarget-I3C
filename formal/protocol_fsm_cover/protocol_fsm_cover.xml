@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-<testsuite timestamp="2026-08-11T13:12:39" hostname="bb5c60909b77" package="protocol_fsm" id="0" name="cover" tests="0" errors="0" failures="0" time="0" skipped="0">
+<testsuite timestamp="2026-08-25T22:05:23" hostname="1ff5fd44d75f" package="protocol_fsm" id="0" name="cover" tests="0" errors="0" failures="0" time="0" skipped="0">
 <properties>
 <property name="os" value="Linux"/>
 <property name="expect" value="PASS"/>
@@ -8,26 +8,26 @@
 </properties>
 <testcase classname="cover" name="build execution" time="0">
 </testcase>
-<system-out>SBY 13:12:38 [formal/protocol_fsm_cover] Removing directory '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_cover'.
-SBY 13:12:38 [formal/protocol_fsm_cover] Copy '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_formal.sv' to '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_cover/src/protocol_fsm_formal.sv'.
-SBY 13:12:38 [formal/protocol_fsm_cover] Copy '/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv' to '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_cover/src/i3c_protocol_fsm.sv'.
-SBY 13:12:38 [formal/protocol_fsm_cover] engine_0: smtbmc yices
-SBY 13:12:38 [formal/protocol_fsm_cover] base: starting process &quot;cd formal/protocol_fsm_cover/src; yosys -ql ../model/design.log ../model/design.ys&quot;
-SBY 13:12:38 [formal/protocol_fsm_cover] base: finished (returncode=0)
-SBY 13:12:38 [formal/protocol_fsm_cover] prep: starting process &quot;cd formal/protocol_fsm_cover/model; yosys -ql design_prep.log design_prep.ys&quot;
-SBY 13:12:38 [formal/protocol_fsm_cover] prep: finished (returncode=0)
-SBY 13:12:38 [formal/protocol_fsm_cover] smt2: starting process &quot;cd formal/protocol_fsm_cover/model; yosys -ql design_smt2.log design_smt2.ys&quot;
-SBY 13:12:38 [formal/protocol_fsm_cover] smt2: finished (returncode=0)
-SBY 13:12:38 [formal/protocol_fsm_cover] engine_0: starting process &quot;cd formal/protocol_fsm_cover; yosys-smtbmc -s yices --presat --unroll -c --noprogress -t 45  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2&quot;
-SBY 13:12:38 [formal/protocol_fsm_cover] engine_0: ##   0:00:00  Solver: yices
-SBY 13:12:38 [formal/protocol_fsm_cover] engine_0: ##   0:00:00  Status: passed
-SBY 13:12:39 [formal/protocol_fsm_cover] engine_0: finished (returncode=0)
-SBY 13:12:39 [formal/protocol_fsm_cover] engine_0: Status returned by engine: pass
-SBY 13:12:39 [formal/protocol_fsm_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
-SBY 13:12:39 [formal/protocol_fsm_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
-SBY 13:12:39 [formal/protocol_fsm_cover] summary: engine_0 (smtbmc yices) returned pass
-SBY 13:12:39 [formal/protocol_fsm_cover] summary: engine_0 did not produce any traces
-SBY 13:12:39 [formal/protocol_fsm_cover] DONE (PASS, rc=0)
+<system-out>SBY 22:05:23 [formal/protocol_fsm_cover] Removing directory '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_cover'.
+SBY 22:05:23 [formal/protocol_fsm_cover] Copy '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_formal.sv' to '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_cover/src/protocol_fsm_formal.sv'.
+SBY 22:05:23 [formal/protocol_fsm_cover] Copy '/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv' to '/foss/designs/OpenTarget-I3C/formal/protocol_fsm_cover/src/i3c_protocol_fsm.sv'.
+SBY 22:05:23 [formal/protocol_fsm_cover] engine_0: smtbmc yices
+SBY 22:05:23 [formal/protocol_fsm_cover] base: starting process &quot;cd formal/protocol_fsm_cover/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 22:05:23 [formal/protocol_fsm_cover] base: finished (returncode=0)
+SBY 22:05:23 [formal/protocol_fsm_cover] prep: starting process &quot;cd formal/protocol_fsm_cover/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 22:05:23 [formal/protocol_fsm_cover] prep: finished (returncode=0)
+SBY 22:05:23 [formal/protocol_fsm_cover] smt2: starting process &quot;cd formal/protocol_fsm_cover/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 22:05:23 [formal/protocol_fsm_cover] smt2: finished (returncode=0)
+SBY 22:05:23 [formal/protocol_fsm_cover] engine_0: starting process &quot;cd formal/protocol_fsm_cover; yosys-smtbmc -s yices --presat --unroll -c --noprogress -t 45  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2&quot;
+SBY 22:05:23 [formal/protocol_fsm_cover] engine_0: ##   0:00:00  Solver: yices
+SBY 22:05:23 [formal/protocol_fsm_cover] engine_0: ##   0:00:00  Status: passed
+SBY 22:05:23 [formal/protocol_fsm_cover] engine_0: finished (returncode=0)
+SBY 22:05:23 [formal/protocol_fsm_cover] engine_0: Status returned by engine: pass
+SBY 22:05:23 [formal/protocol_fsm_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 22:05:23 [formal/protocol_fsm_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 22:05:23 [formal/protocol_fsm_cover] summary: engine_0 (smtbmc yices) returned pass
+SBY 22:05:23 [formal/protocol_fsm_cover] summary: engine_0 did not produce any traces
+SBY 22:05:23 [formal/protocol_fsm_cover] DONE (PASS, rc=0)
 </system-out>
 <system-err>
 </system-err>

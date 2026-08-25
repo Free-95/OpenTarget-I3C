@@ -340,6 +340,6 @@ Removed 0 unused modules.
 6. Executing RTLIL backend.
 Output filename: ../model/design.il
 
-End of script. Logfile hash: 19bf817a7c, time: 0.04s, user: 0.03s, system: 0.04s, MEM: 36.59 MB peak
+End of script. Logfile hash: 19bf817a7c, time: 0.15s, user: 0.02s, system: 0.08s, MEM: 36.30 MB peak
 Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
-Time spent: 22% 4x read_verilog (0 sec), 21% 2x hierarchy (0 sec), ...
+Time spent: 22% 2x hierarchy (0 sec), 20% 4x read_verilog (0 sec), ...

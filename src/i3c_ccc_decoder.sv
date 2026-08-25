@@ -316,10 +316,17 @@ module i3c_ccc_decoder (
                                             default: tx_byte_o <= pid_i[7:0];
                                         endcase
                                         if (rd_byte_cnt == 4'd5) begin
+                                            // Final byte (PID[7:0]) - the GET is complete.
+                                            // Now we may leave RD_DATA; leaving early may 
+                                            // stop the decoder from ever reacting to the
+                                            // FSM's subsequent tx_req_i pulses for bytes 1-5.
                                             tx_last_o    <= 1'b1;
                                             rd_byte_cnt  <= 4'd0;
                                             ccc_active_o <= 1'b0;
+                                            state        <= IDLE;
                                         end else begin
+                                            // More bytes still to come: stay in RD_DATA
+                                            // so the next tx_req_i pulse is serviced.
                                             tx_last_o    <= 1'b0;
                                             rd_byte_cnt  <= rd_byte_cnt + 4'd1;
                                         end
@@ -328,30 +335,33 @@ module i3c_ccc_decoder (
                                         tx_byte_o    <= bcr_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
+                                        state        <= IDLE; // Single-byte GET: always done in one shot
                                     end
                                     CCC_GETDCR: begin
                                         tx_byte_o    <= dcr_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
+                                        state        <= IDLE;
                                     end
                                     CCC_GETSTATUS: begin
                                         tx_byte_o    <= status_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
+                                        state        <= IDLE;
                                     end
                                     CCC_GETMXDS: begin
                                         tx_byte_o    <= mxds_i;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
+                                        state        <= IDLE;
                                     end
                                     default: begin
                                         tx_byte_o    <= 8'h00;
                                         tx_last_o    <= 1'b1;
                                         ccc_active_o <= 1'b0;
+                                        state        <= IDLE;
                                     end
                                 endcase
-                                
-                                state <= IDLE;
                             end
                         end
                     end

@@ -57,6 +57,6 @@ Removed 0 unused modules.
 6.2. Executing DEMUXMAP pass.
 Creating SMT-LIBv2 representation of module i3c_ibi_hj_ctrl.
 
-End of script. Logfile hash: c9ec74f068, time: 0.03s, user: 0.03s, system: 0.01s, MEM: 33.60 MB peak
+End of script. Logfile hash: c9ec74f068, time: 0.03s, user: 0.03s, system: 0.02s, MEM: 33.20 MB peak
 Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
-Time spent: 62% 2x write_smt2 (0 sec), 24% 2x read_rtlil (0 sec), ...
+Time spent: 76% 2x write_smt2 (0 sec), 16% 2x read_rtlil (0 sec), ...

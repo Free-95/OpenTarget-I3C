@@ -2,133 +2,133 @@
 ; yosys-smt2-module i3c_protocol_fsm
 (declare-sort |i3c_protocol_fsm_s| 0)
 (declare-fun |i3c_protocol_fsm_is| (|i3c_protocol_fsm_s|) Bool)
-; yosys-smt2-anyinit i3c_protocol_fsm#0 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#0 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1012"], "smtname": 0, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#0| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1012
 ; yosys-smt2-register _witness_.anyinit_procdff_1012 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1012 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1012| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#0| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#1 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#1 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1017"], "smtname": 1, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#1| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1017
 ; yosys-smt2-register _witness_.anyinit_procdff_1017 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1017 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1017| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#1| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#2 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#2 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1022"], "smtname": 2, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#2| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1022
 ; yosys-smt2-register _witness_.anyinit_procdff_1022 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1022 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1022| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#2| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#3 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#3 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1027"], "smtname": 3, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#3| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1027
 ; yosys-smt2-register _witness_.anyinit_procdff_1027 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1027 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1027| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#3| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#4 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#4 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1032"], "smtname": 4, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#4| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1032
 ; yosys-smt2-register _witness_.anyinit_procdff_1032 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1032 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1032| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#4| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#5 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#5 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1037"], "smtname": 5, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#5| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1037
 ; yosys-smt2-register _witness_.anyinit_procdff_1037 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1037 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1037| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#5| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#6 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#6 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1042"], "smtname": 6, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#6| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1042
 ; yosys-smt2-register _witness_.anyinit_procdff_1042 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1042 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1042| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#6| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#7 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#7 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1047"], "smtname": 7, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#7| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1047
 ; yosys-smt2-register _witness_.anyinit_procdff_1047 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1047 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1047| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#7| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#8 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#8 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1052"], "smtname": 8, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#8| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1052
 ; yosys-smt2-register _witness_.anyinit_procdff_1052 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1052 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1052| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#8| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#9 4 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#9 4 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1057"], "smtname": 9, "smtoffset": 0, "type": "init", "width": 4}
 (declare-fun |i3c_protocol_fsm#9| (|i3c_protocol_fsm_s|) (_ BitVec 4)) ; \_witness_.anyinit_procdff_1057
 ; yosys-smt2-register _witness_.anyinit_procdff_1057 4
 ; yosys-smt2-wire _witness_.anyinit_procdff_1057 4
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1057| ((state |i3c_protocol_fsm_s|)) (_ BitVec 4) (|i3c_protocol_fsm#9| state))
-; yosys-smt2-anyinit i3c_protocol_fsm#10 4 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#10 4 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1062"], "smtname": 10, "smtoffset": 0, "type": "init", "width": 4}
 (declare-fun |i3c_protocol_fsm#10| (|i3c_protocol_fsm_s|) (_ BitVec 4)) ; \_witness_.anyinit_procdff_1062
 ; yosys-smt2-register _witness_.anyinit_procdff_1062 4
 ; yosys-smt2-wire _witness_.anyinit_procdff_1062 4
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1062| ((state |i3c_protocol_fsm_s|)) (_ BitVec 4) (|i3c_protocol_fsm#10| state))
-; yosys-smt2-anyinit i3c_protocol_fsm#11 8 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#11 8 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1067"], "smtname": 11, "smtoffset": 0, "type": "init", "width": 8}
 (declare-fun |i3c_protocol_fsm#11| (|i3c_protocol_fsm_s|) (_ BitVec 8)) ; \_witness_.anyinit_procdff_1067
 ; yosys-smt2-register _witness_.anyinit_procdff_1067 8
 ; yosys-smt2-wire _witness_.anyinit_procdff_1067 8
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1067| ((state |i3c_protocol_fsm_s|)) (_ BitVec 8) (|i3c_protocol_fsm#11| state))
-; yosys-smt2-anyinit i3c_protocol_fsm#12 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#12 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1072"], "smtname": 12, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#12| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1072
 ; yosys-smt2-register _witness_.anyinit_procdff_1072 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1072 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1072| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#12| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#13 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#13 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1077"], "smtname": 13, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#13| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1077
 ; yosys-smt2-register _witness_.anyinit_procdff_1077 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1077 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1077| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#13| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#14 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#14 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1082"], "smtname": 14, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#14| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1082
 ; yosys-smt2-register _witness_.anyinit_procdff_1082 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1082 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1082| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#14| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#15 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#15 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1087"], "smtname": 15, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#15| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1087
 ; yosys-smt2-register _witness_.anyinit_procdff_1087 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1087 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1087| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#15| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#16 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#16 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1092"], "smtname": 16, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#16| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1092
 ; yosys-smt2-register _witness_.anyinit_procdff_1092 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1092 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1092| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#16| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#17 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#17 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1097"], "smtname": 17, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#17| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1097
 ; yosys-smt2-register _witness_.anyinit_procdff_1097 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1097 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1097| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#17| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#18 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#18 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1102"], "smtname": 18, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#18| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1102
 ; yosys-smt2-register _witness_.anyinit_procdff_1102 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1102 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1102| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#18| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#19 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#19 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1107"], "smtname": 19, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#19| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1107
 ; yosys-smt2-register _witness_.anyinit_procdff_1107 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1107 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1107| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#19| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#20 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#20 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1112"], "smtname": 20, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#20| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1112
 ; yosys-smt2-register _witness_.anyinit_procdff_1112 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1112 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1112| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#20| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#21 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#21 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1117"], "smtname": 21, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#21| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1117
 ; yosys-smt2-register _witness_.anyinit_procdff_1117 1
@@ -140,43 +140,43 @@
 ; yosys-smt2-register _witness_.anyinit_procdff_1122 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_1122 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_1122| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#22| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#23 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#23 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_970"], "smtname": 23, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#23| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_970
 ; yosys-smt2-register _witness_.anyinit_procdff_970 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_970 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_970| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#23| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#24 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#24 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_975"], "smtname": 24, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#24| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_975
 ; yosys-smt2-register _witness_.anyinit_procdff_975 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_975 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_975| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#24| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#25 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#25 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_980"], "smtname": 25, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#25| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_980
 ; yosys-smt2-register _witness_.anyinit_procdff_980 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_980 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_980| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#25| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#26 7 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#26 7 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_985"], "smtname": 26, "smtoffset": 0, "type": "init", "width": 7}
 (declare-fun |i3c_protocol_fsm#26| (|i3c_protocol_fsm_s|) (_ BitVec 7)) ; \_witness_.anyinit_procdff_985
 ; yosys-smt2-register _witness_.anyinit_procdff_985 7
 ; yosys-smt2-wire _witness_.anyinit_procdff_985 7
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_985| ((state |i3c_protocol_fsm_s|)) (_ BitVec 7) (|i3c_protocol_fsm#26| state))
-; yosys-smt2-anyinit i3c_protocol_fsm#27 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#27 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_990"], "smtname": 27, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#27| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_990
 ; yosys-smt2-register _witness_.anyinit_procdff_990 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_990 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_990| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#27| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#28 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#28 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_995"], "smtname": 28, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#28| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_995
 ; yosys-smt2-register _witness_.anyinit_procdff_995 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_995 1
 (define-fun |i3c_protocol_fsm_n _witness_.anyinit_procdff_995| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#28| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#29 1 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#29 1 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_1007"], "smtname": 29, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_protocol_fsm#29| (|i3c_protocol_fsm_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_1007
 ; yosys-smt2-register _witness_.anyinit_procdff_1007 1
@@ -312,7 +312,7 @@
 ; yosys-smt2-wire rst_ni 1
 ; yosys-smt2-witness {"offset": 0, "path": ["\\rst_ni"], "smtname": "rst_ni", "smtoffset": 0, "type": "input", "width": 1}
 (define-fun |i3c_protocol_fsm_n rst_ni| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 0 0) (|i3c_protocol_fsm#30| state)) #b1))
-; yosys-smt2-anyinit i3c_protocol_fsm#62 8 i3c_protocol_fsm.sv:139.5-556.8
+; yosys-smt2-anyinit i3c_protocol_fsm#62 8 i3c_protocol_fsm.sv:139.5-509.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\rx_data_o"], "smtname": 62, "smtoffset": 0, "type": "init", "width": 8}
 (declare-fun |i3c_protocol_fsm#62| (|i3c_protocol_fsm_s|) (_ BitVec 8)) ; \rx_data_o
 ; yosys-smt2-output rx_data_o 8
@@ -458,9 +458,9 @@
 (define-fun |i3c_protocol_fsm#134| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (|i3c_protocol_fsm#72| state) #b0 (|i3c_protocol_fsm#133| state))) ; $procmux$853_Y
 (define-fun |i3c_protocol_fsm#135| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (|i3c_protocol_fsm#75| state) #b0 (|i3c_protocol_fsm#134| state))) ; $0\tx_mode_pp_o[0:0]
 (define-fun |i3c_protocol_fsm#136| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|i3c_protocol_fsm#30| state)) #b1) (|i3c_protocol_fsm#135| state) #b0)) ; $auto$rtlil.cc:3390:Mux$1220
-(define-fun |i3c_protocol_fsm#137| ((state |i3c_protocol_fsm_s|)) Bool (not (or  (|i3c_protocol_fsm#58| state) false))) ; $logic_not$i3c_protocol_fsm.sv:490$68_Y
+(define-fun |i3c_protocol_fsm#137| ((state |i3c_protocol_fsm_s|)) Bool (not (or  (|i3c_protocol_fsm#58| state) false))) ; $logic_not$i3c_protocol_fsm.sv:457$68_Y
 (define-fun |i3c_protocol_fsm#138| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|i3c_protocol_fsm#48| state)) #b1) (ite (|i3c_protocol_fsm#137| state) #b1 #b0) #b1)) ; $procmux$861_Y
-(define-fun |i3c_protocol_fsm#139| ((state |i3c_protocol_fsm_s|)) Bool (not (or  (|i3c_protocol_fsm#43| state) false))) ; $logic_not$i3c_protocol_fsm.sv:488$67_Y
+(define-fun |i3c_protocol_fsm#139| ((state |i3c_protocol_fsm_s|)) Bool (not (or  (|i3c_protocol_fsm#43| state) false))) ; $logic_not$i3c_protocol_fsm.sv:455$67_Y
 (define-fun |i3c_protocol_fsm#140| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|i3c_protocol_fsm#38| state)) #b1) (ite (|i3c_protocol_fsm#139| state) #b1 #b0) (|i3c_protocol_fsm#138| state))) ; $procmux$864_Y
 (define-fun |i3c_protocol_fsm#141| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (|i3c_protocol_fsm#113| state) (|i3c_protocol_fsm#140| state) (|i3c_protocol_fsm#78| state))) ; $procmux$866_Y
 (define-fun |i3c_protocol_fsm#142| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (|i3c_protocol_fsm#67| state) ((_ extract 7 7) (|i3c_protocol_fsm#71| state)) (|i3c_protocol_fsm#78| state))) ; $procmux$870_Y
@@ -521,8 +521,8 @@
 (define-fun |i3c_protocol_fsm#197| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|i3c_protocol_fsm#38| state)) #b1) (|i3c_protocol_fsm#196| state) (|i3c_protocol_fsm#195| state))) ; $auto$wreduce.cc:514:run$1133 [0]
 (define-fun |i3c_protocol_fsm#198| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (|i3c_protocol_fsm#103| state) (|i3c_protocol_fsm#197| state) #b0)) ; $procmux$103_Y
 (define-fun |i3c_protocol_fsm#199| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|i3c_protocol_fsm#59| state)) #b1) #b1 #b0)) ; $auto$wreduce.cc:514:run$1142 [0]
-(define-fun |i3c_protocol_fsm#200| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 7 1) (|i3c_protocol_fsm#71| state)) #b1111110)) ; $eq$i3c_protocol_fsm.sv:355$55_Y
-(define-fun |i3c_protocol_fsm#201| ((state |i3c_protocol_fsm_s|)) Bool (and (or  (|i3c_protocol_fsm#200| state) false) (or  (= ((_ extract 0 0) (|i3c_protocol_fsm#59| state)) #b1) false))) ; $logic_and$i3c_protocol_fsm.sv:355$56_Y
+(define-fun |i3c_protocol_fsm#200| ((state |i3c_protocol_fsm_s|)) Bool (= ((_ extract 7 1) (|i3c_protocol_fsm#71| state)) #b1111110)) ; $eq$i3c_protocol_fsm.sv:347$55_Y
+(define-fun |i3c_protocol_fsm#201| ((state |i3c_protocol_fsm_s|)) Bool (and (or  (|i3c_protocol_fsm#200| state) false) (or  (= ((_ extract 0 0) (|i3c_protocol_fsm#59| state)) #b1) false))) ; $logic_and$i3c_protocol_fsm.sv:347$56_Y
 (define-fun |i3c_protocol_fsm#202| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (|i3c_protocol_fsm#201| state) #b0 (|i3c_protocol_fsm#199| state))) ; $auto$wreduce.cc:514:run$1138 [0]
 (define-fun |i3c_protocol_fsm#203| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|i3c_protocol_fsm#31| state)) #b1) (|i3c_protocol_fsm#202| state) #b0)) ; $auto$wreduce.cc:514:run$1135 [0]
 (define-fun |i3c_protocol_fsm#204| ((state |i3c_protocol_fsm_s|)) (_ BitVec 1) (ite (|i3c_protocol_fsm#70| state) #b0 #b1)) ; $auto$wreduce.cc:514:run$1144 [0]

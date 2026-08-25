@@ -2,79 +2,79 @@
 ; yosys-smt2-module i3c_ibi_hj_ctrl
 (declare-sort |i3c_ibi_hj_ctrl_s| 0)
 (declare-fun |i3c_ibi_hj_ctrl_is| (|i3c_ibi_hj_ctrl_s|) Bool)
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#0 1 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#0 1 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_237"], "smtname": 0, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_ibi_hj_ctrl#0| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_237
 ; yosys-smt2-register _witness_.anyinit_procdff_237 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_237 1
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_237| ((state |i3c_ibi_hj_ctrl_s|)) Bool (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#0| state)) #b1))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#1 1 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#1 1 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_242"], "smtname": 1, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_ibi_hj_ctrl#1| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_242
 ; yosys-smt2-register _witness_.anyinit_procdff_242 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_242 1
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_242| ((state |i3c_ibi_hj_ctrl_s|)) Bool (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#1| state)) #b1))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#2 1 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#2 1 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_247"], "smtname": 2, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_ibi_hj_ctrl#2| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_247
 ; yosys-smt2-register _witness_.anyinit_procdff_247 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_247 1
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_247| ((state |i3c_ibi_hj_ctrl_s|)) Bool (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#2| state)) #b1))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#3 1 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#3 1 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_252"], "smtname": 3, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_ibi_hj_ctrl#3| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_252
 ; yosys-smt2-register _witness_.anyinit_procdff_252 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_252 1
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_252| ((state |i3c_ibi_hj_ctrl_s|)) Bool (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#3| state)) #b1))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#4 2 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#4 2 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_257"], "smtname": 4, "smtoffset": 0, "type": "init", "width": 2}
 (declare-fun |i3c_ibi_hj_ctrl#4| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 2)) ; \_witness_.anyinit_procdff_257
 ; yosys-smt2-register _witness_.anyinit_procdff_257 2
 ; yosys-smt2-wire _witness_.anyinit_procdff_257 2
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_257| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 2) (|i3c_ibi_hj_ctrl#4| state))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#5 2 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#5 2 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_262"], "smtname": 5, "smtoffset": 0, "type": "init", "width": 2}
 (declare-fun |i3c_ibi_hj_ctrl#5| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 2)) ; \_witness_.anyinit_procdff_262
 ; yosys-smt2-register _witness_.anyinit_procdff_262 2
 ; yosys-smt2-wire _witness_.anyinit_procdff_262 2
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_262| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 2) (|i3c_ibi_hj_ctrl#5| state))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#6 1 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#6 1 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_267"], "smtname": 6, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_ibi_hj_ctrl#6| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_267
 ; yosys-smt2-register _witness_.anyinit_procdff_267 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_267 1
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_267| ((state |i3c_ibi_hj_ctrl_s|)) Bool (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#6| state)) #b1))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#7 1 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#7 1 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_272"], "smtname": 7, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_ibi_hj_ctrl#7| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_272
 ; yosys-smt2-register _witness_.anyinit_procdff_272 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_272 1
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_272| ((state |i3c_ibi_hj_ctrl_s|)) Bool (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#7| state)) #b1))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#8 1 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#8 1 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_277"], "smtname": 8, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |i3c_ibi_hj_ctrl#8| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_277
 ; yosys-smt2-register _witness_.anyinit_procdff_277 1
 ; yosys-smt2-wire _witness_.anyinit_procdff_277 1
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_277| ((state |i3c_ibi_hj_ctrl_s|)) Bool (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#8| state)) #b1))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#9 8 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#9 8 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_282"], "smtname": 9, "smtoffset": 0, "type": "init", "width": 8}
 (declare-fun |i3c_ibi_hj_ctrl#9| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 8)) ; \_witness_.anyinit_procdff_282
 ; yosys-smt2-register _witness_.anyinit_procdff_282 8
 ; yosys-smt2-wire _witness_.anyinit_procdff_282 8
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_282| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (|i3c_ibi_hj_ctrl#9| state))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#10 8 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#10 8 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_287"], "smtname": 10, "smtoffset": 0, "type": "init", "width": 8}
 (declare-fun |i3c_ibi_hj_ctrl#10| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 8)) ; \_witness_.anyinit_procdff_287
 ; yosys-smt2-register _witness_.anyinit_procdff_287 8
 ; yosys-smt2-wire _witness_.anyinit_procdff_287 8
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_287| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (|i3c_ibi_hj_ctrl#10| state))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#11 2 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#11 2 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_232"], "smtname": 11, "smtoffset": 0, "type": "init", "width": 2}
 (declare-fun |i3c_ibi_hj_ctrl#11| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 2)) ; \_witness_.anyinit_procdff_232
 ; yosys-smt2-register _witness_.anyinit_procdff_232 2
 ; yosys-smt2-wire _witness_.anyinit_procdff_232 2
 (define-fun |i3c_ibi_hj_ctrl_n _witness_.anyinit_procdff_232| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 2) (|i3c_ibi_hj_ctrl#11| state))
-; yosys-smt2-anyinit i3c_ibi_hj_ctrl#12 2 i3c_ibi_hj_ctrl.sv:119.5-230.8
+; yosys-smt2-anyinit i3c_ibi_hj_ctrl#12 2 i3c_ibi_hj_ctrl.sv:119.5-226.8
 ; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_227"], "smtname": 12, "smtoffset": 0, "type": "init", "width": 2}
 (declare-fun |i3c_ibi_hj_ctrl#12| (|i3c_ibi_hj_ctrl_s|) (_ BitVec 2)) ; \_witness_.anyinit_procdff_227
 ; yosys-smt2-register _witness_.anyinit_procdff_227 2
@@ -277,15 +277,15 @@
 (define-fun |i3c_ibi_hj_ctrl#73| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 2) (ite (|i3c_ibi_hj_ctrl#27| state) (|i3c_ibi_hj_ctrl#72| state) (|i3c_ibi_hj_ctrl#38| state))) ; $procmux$207_Y
 (define-fun |i3c_ibi_hj_ctrl#74| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 2) (ite (|i3c_ibi_hj_ctrl#68| state) (|i3c_ibi_hj_ctrl#73| state) (|i3c_ibi_hj_ctrl#38| state))) ; $0\ibi_active_src_o[1:0]
 (define-fun |i3c_ibi_hj_ctrl#75| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 2) (ite (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#19| state)) #b1) (|i3c_ibi_hj_ctrl#74| state) #b00)) ; $auto$rtlil.cc:3390:Mux$346
-(define-fun |i3c_ibi_hj_ctrl#76| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) ((_ extract 7 0) (ite (bvsge (concat #b000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000)) #b00000000) (bvlshr (|i3c_ibi_hj_ctrl#44| state) (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000))) (bvshl (|i3c_ibi_hj_ctrl#44| state) (bvneg (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000))))))) ; $shiftx$i3c_ibi_hj_ctrl.sv:165$38_Y
+(define-fun |i3c_ibi_hj_ctrl#76| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) ((_ extract 7 0) (ite (bvsge (concat #b000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000)) #b00000000) (bvlshr (|i3c_ibi_hj_ctrl#44| state) (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000))) (bvshl (|i3c_ibi_hj_ctrl#44| state) (bvneg (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000))))))) ; $shiftx$i3c_ibi_hj_ctrl.sv:163$38_Y
 (define-fun |i3c_ibi_hj_ctrl#77| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (|i3c_ibi_hj_ctrl#18| state) (|i3c_ibi_hj_ctrl#76| state) (|i3c_ibi_hj_ctrl#49| state))) ; $procmux$89_Y
 (define-fun |i3c_ibi_hj_ctrl#78| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (|i3c_ibi_hj_ctrl#32| state) (|i3c_ibi_hj_ctrl#49| state) (|i3c_ibi_hj_ctrl#77| state))) ; $procmux$92_Y
 (define-fun |i3c_ibi_hj_ctrl#79| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (|i3c_ibi_hj_ctrl#27| state) (|i3c_ibi_hj_ctrl#78| state) (|i3c_ibi_hj_ctrl#49| state))) ; $procmux$94_Y
 (define-fun |i3c_ibi_hj_ctrl#80| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (|i3c_ibi_hj_ctrl#68| state) (|i3c_ibi_hj_ctrl#79| state) (|i3c_ibi_hj_ctrl#49| state))) ; $0\payload_byte[7:0]
 (define-fun |i3c_ibi_hj_ctrl#81| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#19| state)) #b1) (|i3c_ibi_hj_ctrl#80| state) #b00000000)) ; $auto$rtlil.cc:3390:Mux$324
-(define-fun |i3c_ibi_hj_ctrl#82| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) ((_ extract 7 0) (ite (bvsge (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000)) #b00000000000000000000000000000000) (bvlshr (|i3c_ibi_hj_ctrl#43| state) (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000))) (bvshl (|i3c_ibi_hj_ctrl#43| state) (bvneg (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000))))))) ; $shiftx$i3c_ibi_hj_ctrl.sv:163$34_Y
-(define-fun |i3c_ibi_hj_ctrl#83| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) ((_ extract 0 0) (bvlshr (|i3c_ibi_hj_ctrl#42| state) (concat #b00 (|i3c_ibi_hj_ctrl#55| state))))) ; $shiftx$i3c_ibi_hj_ctrl.sv:158$30_Y
-(define-fun |i3c_ibi_hj_ctrl#84| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#83| state)) #b1) #b11100000 (|i3c_ibi_hj_ctrl#82| state))) ; $ternary$i3c_ibi_hj_ctrl.sv:162$35_Y
+(define-fun |i3c_ibi_hj_ctrl#82| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) ((_ extract 7 0) (ite (bvsge (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000)) #b00000000000000000000000000000000) (bvlshr (|i3c_ibi_hj_ctrl#43| state) (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000))) (bvshl (|i3c_ibi_hj_ctrl#43| state) (bvneg (concat #b000000000000000000000000000 (concat (|i3c_ibi_hj_ctrl#55| state) #b000))))))) ; $shiftx$i3c_ibi_hj_ctrl.sv:161$34_Y
+(define-fun |i3c_ibi_hj_ctrl#83| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) ((_ extract 0 0) (bvlshr (|i3c_ibi_hj_ctrl#42| state) (concat #b00 (|i3c_ibi_hj_ctrl#55| state))))) ; $shiftx$i3c_ibi_hj_ctrl.sv:156$30_Y
+(define-fun |i3c_ibi_hj_ctrl#84| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#83| state)) #b1) #b11100000 (|i3c_ibi_hj_ctrl#82| state))) ; $ternary$i3c_ibi_hj_ctrl.sv:160$35_Y
 (define-fun |i3c_ibi_hj_ctrl#85| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (|i3c_ibi_hj_ctrl#18| state) (|i3c_ibi_hj_ctrl#84| state) (|i3c_ibi_hj_ctrl#48| state))) ; $procmux$101_Y
 (define-fun |i3c_ibi_hj_ctrl#86| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (|i3c_ibi_hj_ctrl#32| state) (|i3c_ibi_hj_ctrl#48| state) (|i3c_ibi_hj_ctrl#85| state))) ; $procmux$104_Y
 (define-fun |i3c_ibi_hj_ctrl#87| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 8) (ite (|i3c_ibi_hj_ctrl#27| state) (|i3c_ibi_hj_ctrl#86| state) (|i3c_ibi_hj_ctrl#48| state))) ; $procmux$106_Y
@@ -296,7 +296,7 @@
 (define-fun |i3c_ibi_hj_ctrl#92| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) (ite (|i3c_ibi_hj_ctrl#27| state) (|i3c_ibi_hj_ctrl#91| state) (|i3c_ibi_hj_ctrl#47| state))) ; $procmux$118_Y
 (define-fun |i3c_ibi_hj_ctrl#93| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) (ite (|i3c_ibi_hj_ctrl#68| state) (|i3c_ibi_hj_ctrl#92| state) (|i3c_ibi_hj_ctrl#47| state))) ; $0\is_prn[0:0]
 (define-fun |i3c_ibi_hj_ctrl#94| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|i3c_ibi_hj_ctrl#19| state)) #b1) (|i3c_ibi_hj_ctrl#93| state) #b0)) ; $auto$rtlil.cc:3390:Mux$328
-(define-fun |i3c_ibi_hj_ctrl#95| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) ((_ extract 0 0) (bvlshr (|i3c_ibi_hj_ctrl#41| state) (concat #b00 (|i3c_ibi_hj_ctrl#55| state))))) ; $shiftx$i3c_ibi_hj_ctrl.sv:157$29_Y
+(define-fun |i3c_ibi_hj_ctrl#95| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) ((_ extract 0 0) (bvlshr (|i3c_ibi_hj_ctrl#41| state) (concat #b00 (|i3c_ibi_hj_ctrl#55| state))))) ; $shiftx$i3c_ibi_hj_ctrl.sv:155$29_Y
 (define-fun |i3c_ibi_hj_ctrl#96| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) (ite (|i3c_ibi_hj_ctrl#18| state) (|i3c_ibi_hj_ctrl#95| state) (|i3c_ibi_hj_ctrl#29| state))) ; $procmux$125_Y
 (define-fun |i3c_ibi_hj_ctrl#97| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) (ite (|i3c_ibi_hj_ctrl#32| state) (|i3c_ibi_hj_ctrl#29| state) (|i3c_ibi_hj_ctrl#96| state))) ; $procmux$128_Y
 (define-fun |i3c_ibi_hj_ctrl#98| ((state |i3c_ibi_hj_ctrl_s|)) (_ BitVec 1) (ite (|i3c_ibi_hj_ctrl#27| state) (|i3c_ibi_hj_ctrl#97| state) (|i3c_ibi_hj_ctrl#29| state))) ; $procmux$130_Y

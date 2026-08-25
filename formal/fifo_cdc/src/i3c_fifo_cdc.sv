@@ -214,3 +214,4 @@ module i3c_fifo_cdc #(
     endfunction
 
 endmodule
+

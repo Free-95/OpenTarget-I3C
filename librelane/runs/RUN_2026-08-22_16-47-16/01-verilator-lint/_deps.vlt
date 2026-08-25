@@ -1,5 +1,0 @@
-`verilator_config
-lint_off -rule DECLFILENAME
-lint_off -rule EOFNEWLINE
-lint_off -rule UNDRIVEN -file "/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-08-22_16-47-16/tmp/2b3f2ca826a94f069dd287c36f0e840e.bb.v"
-lint_off -rule UNUSEDSIGNAL -file "/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-08-22_16-47-16/tmp/2b3f2ca826a94f069dd287c36f0e840e.bb.v"

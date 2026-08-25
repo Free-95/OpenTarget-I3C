@@ -306,8 +306,8 @@ Optimizing module i3c_protocol_fsm.
 Removed top 29 bits (of 32) from port A of cell i3c_protocol_fsm.$sub$i3c_protocol_fsm.sv:248$20 ($sub).
 Removed top 27 bits (of 32) from port Y of cell i3c_protocol_fsm.$sub$i3c_protocol_fsm.sv:248$20 ($sub).
 Removed top 27 bits (of 32) from port B of cell i3c_protocol_fsm.$shiftx$i3c_protocol_fsm.sv:248$21 ($shiftx).
-Removed top 3 bits (of 4) from port B of cell i3c_protocol_fsm.$add$i3c_protocol_fsm.sv:474$63 ($add).
-Removed top 1 bits (of 4) from port B of cell i3c_protocol_fsm.$eq$i3c_protocol_fsm.sv:476$64 ($eq).
+Removed top 3 bits (of 4) from port B of cell i3c_protocol_fsm.$add$i3c_protocol_fsm.sv:441$63 ($add).
+Removed top 1 bits (of 4) from port B of cell i3c_protocol_fsm.$eq$i3c_protocol_fsm.sv:443$64 ($eq).
 Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$379 ($mux).
 Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$381 ($mux).
 Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$385 ($mux).
@@ -441,6 +441,6 @@ Removed 0 unused modules.
 6. Executing RTLIL backend.
 Output filename: ../model/design.il
 
-End of script. Logfile hash: 1a85479345, time: 0.08s, user: 0.04s, system: 0.07s, MEM: 38.13 MB peak
+End of script. Logfile hash: d6892baa10, time: 0.09s, user: 0.08s, system: 0.04s, MEM: 38.21 MB peak
 Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
-Time spent: 18% 6x opt_clean (0 sec), 15% 4x read_verilog (0 sec), ...
+Time spent: 19% 6x opt_clean (0 sec), 15% 7x opt_expr (0 sec), ...
