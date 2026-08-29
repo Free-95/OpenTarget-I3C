@@ -1,0 +1,6 @@
+- cell: spi_opentarget_i3c_top
+  inout: []
+  input:
+  - irq_o_IN
+  - spi_miso_o_IN
+  output: []

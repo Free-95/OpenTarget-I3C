@@ -73,7 +73,7 @@ test_spi_apb_bridge:
 test_spi_opentarget_top:
 	@echo "Running $@..."
 	@mkdir -p build_$@
-	COCOTB_RESULTS_FILE=$(shell pwd)/build_$@/results.xml $(MAKE) MODULE=$@ TOPLEVEL=spi_opentarget_i3c_top SIM_BUILD=$(shell pwd)/build_$@/sim_build
+	COCOTB_RESULTS_FILE=$(shell pwd)/build_$@/results.xml $(MAKE) MODULE=$@ TOPLEVEL=spi_opentarget_i3c_macro SIM_BUILD=$(shell pwd)/build_$@/sim_build
 	-@if [ -f dump.vcd ]; then mv dump.vcd build_$@/; fi
 	-@if [ -f *.fst ]; then mv *.fst build_$@/; fi
 
@@ -106,7 +106,7 @@ VERILOG_SOURCES := \
         $(SRC_DIR)/i3c_phy_frontend.sv \
         $(SRC_DIR)/opentarget_i3c_top.sv \
         $(SRC_DIR)/spi_apb_bridge.sv \
-        $(SRC_DIR)/spi_opentarget_i3c_top.sv \
+        $(SRC_DIR)/spi_opentarget_i3c_macro.sv \
         $(EXTRA_SRCS)
 
 # Pass include directories to the simulator (useful for Verilog headers)

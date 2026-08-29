@@ -1,0 +1,50 @@
+
+===========================================================================
+Violator List
+============================================================================
+[hold in-reg] rst_ni -> _3446_/RN : -0.038438
+[hold in-reg] rst_ni -> _3447_/RN : -0.033713
+[hold in-reg] rst_ni -> _3266_/RN : -0.031272
+[hold in-reg] rst_ni -> _3258_/RN : -0.030344
+[hold in-reg] rst_ni -> _3257_/RN : -0.029830
+[hold in-reg] rst_ni -> _3307_/RN : -0.029784
+[hold in-reg] rst_ni -> _3091_/RN : -0.029757
+[hold in-reg] rst_ni -> _3308_/RN : -0.029663
+[hold in-reg] rst_ni -> _3300_/RN : -0.029314
+[hold in-reg] rst_ni -> _3092_/RN : -0.028891
+[hold in-reg] rst_ni -> _3085_/RN : -0.028790
+[hold in-reg] rst_ni -> _3265_/RN : -0.028224
+[hold in-reg] rst_ni -> _3328_/RN : -0.027748
+[hold in-reg] rst_ni -> _3299_/RN : -0.027241
+[hold in-reg] rst_ni -> _3083_/RN : -0.026939
+[hold in-reg] rst_ni -> _3252_/RN : -0.026764
+[hold in-reg] rst_ni -> _3294_/RN : -0.026586
+[hold in-reg] rst_ni -> _3260_/RN : -0.026404
+[hold in-reg] rst_ni -> _3302_/RN : -0.026396
+[hold in-reg] rst_ni -> _3086_/RN : -0.026381
+[hold in-reg] rst_ni -> _3078_/RN : -0.026205
+[hold in-reg] rst_ni -> _3336_/RN : -0.024527
+[hold in-reg] rst_ni -> _3335_/RN : -0.023524
+[hold in-reg] rst_ni -> _3338_/RN : -0.023154
+[hold in-reg] rst_ni -> _3330_/RN : -0.023014
+[hold in-reg] rst_ni -> _3337_/RN : -0.022808
+[hold in-reg] rst_ni -> _3322_/RN : -0.022753
+[hold in-reg] rst_ni -> _3333_/RN : -0.020025
+[hold in-reg] rst_ni -> _3329_/RN : -0.019936
+[hold in-reg] rst_ni -> _3259_/RN : -0.019863
+[hold in-reg] rst_ni -> _3324_/RN : -0.019573
+[hold in-reg] rst_ni -> _3241_/RN : -0.019353
+[hold in-reg] rst_ni -> _3283_/RN : -0.019276
+[hold in-reg] rst_ni -> _3220_/RN : -0.016663
+[hold in-reg] rst_ni -> _3235_/RN : -0.016450
+[hold in-reg] rst_ni -> _3275_/RN : -0.016446
+[hold in-reg] rst_ni -> _3334_/RN : -0.011794
+[hold in-reg] rst_ni -> _3301_/RN : -0.011473
+[hold in-reg] rst_ni -> _3267_/RN : -0.011266
+[hold in-reg] rst_ni -> _3309_/RN : -0.011225
+Writing metric timing__hold_vio__count__corner:nom_tt_025C_5v00: 40
+Writing metric timing__hold_r2r__ws__corner:nom_tt_025C_5v00: 0.212018
+Writing metric timing__hold_r2r_vio__count__corner:nom_tt_025C_5v00: 0
+Writing metric timing__setup_vio__count__corner:nom_tt_025C_5v00: 0
+Writing metric timing__setup_r2r__ws__corner:nom_tt_025C_5v00: 12.686417
+Writing metric timing__setup_r2r_vio__count__corner:nom_tt_025C_5v00: 0

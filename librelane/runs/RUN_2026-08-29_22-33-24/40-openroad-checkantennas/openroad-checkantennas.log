@@ -1,0 +1,79 @@
+Reading timing models for corner nom_tt_025C_5v00…
+Reading timing library for the 'nom_tt_025C_5v00' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib'…
+Reading OpenROAD database at '/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-08-29_22-33-24/39-openroad-globalrouting/spi_opentarget_i3c_top.odb'…
+Reading design constraints file at '/foss/designs/OpenTarget-I3C/librelane/spi_opentarget_i3c_top.sdc'…
+[INFO] No information on clock propagation in input SDC file-- propagating all clocks.
+%OL_CREATE_REPORT /foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-08-29_22-33-24/40-openroad-checkantennas/reports/antenna.rpt
+Net: net9
+  Pin:   _2497_/B (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+    Layer: Via1
+      Partial area ratio:    0.06
+      Required ratio:   20.00 (Gate area) 
+      Cumulative area ratio:    0.06
+      Required ratio:    0.00 (Cumulative area) 
+
+    Layer: Metal2
+      Partial area ratio:    3.24
+      Required ratio:    0.00 (Gate area) 
+      Cumulative area ratio:    3.24
+      Required ratio:    0.00 (Cumulative area) 
+      Partial area ratio:   12.78
+      Required ratio:  400.00 (Side area) 
+      Cumulative area ratio:   12.78
+      Required ratio:    0.00 (Cumulative side area) 
+
+    Layer: Via2
+      Partial area ratio:    0.13
+      Required ratio:   20.00 (Gate area) 
+      Cumulative area ratio:    0.19
+      Required ratio:    0.00 (Cumulative area) 
+
+    Layer: Metal3
+      Partial area ratio:    6.67
+      Required ratio:    0.00 (Gate area) 
+      Cumulative area ratio:    9.91
+      Required ratio:    0.00 (Cumulative area) 
+      Partial area ratio:   26.08
+      Required ratio:  400.00 (Side area) 
+      Cumulative area ratio:   38.87
+      Required ratio:    0.00 (Cumulative side area) 
+
+
+  Pin:   output9/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+    Layer: Via1
+      Partial area ratio:    0.17
+      Required ratio:   20.00 (Gate area) 
+      Cumulative area ratio:    0.17
+      Required ratio:    0.00 (Cumulative area) 
+
+    Layer: Metal2
+      Partial area ratio:  121.24
+      Required ratio:    0.00 (Gate area) 
+      Cumulative area ratio:  121.24
+      Required ratio:    0.00 (Cumulative area) 
+      Partial area ratio:  468.39
+      Required ratio:  400.00 (Side area) (VIOLATED)
+      Cumulative area ratio:  468.39
+      Required ratio:    0.00 (Cumulative side area) 
+
+    Layer: Via2
+      Partial area ratio:    0.34
+      Required ratio:   20.00 (Gate area) 
+      Cumulative area ratio:    0.51
+      Required ratio:    0.00 (Cumulative area) 
+
+    Layer: Metal3
+      Partial area ratio:    6.67
+      Required ratio:    0.00 (Gate area) 
+      Cumulative area ratio:  127.90
+      Required ratio:    0.00 (Cumulative area) 
+      Partial area ratio:   26.08
+      Required ratio:  400.00 (Side area) 
+      Cumulative area ratio:  494.47
+      Required ratio:    0.00 (Cumulative side area) 
+
+
+
+[INFO ANT-0002] Found 1 net violations.
+[INFO ANT-0001] Found 1 pin violations.
+%OL_END_REPORT

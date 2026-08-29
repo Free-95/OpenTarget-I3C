@@ -1,0 +1,45 @@
+172. Printing statistics.
+
+=== spi_opentarget_i3c_top ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1840 wires
+     2516 wire bits
+      208 public wires
+      871 public wire bits
+       53 ports
+       53 port bits
+     2375 cells
+      499   $_ANDNOT_
+       75   $_AND_
+      272   $_DFFE_PN0P_
+        4   $_DFFE_PN1P_
+      264   $_DFFE_PP_
+      100   $_DFF_PN0_
+       22   $_DFF_PN1_
+      311   $_MUX_
+      105   $_NAND_
+       92   $_NOR_
+       88   $_NOT_
+       91   $_ORNOT_
+      364   $_OR_
+       30   $_XNOR_
+       58   $_XOR_
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFFE_PN0P_ is unknown!
+   Area for cell type $_DFFE_PN1P_ is unknown!
+   Area for cell type $_DFFE_PP_ is unknown!
+   Area for cell type $_DFF_PN0_ is unknown!
+   Area for cell type $_DFF_PN1_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+

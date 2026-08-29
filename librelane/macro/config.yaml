@@ -1,0 +1,75 @@
+meta:
+  version: 3
+  flow: Classic
+  # Disable some signoff checks for a preliminary fast run if needed
+#  substituting_steps:
+#    Magic.DRC: null
+#    Checker.MagicDRC: null
+#    KLayout.XOR: null
+#    Netgen.LVS: null
+#    Checker.LVS: null
+
+# ----------------------------------------------------
+# 1. Design & Source Files
+# ----------------------------------------------------
+DESIGN_NAME: spi_opentarget_i3c_macro
+VERILOG_FILES:
+  - dir::../src/spi_opentarget_i3c_macro.sv
+  - dir::../src/spi_apb_bridge.sv
+  - dir::../src/opentarget_i3c_top.sv
+  - dir::../src/i3c_apb_regs.sv
+  - dir::../src/i3c_bus_det.sv
+  - dir::../src/i3c_ccc_decoder.sv
+  - dir::../src/i3c_ibi_hj_ctrl.sv
+  - dir::../src/i3c_protocol_fsm.sv
+  - dir::../src/i3c_fifo_cdc.sv
+  - dir::../src/i3c_phy_frontend.sv
+
+# ----------------------------------------------------
+# 2. Standard Cell Library (Stable 5V Library)
+# ----------------------------------------------------
+STD_CELL_LIBRARY: gf180mcu_fd_sc_mcu7t5v0
+
+# ----------------------------------------------------
+# 3. Clocking (Includes all async clocks)
+# ----------------------------------------------------
+CLOCK_PORT: "clk_i host_clk_i spi_sclk_i"
+CLOCK_PERIOD: 20.0
+
+# Restrict CTS to smaller, highly-routable buffers
+CTS_CLK_BUFFERS:
+  - gf180mcu_fd_sc_mcu7t5v0__clkbuf_1
+  - gf180mcu_fd_sc_mcu7t5v0__clkbuf_2
+  - gf180mcu_fd_sc_mcu7t5v0__clkbuf_4
+
+PNR_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
+SIGNOFF_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
+
+# ----------------------------------------------------
+# 4. Floorplan Constraints
+# ----------------------------------------------------
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 450, 450]
+CORE_AREA: [10, 10, 440, 440]
+IO_PIN_ORDER_CFG: dir::pin_order.cfg
+
+# Lower density slightly to relieve routing congestion around the clock tree
+PL_TARGET_DENSITY_PCT: 50
+GRT_ALLOW_CONGESTION: true
+
+# Aggressive resizer and synthesis settings to avoid slew/cap violations
+PL_RESIZER_MAX_SLEW_MARGIN: 30
+PL_RESIZER_MAX_CAP_MARGIN: 30
+SYNTH_MAX_FANOUT: 10
+
+# ----------------------------------------------------
+# 5. Power & Ground
+# ----------------------------------------------------
+VDD_NETS:
+  - VDD
+GND_NETS:
+  - VSS
+
+# Disable the top-level core ring since this is a macro
+PDN_CORE_RING: False
+

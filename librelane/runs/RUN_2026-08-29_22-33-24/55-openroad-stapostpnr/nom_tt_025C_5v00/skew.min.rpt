@@ -1,0 +1,25 @@
+
+===========================================================================
+Clock Skew (Hold)
+============================================================================
+======================= nom_tt_025C_5v00 Corner ===================================
+
+Clock clk_i
+0.961596 source latency _3383_/CLK ^
+-1.128972 target latency _3378_/CLK ^
+-0.250000 clock uncertainty
+-0.064776 CRPR
+--------------
+-0.482152 hold skew
+
+Clock host_clk_i
+0.777347 source latency _2915_/CLK ^
+-0.859173 target latency _2915_/CLK ^
+-0.250000 clock uncertainty
+-0.081826 CRPR
+--------------
+-0.413652 hold skew
+
+Clock spi_sclk_i
+No launch/capture paths found.
+
