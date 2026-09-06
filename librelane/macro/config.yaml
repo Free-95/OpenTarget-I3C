@@ -42,8 +42,8 @@ CTS_CLK_BUFFERS:
   - gf180mcu_fd_sc_mcu7t5v0__clkbuf_2
   - gf180mcu_fd_sc_mcu7t5v0__clkbuf_4
 
-PNR_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
-SIGNOFF_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
+PNR_SDC_FILE: dir::spi_opentarget_i3c_macro.sdc
+SIGNOFF_SDC_FILE: dir::spi_opentarget_i3c_macro.sdc
 
 # ----------------------------------------------------
 # 4. Floorplan Constraints

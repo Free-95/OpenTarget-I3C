@@ -33,7 +33,6 @@ CLOCK_PERIOD: 20.0
 CTS_CLK_BUFFERS:
   - gf180mcu_fd_sc_mcu7t5v0__clkbuf_1
   - gf180mcu_fd_sc_mcu7t5v0__clkbuf_2
-  - gf180mcu_fd_sc_mcu7t5v0__clkbuf_4
 
 PNR_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
 SIGNOFF_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
@@ -43,16 +42,27 @@ SIGNOFF_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
 # ----------------------------------------------------
 FP_SIZING: absolute
 DIE_AREA: [0, 0, 550, 1110]
-CORE_AREA: [10, 10, 540, 1100]
+CORE_AREA: [25, 25, 525, 1085] 
 
-# Pre-place I/O control pins using the 53-pin integration DEF
+# Pre-place I/O control pins using the integration DEF
 FP_DEF_TEMPLATE: dir::../padring/A63_BV.def
 
-PL_TARGET_DENSITY_PCT: 50
+PL_TARGET_DENSITY_PCT: 40
 GRT_ALLOW_CONGESTION: true
+
+# Restrict fanout to prevent overloaded cells
+SYNTH_MAX_FANOUT: 6
+
+# Aggressive Placement Resizer
+PL_RESIZER_MAX_WIRE_LENGTH: 200
 PL_RESIZER_MAX_SLEW_MARGIN: 30
 PL_RESIZER_MAX_CAP_MARGIN: 30
-SYNTH_MAX_FANOUT: 10
+
+# Enable Aggressive Global Routing Resizer
+GLB_RESIZER_TIMING_OPTIMIZATIONS: true
+GLB_RESIZER_MAX_WIRE_LENGTH: 200
+GLB_RESIZER_MAX_SLEW_MARGIN: 30
+GLB_RESIZER_MAX_CAP_MARGIN: 30
 
 # ----------------------------------------------------
 # 5. Power & Ground
@@ -61,3 +71,23 @@ VDD_NETS:
   - VDD
 GND_NETS:
   - VSS
+
+# Configure the core power ring
+FP_PDN_CORE_RING: true
+FP_PDN_CORE_RING_VWIDTH: 8.0
+FP_PDN_CORE_RING_HWIDTH: 8.0
+FP_PDN_CORE_RING_VSPACING: 3.0
+FP_PDN_CORE_RING_HSPACING: 3.0
+FP_PDN_CORE_RING_VOFFSET: 3.0
+FP_PDN_CORE_RING_HOFFSET: 3.0
+
+# Configure the internal power mesh
+FP_PDN_VWIDTH: 3.0
+FP_PDN_VSPACING: 2.0
+FP_PDN_VPITCH: 60.0
+FP_PDN_VOFFSET: 27.0
+ 
+FP_PDN_HWIDTH: 3.0
+FP_PDN_HSPACING: 2.0
+FP_PDN_HPITCH: 60.0
+FP_PDN_HOFFSET: 27.0

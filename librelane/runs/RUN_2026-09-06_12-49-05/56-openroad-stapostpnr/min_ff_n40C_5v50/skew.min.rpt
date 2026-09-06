@@ -1,0 +1,25 @@
+
+===========================================================================
+Clock Skew (Hold)
+============================================================================
+======================= min_ff_n40C_5v50 Corner ===================================
+
+Clock clk_i
+0.670821 source latency _3408_/CLK ^
+-0.790146 target latency _3001_/CLK ^
+-0.250000 clock uncertainty
+-0.047327 CRPR
+--------------
+-0.416652 hold skew
+
+Clock host_clk_i
+0.537734 source latency _3457_/CLK ^
+-0.667364 target latency _2848_/CLK ^
+-0.250000 clock uncertainty
+-0.019602 CRPR
+--------------
+-0.399233 hold skew
+
+Clock spi_sclk_i
+No launch/capture paths found.
+

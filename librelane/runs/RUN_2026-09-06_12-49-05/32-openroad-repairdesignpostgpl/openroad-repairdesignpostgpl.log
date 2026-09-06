@@ -1,0 +1,291 @@
+Reading timing models for corner max_ff_n40C_5v50…
+Reading timing library for the 'max_ff_n40C_5v50' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib'…
+Reading timing models for corner max_tt_025C_5v00…
+Reading timing library for the 'max_tt_025C_5v00' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib'…
+Reading timing models for corner nom_ff_n40C_5v50…
+Reading timing library for the 'nom_ff_n40C_5v50' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib'…
+[WARNING STA-1140] /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.
+Reading timing models for corner nom_tt_025C_5v00…
+Reading timing library for the 'nom_tt_025C_5v00' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib'…
+[WARNING STA-1140] /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already exists.
+Reading timing models for corner min_ss_125C_4v50…
+Reading timing library for the 'min_ss_125C_4v50' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib'…
+Reading timing models for corner min_ff_n40C_5v50…
+Reading timing library for the 'min_ff_n40C_5v50' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib'…
+[WARNING STA-1140] /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_5v50 already exists.
+Reading timing models for corner min_tt_025C_5v00…
+Reading timing library for the 'min_tt_025C_5v00' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib'…
+[WARNING STA-1140] /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00 already exists.
+Reading timing models for corner max_ss_125C_4v50…
+Reading timing library for the 'max_ss_125C_4v50' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib'…
+[WARNING STA-1140] /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already exists.
+Reading timing models for corner nom_ss_125C_4v50…
+Reading timing library for the 'nom_ss_125C_4v50' corner at '/foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib'…
+[WARNING STA-1140] /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_4v50 already exists.
+Reading OpenROAD database at '/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-09-06_12-49-05/28-openroad-globalplacement/spi_opentarget_i3c_top.odb'…
+Reading design constraints file at '/foss/designs/OpenTarget-I3C/librelane/spi_opentarget_i3c_top.sdc'…
+[INFO] No information on clock propagation in input SDC file-- propagating all clocks.
+[INFO RSZ-0027] Inserted 5 gf180mcu_fd_sc_mcu7t5v0__dlyb_1 input buffers.
+[INFO RSZ-0028] Inserted 4 gf180mcu_fd_sc_mcu7t5v0__dlyb_1 output buffers.
++ repair_design -verbose -max_wire_length 200 -slew_margin 30 -cap_margin 30
+[WARNING RSZ-0065] max wire length less than 11493u increases wire delays.
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      2138
+       10 |     +0.0% |       0 |       0 |             0 |      2128
+       20 |     +0.0% |       0 |       0 |             0 |      2118
+       30 |     +0.0% |       0 |       0 |             0 |      2108
+       40 |     +0.0% |       0 |       0 |             0 |      2098
+       50 |     +0.0% |       0 |       0 |             0 |      2088
+       60 |     +0.0% |       0 |       0 |             0 |      2078
+       70 |     +0.0% |       0 |       0 |             0 |      2068
+       80 |     +0.0% |       0 |       0 |             0 |      2058
+       90 |     +0.0% |       0 |       0 |             0 |      2048
+      100 |     +0.0% |       0 |       0 |             0 |      2038
+      110 |     +0.0% |       0 |       0 |             0 |      2028
+      120 |     +0.0% |       0 |       0 |             0 |      2018
+      130 |     +0.0% |       0 |       0 |             0 |      2008
+      140 |     +0.0% |       0 |       0 |             0 |      1998
+      150 |     +0.0% |       0 |       0 |             0 |      1988
+      160 |     +0.0% |       0 |       0 |             0 |      1978
+      170 |     +0.0% |       0 |       0 |             0 |      1968
+      180 |     +0.0% |       0 |       0 |             0 |      1958
+      190 |     +0.0% |       0 |       0 |             0 |      1948
+      200 |     +0.0% |       0 |       0 |             0 |      1938
+      210 |     +0.0% |       0 |       0 |             0 |      1928
+      220 |     +0.0% |       0 |       0 |             0 |      1918
+      230 |     +0.0% |       0 |       0 |             0 |      1908
+      240 |     +0.0% |       0 |       0 |             0 |      1898
+      250 |     +0.0% |       0 |       0 |             0 |      1888
+      260 |     +0.0% |       0 |       0 |             0 |      1878
+      270 |     +0.0% |       0 |       0 |             0 |      1868
+      280 |     +0.0% |       0 |       0 |             0 |      1858
+      290 |     +0.0% |       0 |       0 |             0 |      1848
+      300 |     +0.0% |       0 |       0 |             0 |      1838
+      310 |     +0.0% |       0 |       0 |             0 |      1828
+      320 |     +0.0% |       0 |       0 |             0 |      1818
+      330 |     +0.0% |       0 |       0 |             0 |      1808
+      340 |     +0.0% |       0 |       0 |             0 |      1798
+      350 |     +0.0% |       0 |       0 |             0 |      1788
+      360 |     +0.0% |       0 |       0 |             0 |      1778
+      370 |     +0.0% |       0 |       0 |             0 |      1768
+      380 |     +0.0% |       0 |       0 |             0 |      1758
+      390 |     +0.0% |       0 |       0 |             0 |      1748
+      400 |     +0.0% |       0 |       2 |             1 |      1738
+      410 |     +0.2% |       1 |       6 |             2 |      1728
+      420 |     +0.2% |       1 |       6 |             2 |      1718
+      430 |     +0.2% |       1 |       6 |             2 |      1708
+      440 |     +0.2% |       1 |       6 |             2 |      1698
+      450 |     +0.2% |       1 |       6 |             2 |      1688
+      460 |     +0.2% |       1 |       6 |             2 |      1678
+      470 |     +0.2% |       1 |       6 |             2 |      1668
+      480 |     +0.2% |       1 |       6 |             2 |      1658
+      490 |     +0.2% |       1 |       6 |             2 |      1648
+      500 |     +0.2% |       1 |       6 |             2 |      1638
+      510 |     +0.2% |       1 |       6 |             2 |      1628
+      520 |     +0.2% |       1 |       6 |             2 |      1618
+      530 |     +0.2% |       1 |       6 |             2 |      1608
+      540 |     +0.2% |       1 |       6 |             2 |      1598
+      550 |     +0.2% |       1 |       6 |             2 |      1588
+      560 |     +0.2% |       1 |       6 |             2 |      1578
+      570 |     +0.3% |       1 |       8 |             4 |      1568
+      580 |     +0.3% |       1 |       8 |             4 |      1558
+      590 |     +0.3% |       1 |       8 |             4 |      1548
+      600 |     +0.4% |       1 |       9 |             5 |      1538
+      610 |     +0.4% |       1 |       9 |             5 |      1528
+      620 |     +0.4% |       1 |       9 |             5 |      1518
+      630 |     +0.4% |       1 |       9 |             5 |      1508
+      640 |     +0.4% |       2 |      11 |             6 |      1498
+      650 |     +0.4% |       2 |      11 |             6 |      1488
+      660 |     +0.4% |       2 |      11 |             6 |      1478
+      670 |     +0.4% |       2 |      11 |             6 |      1468
+      680 |     +0.4% |       2 |      11 |             6 |      1458
+      690 |     +0.4% |       2 |      11 |             6 |      1448
+      700 |     +0.5% |       2 |      12 |             7 |      1438
+      710 |     +0.5% |       2 |      15 |             8 |      1428
+      720 |     +0.6% |       2 |      17 |             9 |      1418
+      730 |     +0.6% |       2 |      18 |            10 |      1408
+      740 |     +0.8% |       3 |      23 |            11 |      1398
+      750 |     +0.8% |       3 |      23 |            11 |      1388
+      760 |     +0.8% |       3 |      23 |            11 |      1378
+      770 |     +0.8% |       3 |      23 |            11 |      1368
+      780 |     +0.8% |       3 |      23 |            11 |      1358
+      790 |     +0.8% |       3 |      23 |            11 |      1348
+      800 |     +0.9% |       3 |      27 |            13 |      1338
+      810 |     +0.9% |       3 |      27 |            13 |      1328
+      820 |     +0.9% |       3 |      27 |            13 |      1318
+      830 |     +0.9% |       3 |      27 |            13 |      1308
+      840 |     +0.9% |       3 |      27 |            13 |      1298
+      850 |     +0.9% |       3 |      27 |            13 |      1288
+      860 |     +0.9% |       3 |      27 |            13 |      1278
+      870 |     +0.9% |       3 |      27 |            13 |      1268
+      880 |     +0.9% |       3 |      27 |            13 |      1258
+      890 |     +0.9% |       3 |      27 |            13 |      1248
+      900 |     +0.9% |       3 |      27 |            13 |      1238
+      910 |     +1.0% |       4 |      30 |            14 |      1228
+      920 |     +1.0% |       4 |      30 |            14 |      1218
+      930 |     +1.0% |       4 |      30 |            14 |      1208
+      940 |     +1.0% |       4 |      30 |            14 |      1198
+      950 |     +1.0% |       4 |      30 |            14 |      1188
+      960 |     +1.0% |       4 |      30 |            14 |      1178
+      970 |     +1.0% |       4 |      30 |            14 |      1168
+      980 |     +1.0% |       4 |      30 |            14 |      1158
+      990 |     +1.0% |       4 |      30 |            14 |      1148
+     1000 |     +1.0% |       4 |      30 |            14 |      1138
+     1010 |     +1.0% |       4 |      30 |            14 |      1128
+     1020 |     +1.1% |       4 |      32 |            16 |      1118
+     1030 |     +1.1% |       4 |      33 |            17 |      1108
+     1040 |     +1.1% |       4 |      33 |            17 |      1098
+     1050 |     +1.2% |       4 |      34 |            18 |      1088
+     1060 |     +1.2% |       4 |      34 |            18 |      1078
+     1070 |     +1.2% |       4 |      34 |            18 |      1068
+     1080 |     +1.2% |       4 |      34 |            18 |      1058
+     1090 |     +1.2% |       4 |      34 |            18 |      1048
+     1100 |     +1.2% |       4 |      34 |            18 |      1038
+     1110 |     +1.2% |       4 |      34 |            18 |      1028
+     1120 |     +1.2% |       4 |      35 |            19 |      1018
+     1130 |     +1.2% |       4 |      35 |            19 |      1008
+     1140 |     +1.2% |       4 |      35 |            19 |       998
+     1150 |     +1.2% |       4 |      35 |            19 |       988
+     1160 |     +1.2% |       4 |      35 |            19 |       978
+     1170 |     +1.2% |       4 |      35 |            19 |       968
+     1180 |     +1.2% |       4 |      36 |            20 |       958
+     1190 |     +1.2% |       4 |      36 |            20 |       948
+     1200 |     +1.2% |       4 |      36 |            20 |       938
+     1210 |     +1.4% |       5 |      42 |            21 |       928
+     1220 |     +1.5% |       5 |      43 |            22 |       918
+     1230 |     +1.5% |       5 |      43 |            22 |       908
+     1240 |     +1.5% |       5 |      44 |            23 |       898
+     1250 |     +1.5% |       5 |      44 |            23 |       888
+     1260 |     +1.5% |       5 |      44 |            23 |       878
+     1270 |     +1.5% |       5 |      44 |            23 |       868
+     1280 |     +1.5% |       5 |      44 |            23 |       858
+     1290 |     +1.5% |       5 |      44 |            23 |       848
+     1300 |     +1.5% |       5 |      44 |            23 |       838
+     1310 |     +1.5% |       5 |      44 |            23 |       828
+     1320 |     +1.5% |       5 |      44 |            23 |       818
+     1330 |     +1.5% |       5 |      44 |            23 |       808
+     1340 |     +1.5% |       5 |      44 |            23 |       798
+     1350 |     +1.5% |       5 |      44 |            23 |       788
+     1360 |     +1.5% |       5 |      44 |            23 |       778
+     1370 |     +1.5% |       5 |      44 |            23 |       768
+     1380 |     +1.5% |       5 |      44 |            23 |       758
+     1390 |     +1.5% |       5 |      44 |            23 |       748
+     1400 |     +1.5% |       5 |      44 |            23 |       738
+     1410 |     +1.5% |       5 |      44 |            23 |       728
+     1420 |     +1.5% |       5 |      44 |            23 |       718
+     1430 |     +1.5% |       5 |      45 |            24 |       708
+     1440 |     +1.5% |       5 |      45 |            24 |       698
+     1450 |     +1.5% |       5 |      45 |            24 |       688
+     1460 |     +1.5% |       5 |      46 |            25 |       678
+     1470 |     +2.0% |       5 |      62 |            29 |       668
+     1480 |     +2.0% |       5 |      62 |            29 |       658
+     1490 |     +2.0% |       5 |      62 |            29 |       648
+     1500 |     +2.0% |       5 |      63 |            30 |       638
+     1510 |     +2.4% |       5 |      74 |            33 |       628
+     1520 |     +2.4% |       5 |      74 |            33 |       618
+     1530 |     +2.4% |       5 |      74 |            33 |       608
+     1540 |     +2.4% |       5 |      75 |            34 |       598
+     1550 |     +2.4% |       5 |      75 |            34 |       588
+     1560 |     +2.4% |       5 |      75 |            34 |       578
+     1570 |     +2.4% |       5 |      75 |            34 |       568
+     1580 |     +2.4% |       5 |      76 |            35 |       558
+     1590 |     +2.4% |       5 |      76 |            35 |       548
+     1600 |     +2.5% |       5 |      79 |            38 |       538
+     1610 |     +2.6% |       5 |      87 |            45 |       528
+     1620 |     +2.6% |       5 |      88 |            46 |       518
+     1630 |     +2.6% |       5 |      88 |            46 |       508
+     1640 |     +2.6% |       5 |      88 |            46 |       498
+     1650 |     +2.7% |       5 |      90 |            48 |       488
+     1660 |     +2.7% |       5 |      90 |            48 |       478
+     1670 |     +2.7% |       5 |      90 |            48 |       468
+     1680 |     +2.7% |       5 |      94 |            51 |       458
+     1690 |     +2.8% |       5 |     100 |            53 |       448
+     1700 |     +2.9% |       5 |     102 |            55 |       438
+     1710 |     +3.1% |       5 |     109 |            60 |       428
+     1720 |     +3.3% |       5 |     117 |            64 |       418
+     1730 |     +3.3% |       5 |     117 |            64 |       408
+     1740 |     +3.3% |       5 |     117 |            64 |       398
+     1750 |     +3.3% |       5 |     117 |            64 |       388
+     1760 |     +3.3% |       5 |     117 |            64 |       378
+     1770 |     +3.6% |       5 |     129 |            72 |       368
+     1780 |     +3.6% |       5 |     129 |            72 |       358
+     1790 |     +3.6% |       5 |     129 |            72 |       348
+     1800 |     +3.6% |       5 |     129 |            72 |       338
+     1810 |     +3.6% |       5 |     129 |            72 |       328
+     1820 |     +3.6% |       5 |     129 |            72 |       318
+     1830 |     +3.6% |       5 |     129 |            72 |       308
+     1840 |     +3.6% |       5 |     129 |            72 |       298
+     1850 |     +3.6% |       5 |     129 |            72 |       288
+     1860 |     +3.6% |       5 |     129 |            72 |       278
+     1870 |     +3.6% |       5 |     129 |            72 |       268
+     1880 |     +3.6% |       5 |     129 |            72 |       258
+     1890 |     +3.6% |       5 |     129 |            72 |       248
+     1900 |     +3.6% |       5 |     129 |            72 |       238
+     1910 |     +3.6% |       5 |     129 |            72 |       228
+     1920 |     +3.6% |       5 |     129 |            72 |       218
+     1930 |     +3.6% |       5 |     129 |            72 |       208
+     1940 |     +3.6% |       5 |     129 |            72 |       198
+     1950 |     +3.6% |       5 |     129 |            72 |       188
+     1960 |     +3.6% |       5 |     129 |            72 |       178
+     1970 |     +3.6% |       5 |     129 |            72 |       168
+     1980 |     +3.6% |       5 |     129 |            72 |       158
+     1990 |     +3.6% |       5 |     129 |            72 |       148
+     2000 |     +3.6% |       5 |     129 |            72 |       138
+     2010 |     +3.6% |       5 |     129 |            72 |       128
+     2020 |     +3.6% |       5 |     129 |            72 |       118
+     2030 |     +3.6% |       5 |     129 |            72 |       108
+     2040 |     +3.6% |       5 |     129 |            72 |        98
+     2050 |     +3.6% |       5 |     129 |            72 |        88
+     2060 |     +3.6% |       5 |     129 |            72 |        78
+     2070 |     +3.6% |       5 |     129 |            72 |        68
+     2080 |     +3.6% |       5 |     129 |            72 |        58
+     2090 |     +3.7% |       5 |     135 |            75 |        48
+     2100 |     +5.5% |       6 |     161 |            76 |        38
+     2110 |     +5.5% |       6 |     161 |            76 |        28
+     2120 |     +5.5% |       6 |     161 |            76 |        18
+     2130 |     +5.5% |       6 |     161 |            76 |         8
+    final |     +5.5% |       6 |     161 |            76 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 15 slew violations.
+[INFO RSZ-0036] Found 16 capacitance violations.
+[INFO RSZ-0037] Found 70 long wires.
+[INFO RSZ-0039] Resized 6 instances.
+[INFO RSZ-0038] Inserted 161 buffers in 76 nets.
+[INFO RSZ-0042] Inserted 34 tie gf180mcu_fd_sc_mcu7t5v0__tiel instances.
+[INFO RSZ-0042] Inserted 3 tie gf180mcu_fd_sc_mcu7t5v0__tieh instances.
+[WARNING RSZ-0020] found 2 floating nets.
+ VDD
+ VSS
++ detailed_placement -max_displacement  500 100 
+Placement Analysis
+---------------------------------
+total displacement       8824.0 u
+average displacement        1.4 u
+max displacement           44.3 u
+original HPWL           90071.7 u
+legalized HPWL          97970.5 u
+delta HPWL                    9 %
+
+[INFO DPL-0020] Mirrored 761 instances
+[INFO DPL-0021] HPWL before           97970.5 u
+[INFO DPL-0022] HPWL after            96001.6 u
+[INFO DPL-0023] HPWL delta               -2.0 %
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+[INFO ODB-0403] 828 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Endcap cell                             538    2362.04
+  Tap cell                               3389   14879.07
+  Tie cell                                 37     324.89
+  Timing Repair Buffer                    170    4750.41
+  Inverter                                 99     869.30
+  Sequential cell                         662   46626.05
+  Multi-Input combinational cell         1321   33268.26
+  Total                                  6216  103080.01
+Writing OpenROAD database to '/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-09-06_12-49-05/32-openroad-repairdesignpostgpl/spi_opentarget_i3c_top.odb'…
+Writing netlist to '/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-09-06_12-49-05/32-openroad-repairdesignpostgpl/spi_opentarget_i3c_top.nl.v'…
+Writing powered netlist to '/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-09-06_12-49-05/32-openroad-repairdesignpostgpl/spi_opentarget_i3c_top.pnl.v'…
+Writing layout to '/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-09-06_12-49-05/32-openroad-repairdesignpostgpl/spi_opentarget_i3c_top.def'…
+Writing timing constraints to '/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-09-06_12-49-05/32-openroad-repairdesignpostgpl/spi_opentarget_i3c_top.sdc'…

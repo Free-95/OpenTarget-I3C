@@ -1,12 +1,4 @@
-# Run complete flow
-make librelane PDK_ROOT=/foss/pdks 2>&1 | tee build_signoff.log
-
-# View GDS file
-make librelane-klayout
-
-# Save layout as image
-make render-image
-
+# --- Formal Verification ---
 # Run formal verification with safety proofs
 sby -f formal/protocol_fsm.sby prove
 
@@ -15,3 +7,25 @@ sby -f formal/protocol_fsm.sby cover
 
 # Run default formal verification
 sby -f formal/protocol_fsm.sby
+
+
+# --- RTL-to-GDS Flow ---
+# Librelane Flow
+make librelane PDK_ROOT=/foss/pdks 2>&1 | tee build_signoff.log
+
+# Add power pins explicitly using Klayout
+klayout -b -r scripts/draw_power_pins.py
+
+
+# --- Signoff Checks ---
+# Magic DRC
+magic -dnull -noconsole -rcfile $PDK_ROOT/gf180mcuD/libs.tech/magic/gf180mcuD.magicrc < scripts/run_drc.tcl
+
+# SPICE Extraction
+magic -dnull -noconsole -rcfile $PDK_ROOT/gf180mcuD/libs.tech/magic/gf180mcuD.magicrc < scripts/extract_spice.tcl
+
+# Netgen LVS
+netgen -batch lvs "integration/spi_opentarget_i3c_top_extracted.spice spi_opentarget_i3c_top" "integration/spi_opentarget_i3c_top.pnl.v spi_opentarget_i3c_top" $PDK_ROOT/gf180mcuD/libs.tech/netgen/gf180mcuD_setup.tcl signoff/lvs_report.rpt
+
+# Antenna Rule Checking
+magic -dnull -noconsole -rcfile $PDK_ROOT/gf180mcuD/libs.tech/magic/gf180mcuD.magicrc < scripts/run_antenna.tcl > signoff/antenna_report.rpt
