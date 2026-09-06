@@ -23,8 +23,8 @@
     "LVS_SPICE_FILES": [
         ""
     ],
-    "LVS_VERILOG_FILES": [
-        ""
+    "LVS_VERILOG_FILES": [ 
+        "final/pnl/spi_opentarget_i3c_top.pnl.v" 
     ],
     "LAYOUT_FILE": "gds/spi_opentarget_i3c_top.gds"
 }
