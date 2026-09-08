@@ -21,6 +21,9 @@ klayout -b -r scripts/draw_power_pins.py
 # Magic DRC
 magic -dnull -noconsole -rcfile $PDK_ROOT/gf180mcuD/libs.tech/magic/gf180mcuD.magicrc < scripts/run_drc.tcl
 
+# KLayout DRC
+klayout -b -r $PDK_ROOT/gf180mcuD/libs.tech/klayout/tech/drc/gf180mcu.drc -rd input=integration/spi_opentarget_i3c_top.gds -rd report=../signoff/klayout_drc.lyrdb
+
 # SPICE Extraction
 magic -dnull -noconsole -rcfile $PDK_ROOT/gf180mcuD/libs.tech/magic/gf180mcuD.magicrc < scripts/extract_spice.tcl
 

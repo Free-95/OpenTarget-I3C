@@ -21,7 +21,7 @@
         ""
     ],
     "LVS_SPICE_FILES": [
-        "$UPRJ_ROOT/integration/spi_opentarget_i3c_top_extracted.spice"
+        ""
     ],
     "LVS_VERILOG_FILES": [
         "$UPRJ_ROOT/integration/spi_opentarget_i3c_top.pnl.v"
