@@ -16,7 +16,8 @@ project:
   gf_def_ready: true   
   ws_def_ready: false  
   drc_ready: true      
-  lvs_ready: true      
+  lvs_ready: true   
+  export_control: "docs/Export_Control_GF_Rev8.2_A63.pdf"   # Export control document
 
 # ==============================================================================
 # Pad Ring / Pin Information
