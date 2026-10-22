@@ -117,71 +117,56 @@ The RTL source files are written in either **SystemVerilog (`.sv`)** or **Verilo
 Functional Verification of the complete design is performed using the Python-based `cocotb` framework. It is divided into 3 + 1 stages (additional stage is for the SPI-to-APB bridge testbench) which are as follows:
 
 - **Independent Module Testbenches:** `i3c_apb_regs ` and `i3c_phy_frontend` are tested individually as their operation doesn't always depend on the inputs from other modules.
-- **MAC Layer Testbench:** `i3c_bus_det`, `i3c_protocol_fsm`, `i3c_ccc_decoder` and `i3c_ibi_hj_ctrl` constitute the Media Access Control Layer of this IP.
+  1. **`test_apb_regs.py`:** Validates reset behavior, read/write register maps, read-only register protection, error injection (`pslverr_o`), and zero-wait state `pready_o` handshaking. 
+  2. **`test_phy_frontend.py`:** Validates reset behavior, glitch-free transitions, SCL/SDA filters' independence, and clean output drive logic.
+ 
+- **MAC Layer Testbench (`test_mac_cluster.py`):** `i3c_bus_det`, `i3c_protocol_fsm`, `i3c_ccc_decoder` and `i3c_ibi_hj_ctrl` together constitute the Media Access Control Layer of this IP. This testbench validates bus detector timing, broadcast/direct CCC parsing, single-retry protocol models, IBI open-drain arbitration, Hot-Join requests, HDR-ignore mode, and private read/write transfers by evaluating these modules altogether.
 
-To compile and check syntax locally using Verilator or Icarus Verilog inside your container environment:
+- **Top-Level Testbench (`test_opentarget_top.py`):** Validates the complete Bus Functional Model of this IP and edge cases in every operation end-to-end.
+
+- **SPI Wrapper-Level Testbenches:**
+  1. **`test_spi_apb_bridge.py`:** Validates the reset behavior, single and multiple writes, error propagation, and SPI-to-APB and APB-to-SPI communication.
+  2. **`test_spi_opentarget_top.py`:** Validates the complete SPI-wrapped I3C Target Controller for most possible edge cases.
+ 
+All these testbenches are present in the `cocotb/` directory with a `Makefile` to simulate them.
+To compile and check syntax, use the below Icarus Verilog command from the root directory:
 
 ```bash
-# Example compilation check using Icarus Verilog
-iverilog -g2012 -o opentarget_i3c src/*.sv
-
+iverilog -g2012 -o opentarget_i3c src/*.sv src/*.v
 ```
+
+To run the `cocotb` testbenches, navigate to the `cocotb/` directory and type the `make` command:
+```bash
+cd cocotb/
+make                   # Run all testbenches
+make <testbench-name>  # Run a specific testbench
+```
+
+>[!NOTE]
+>Usage of `make` command for functional verification is provided in the `Makefile` of `cocotb/` directory.
 
 ---
 
-## 4. Verification of the Design using Cocotb Simulation & SymbiYosys Formal Verification
-
-### A. Functional Simulation (`cocotb`)
-
-The verification suite uses Python-based **cocotb** testbenches located in the `cocotb/` folder.
-
-#### Running Simulations
-
-1. Navigate to the simulation directory:
-```bash
-cd cocotb/
-
-```
-
-
-2. Execute the test runner via the provided Makefile:
-```bash
-make
-
-```
-
-
-
-#### Testbench Coverage
-
-* **APB Interface Tests (`test_apb_regs.py`):** Validates reset defaults, read/write register maps, read-only protection, error injection (`pslverr_o`), and zero-wait state `pready_o` handshaking.
-* **MAC Cluster / Protocol Tests (`test_mac_cluster.py`, `test_opentarget_top.py`, `test_spi_opentarget_top.py`):** Validates bus detector timing, broadcast/direct CCC parsing, single-retry protocol models, IBI open-drain arbitration (wins and losses), Hot-Join requests, HDR-ignore mode, and private read/write transfers.
-
-
-
-### B. Formal Verification (`symbiyosys`)
+## 4. Formal Verification using SymbiYosys
 
 Formal property checking is structured using SymbiYosys (`.sby`) configurations inside the `formal/` directory for critical control logic:
 
 * `formal/fifo_cdc.sby` — Verifies CDC FIFO pointer safety and overflow/underflow protection.
 
-
-* `formal/ibi_hj_ctrl.sby` — Formal proofs for IBI arbitration and Hot-Join state transitions.
-
+* `formal/ibi_hj_ctrl.sby` — Formally proves IBI arbitration and Hot-Join state transitions.
 
 * `formal/protocol_fsm.sby` — Validates deadlock freedom and protocol compliance of the FSM.
 
 
-
-#### Running Formal Verification
-
-To execute a formal proof job (e.g., for the protocol FSM):
+Execute a formal proof job using below commands (e.g., for the protocol FSM):
 
 ```bash
 cd formal/
 sby -f protocol_fsm.sby
-
 ```
+
+>[!NOTE]
+>Usage of formal proof execution command (`sby`) is provided in the `commands.txt` file in root directory.
 
 ---
 
