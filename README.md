@@ -2,7 +2,13 @@
 
 **IEEE SSCS Chipathon 2026 — Track A: Foundational Building Blocks**
 
-**Team Technocrats**
+**Team Technocrats:** Tejas Patel (Free-95), Krishang Talsania (talsania)
+
+**Project Proposal:** [Proposal Slides](https://docs.google.com/presentation/d/1kvmwrsm0WWyItiA36Kk5RK9bUFDRB8TwC0aXO_wy3RY/edit?usp=sharing)
+
+**Schematic Review:** [Schematic Review Slides](https://docs.google.com/presentation/d/1p5AOORYqGNfi6nefUZTjHjBq82RTqXWiQkIK3BwQR2A/edit?usp=sharing)
+
+**Layout Review   :** [Layout Review Slides](https://docs.google.com/presentation/d/1qFgVn4FwrAukM8L5o4HKxZpqRlonfdM_cFp89nPWMHo/edit?usp=sharing)
 
 ---
 
@@ -24,76 +30,80 @@ Legacy bus interfaces such as I2C and SPI face scaling, wiring complexity, and p
 
 * **Glitch-free Physical Front-End:** 3-stage digital consensus glitch filters (<50ns spike rejection) ensuring safe I2C/I3C coexistence.
 
-* **Silicon Implementation Target:** Hardened on **GlobalFoundries 180nm (`gf180mcuD`)** process node meeting Configuration BV footprint constraints.
+* **Silicon Implementation Target:** Hardened on **GlobalFoundries 180nm (`gf180mcuD`)** process node meeting Configuration BV footprint constraints for the Chipathon.
 
 ---
 
 ## 2. Architecture & Working of I3C Target Controller
 
-OpenTarget-I3C utilizes a modular hierarchical architecture managed by a top-level wrapper (`opentarget_i3c_top.v`), ensuring clean clock domain crossing (CDC) and robust bus handling.
+OpenTarget-I3C utilizes a modular hierarchical architecture managed by a top-level wrapper, ensuring clean clock domain crossing (CDC) and robust bus handling. Below given is the conceptual architecture diagram of an I3C Target Controller, followed by a modular block diagram of the implemented architecture.
+
+<div align="center">
+  <img src="docs/opentarget-i3c_architecture.png" alt="OpenTarget-I3C Architecture">
+  <br><br>
 
 ```text
-                                 MIPI I3C BUS
-                           (I3C_SCL, I3C_SDA - 2 Pins)
-                                      │
-                                      ▼
+                               MIPI I3C BUS
+                               (I3C_SCL, I3C_SDA - 2 Pins)
+                                │
+                                ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                          opentarget_i3c_top.v                               │
+│                              opentarget_i3c_top                             │
 │                                                                             │
-│  ┌──────────────────────┐      ┌─────────────────────────┐                  │
-│  │ i3c_phy_frontend.v   │◄────►│   i3c_protocol_fsm.v    │                  │
-│  │ (OD/PP Drivers &     │      │  (Core Protocol Engine  │                  │
-│  │  Glitch Filters)     │      │   & Address Matching)   │                  │
-│  └──────────────────────┘      └──────────┬──────────────┘                  │
-│               ▲                           │                                 │
-│               │                           ▼                                 │
-│  ┌────────────┴─────────┐      ┌─────────────────────────┐                  │
-│  │    i3c_bus_det.v     │      │   i3c_ccc_decoder.v     │                  │
-│  │ (Async START/STOP &  │      │  (Broadcast & Direct    │                  │
-│  │  Bus Timing Detect)  │      │    CCC Command Parser)  │                  │
-│  └──────────────────────┘      └──────────┬──────────────┘                  │
-│                                           │                                 │
-│                                ┌──────────┴──────────────┐                  │
-│                                │   i3c_ibi_hj_ctrl.v     │                  │
-│                                │ (In-Band Interrupt &    │                  │
-│                                │    Hot-Join Manager)    │                  │
-│                                └──────────┬──────────────┘                  │
-│                                           │                                 │
-│  ┌──────────────────────┐      ┌──────────┴──────────────┐                  │
-│  │   i3c_fifo_cdc.v     │◄────►│    i3c_apb_regs.v       │                  │
-│  │ (Dual-Clock Async    │      │ (APB3 Register Bank &   │                  │
-│  │     TX/RX FIFOs)     │      │  PID/BCR/DCR Descriptors│                  │
-│  └──────────────────────┘      └──────────┬──────────────┘                  │
-└───────────────────────────────────────────┼─────────────────────────────────┘
-                                            │
-                                            ▼
-                                     Host SoC APB3 Bus
-                                  (clk_i, rst_ni, paddr, etc.)
+│       ┌──────────────────────┐            ┌─────────────────────────┐       │
+│       │   i3c_phy_frontend   │◄──────────►│     i3c_protocol_fsm    │       │
+│       │   (OD/PP Drivers &   │            │  (Core Protocol Engine  │       │
+│       │    Glitch Filters)   │            │   & Address Matching)   │       │
+│       └──────────────────────┘            └──────────┬──────────────┘       │
+│                    ▲                                 │                      │
+│                    │                                 ▼                      │
+│       ┌────────────┴─────────┐            ┌─────────────────────────┐       │
+│       │      i3c_bus_det     │            │     i3c_ccc_decoder     │       │
+│       │ (Async START/STOP &  │            │  (Broadcast & Direct    │       │
+│       │  Bus Timing Detect)  │            │    CCC Command Parser)  │       │
+│       └──────────────────────┘            └──────────┬──────────────┘       │
+│                                                      │                      │
+│                                           ┌──────────┴──────────────┐       │
+│                                           │     i3c_ibi_hj_ctrl     │       │
+│                                           │ (In-Band Interrupt &    │       │
+│                                           │    Hot-Join Manager)    │       │
+│                                           └──────────┬──────────────┘       │
+│                                                      │                      │
+│       ┌──────────────────────┐            ┌──────────┴──────────────┐       │
+│       │     i3c_fifo_cdc     │◄──────────►│      i3c_apb_regs       │       │
+│       │  (Dual-Clock Async   │            │ (APB3 Register Bank &   │       │
+│       │     TX/RX FIFOs)     │            │  PID/BCR/DCR Registers  │       │
+│       └──────────────────────┘            └──────────┬──────────────┘       │
+└──────────────────────────────────────────────────────┼──────────────────────┘
+                                │
+                                ▼
+                                 Host SoC APB3 Bus
+                                (clk_i, rst_ni, paddr, etc.)
 
 ```
+</div>
 
 ### Module Breakdown & Functional Descriptions
 
-1. **`i3c_phy_frontend.v`:** Interfaces directly with bidirectional I/O pads (`gf180mcu_fd_io`), dynamically switching between Open-Drain (OD) and Push-Pull (PP) signaling modes while managing internal turn-around timing ($t_{SCO}$).
+1. **`i3c_phy_frontend`:** Interfaces directly with bidirectional I/O pads (`gf180mcu_fd_io`), dynamically switching between Open-Drain (OD) and Push-Pull (PP) signaling modes while managing internal turn-around timing ($t_{SCO}$).
 
 
-2. **`i3c_bus_det.v`:** Asynchronous bus condition detector tracking START ($S$), Repeated START ($Sr$), and STOP ($P$) conditions, alongside Bus Free, Available, and Idle timing states.
+2. **`i3c_bus_det`:** Asynchronous bus condition detector tracking START ($S$), Repeated START ($Sr$), and STOP ($P$) conditions, alongside Bus Free, Available, and Idle timing states.
 
 
-3. **`i3c_protocol_fsm.v`:** The core state machine handling 7-bit/broadcast address matching (including 7'h7E), parity checks, T-bit handshaking, and data phase routing.
+3. **`i3c_protocol_fsm`:** The core state machine handling 7-bit/broadcast address matching (including 7'h7E), parity checks, T-bit handshaking, and data phase routing.
 
 
-4. **`i3c_ccc_decoder.v`:** Parses mandatory broadcast CCCs (`ENEC`, `DISEC`, `RSTDAA`, `SETMWL`, etc.) and direct CCCs (`GETPID`, `GETBCR`, `GETDCR`, `GETSTATUS`, `GETMXDS`).
+4. **`i3c_ccc_decoder`:** Parses mandatory broadcast CCCs (`ENEC`, `DISEC`, `RSTDAA`, `SETMWL`, etc.) and direct CCCs (`GETPID`, `GETBCR`, `GETDCR`, `GETSTATUS`, `GETMXDS`).
 
 
-5. **`i3c_ibi_hj_ctrl.v`:** Manages target-initiated In-Band Interrupts (IBIs), formulating Mandatory Data Byte (MDB) payloads, Pending Read Notifications (PRN), and Hot-Join requests.
+5. **`i3c_ibi_hj_ctrl`:** Manages target-initiated In-Band Interrupts (IBIs), formulating Mandatory Data Byte (MDB) payloads, Pending Read Notifications (PRN), and Hot-Join requests.
 
 
-6. **`i3c_apb_regs.v`:** AMBA APB3 slave interface housing configuration registers, status flags, and mandated descriptors (`PID`, `BCR`, `DCR`).
+6. **`i3c_apb_regs`:** AMBA APB3 slave interface housing configuration registers, status flags, and mandated descriptors (`PID`, `BCR`, `DCR`).
 
 
-7. **`i3c_fifo_cdc.v`:** Dual-clock asynchronous FIFOs bridging the external 12.5 MHz I3C bus domain with the internal host SoC clock domain.
-
+7. **`i3c_fifo_cdc`:** Dual-clock asynchronous FIFOs bridging the external 12.5 MHz I3C bus domain with the internal host SoC clock domain.
 
 
 ---
