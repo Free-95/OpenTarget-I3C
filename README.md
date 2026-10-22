@@ -72,7 +72,7 @@ OpenTarget-I3C utilizes a modular hierarchical architecture managed by a top-lev
 │       ┌──────────────────────┐            ┌──────────┴──────────────┐       │
 │       │     i3c_fifo_cdc     │◄──────────►│      i3c_apb_regs       │       │
 │       │  (Dual-Clock Async   │            │ (APB3 Register Bank &   │       │
-│       │     TX/RX FIFOs)     │            │  PID/BCR/DCR Registers  │       │
+│       │     TX/RX FIFOs)     │            │ PID/BCR/DCR Descriptors │       │
 │       └──────────────────────┘            └──────────┬──────────────┘       │
 └──────────────────────────────────────────────────────┼──────────────────────┘
                                 │
@@ -105,25 +105,19 @@ OpenTarget-I3C utilizes a modular hierarchical architecture managed by a top-lev
 
 7. **`i3c_fifo_cdc`:** Dual-clock asynchronous FIFOs bridging the external 12.5 MHz I3C bus domain with the internal host SoC clock domain.
 
+>[!NOTE]
+>Due to the physical pin/pad constraints for the tapeout in Chipathon, the designed I3C Controller — though being a serial-communication protocol — is wrapped with an SPI bridge at the APB3 interface for reducing the pin count. This I3C IP has two interfaces - one to physical IO pads (serial) and other to the host SoC (parallel), as the IP will be taped out alone without any host SoC the parallel APB3 interface with numerous pins has to be connected to a Serial Protocol bridge. This modification is just for the tapeout, it is not required while integrating into an SoC.
 
 ---
 
-## 3. Implementation of the Design in RTL
+## 3. RTL Implementation and Functional Verification
 
-All RTL source files are written in **SystemVerilog (`.sv`)** and located in the `src/` directory.
+The RTL source files are written in either **SystemVerilog (`.sv`)** or **Verilog (`.v`)** and located inside the `src/` directory. Each source file is named according to the RTL module described in it.
 
-### Source File Manifest
+Functional Verification of the complete design is performed using the Python-based `cocotb` framework. It is divided into 3 + 1 stages (additional stage is for the SPI-to-APB bridge testbench) which are as follows:
 
-* `src/i3c_apb_regs.v` — APB3 register interface & descriptors
-* `src/i3c_bus_det.v` — Bus timing and condition detector
-* `src/i3c_ccc_decoder.v` — Common Command Code decoder
-* `src/i3c_fifo_cdc.v` — Asynchronous CDC FIFO buffers
-* `src/i3c_ibi_hj_ctrl.v` — In-band interrupt and hot-join manager
-* `src/i3c_phy_frontend.v` — Physical layer driver with glitch filter
-* `src/i3c_protocol_fsm.v` — Core protocol state machine
-* `src/opentarget_i3c_top.sv` — Top-level integration wrapper
-
-### Reproducing / Compiling RTL
+- **Independent Module Testbenches:** `i3c_apb_regs ` and `i3c_phy_frontend` are tested individually as their operation doesn't always depend on the inputs from other modules.
+- **MAC Layer Testbench:** `i3c_bus_det`, `i3c_protocol_fsm`, `i3c_ccc_decoder` and `i3c_ibi_hj_ctrl` constitute the Media Access Control Layer of this IP.
 
 To compile and check syntax locally using Verilator or Icarus Verilog inside your container environment:
 
