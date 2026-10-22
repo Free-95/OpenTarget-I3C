@@ -170,46 +170,53 @@ sby -f protocol_fsm.sby
 
 ---
 
-## 5. Synthesis & Physical Design & Signoff using Librelane
+## 5. Logic Synthesis, Physical Design & Signoff using Librelane
 
-The physical implementation follows an automated RTL-to-GDSII flow powered by **LibreLane / OpenLane 2** targeting the **GlobalFoundries 180nm (`gf180mcu`)** open-source PDK.
+The physical implementation follows an automated RTL-to-GDSII flow powered by **LibreLane** targeting the **GlobalFoundries 180nm (`gf180mcuD`)** open-source PDK.
 
 ### Configuration & Constraints
 
-* **Technology Node:** `gf180mcu_fd_sc_m7` (7-metal layer standard cell library)
+* **Technology Node:** `gf180` (GlobalFoundries 180nm node with 5 Metal Layers)
 
+* **Operating Voltage:** 5.0V Nominal (`nom_tt_025C_5v00`)
 
-* **Operating Voltage / Corner:** 5.0V Nominal (`nom_tt_025C_5v00`, `max_ss_125C_4v50`, `min_ff_n40C_5v50`)
+* **Design Configurations:** Managed via `librelane/config.yaml` for mapping the standard cell library, defining clocks, setting up floorplan and power delivery network, and passing constraints for PnR and Signoff.
 
-
-* **Design Configurations:** Managed via `librelane/config.yaml` for top-level padring integration and `librelane/macro/config.yaml` for standalone macro hardening.
-
-
+* **Timing Constraints:** Clock definitions, IO delays and parasitic constraints are provided in `librelane/spi_opentarget_i3c_top.sdc`
 
 ### Running the Physical Design Flow
 
-When operating inside the **IIC-OSIC-TOOLS** Docker container, execute the synthesis and hardening flow with:
+**IIC-OSIC-TOOLS** Docker container is the platform which we have used to access the open-source EDA toolchain. The `Makefile` in the root directory contains the commands to execute the Physical Implementation. To execute the complete flow at once, use the below command:
 
 ```bash
-# Run LibreLane flow for the macro/top
-librelane --config librelane/config.yaml
-
+make librelane PDK_ROOT=/foss/pdks 2>&1 | tee build_signoff.log
 ```
+
+Though the execution of complete flow includes DRC, LVS and Antenna Rule checks, the individual checks can be performed using the commands present in `commands.txt` file in root directory.
 
 ---
 
 ## 6. Results and Reports of the Flow
 
-All finalized GDSII streams, netlists, signoff reports, and metrics are archived in the `final/` and `signoff/` directories:
+<img width="1656" height="561" alt="image" src="https://github.com/user-attachments/assets/e1544762-619f-4564-b550-2ab134d15d59" />
 
-* **Layout Database:** `final/gds/spi_opentarget_i3c_top.gds`
+The above snapshot shows the successful execution of complete flow without any violations. All finalized signoff reports and metrics are archived in the `signoff/` directory.
 
-* **Extracted LEF View:** `final/lef/spi_opentarget_i3c_top.lef`
+The integration-ready Layout Database file for Chipathon is present in `integration/` directory along with the final powered netlist required for LVS check. The quality metrics - utilization, area, and cell count statistics are logged in `metrics.csv` and `metrics.json` files in `final/` directory along with `build_signoff.log` (log of complete librelane run).
 
-* **Gate-Level Netlists:** `final/nl/spi_opentarget_i3c_top.nl.v` (Synthesized) & `final/pnl/spi_opentarget_i3c_top.pnl.v` (Post-Layout Powered Netlist)
+### Glimpses of the final layout GDS
+1. **Placement of standard cells**
+   
+    <img src="docs/cell_placement.png" alt="Standard Cell Placement">
 
+2. **Power Delivery Network**
 
-* **Timing & Power Reports:** `signoff/` containing STA reports (`2_prepnr_sta.rpt`, `signoff_timing.rpt`), IR-drop analysis (`irdrop.rpt`), Magic DRC logs (`magic_drc_report.rpt`), and Netgen LVS comparison reports (`lvs_report.rpt`).
+    <img src="docs/power_delivery_network.png" alt="Power Delivery Network">
 
+3. **Connectivity of VDD and VSS pins with power ring**
 
-* **Quality Metrics:** Quantitative utilization, area, and cell count statistics logged in `final/metrics.csv` and `final/metrics.json`.
+    <img src="docs/pg_connectivity.png" alt="VDD VSS Connectivity">
+
+4. **Final GDS layout** (`PR Boundry` disabled for better visibility)
+
+    <img src="docs/full_gds_view.png" alt="Final GDS layout">
