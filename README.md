@@ -1,153 +1,226 @@
-# chipathon-2026-gf180mcu-padring
+# OpenTarget-I3C: A Plug-and-Play MIPI I3C Target Controller
 
-Chipathon 2026 workshop fork of the wafer-space `gf180mcu-project-template`.
-Adds a new LibreLane slot, `workshop`, that mirrors Juan Moya's
-standalone workshop padring as a native LibreLane slot definition so
-participants can take the flow all the way to GDS with the stock
-template Makefile.
+**IEEE SSCS Chipathon 2026 — Track A: Foundational Building Blocks**
 
-No PRs are planned against upstream; all chipathon-specific material
-stays in this fork.
+**Team Technocrats**
 
-## Credits
+---
 
-This repository is a **derivation**. The template, Nix flake, and
-LibreLane flow are the work of Leo Moser and the wafer-space
-contributors; the workshop pad layout is a port of Juan Moya's
-`padring_gf180`. Both are Apache-2.0.
+## 1. Project Description & Overview
 
-- Upstream template — https://github.com/wafer-space/gf180mcu-project-template
-  pinned at commit `8bd0f6ff28947bf222c5288343f8f3ee1fc04632`
-  (`chore: update flake to librelane 3.0`, 2026-03-26).
-- Workshop pad layout — https://github.com/JuanMoya/padring_gf180
-  (`Workshop_CASS/padring/workshop_padring.cfg`).
+### Introduction
 
-See `CREDITS.md` for the per-artifact attribution and `NOTICE` for
-the formal Apache-2.0 notice.
+Legacy bus interfaces such as I2C and SPI face scaling, wiring complexity, and power bottlenecks in modern system-on-chips (SoCs) handling high-density sensor aggregation, edge AI telemetry, and biomedical wearables. The **MIPI I3C (Improved Inter-Integrated Circuit)** standard bridges this gap by offering a high-speed, low-power, two-wire utility and control bus that unifies sensor management while maintaining backward compatibility with legacy I2C devices.
 
-## What this fork changes vs upstream
+**OpenTarget-I3C** is a lightweight, silicon-proven MIPI I3C Target Controller designed during and as a part of IEEE SSCS Chipathon 2026 Track A (*Foundational Building Blocks*). The IP core provides a standardized, zero-wait state AMBA APB3 interface to host microcontrollers while complying with the MIPI I3C Basic specification.
 
-Exactly 6 files (one commit on top of pinned upstream):
+### Key Features & Specifications
 
-| File | Change |
-|------|--------|
-| `src/slot_defines.svh` | add `SLOT_WORKSHOP` block (NUM_INPUT=1, BIDIR=20, ANALOG=60, 4/4 DVDD/DVSS) |
-| `src/chip_core.sv` | replace example counter with a 20-bit counter driving the 20 bidir pads; analog pads float through |
-| `librelane/slots/slot_workshop.yaml` | **new** slot (DIE 2935x2935 um, CORE 2051x2051 um, VERILOG_DEFINES=SLOT_WORKSHOP) |
-| `librelane/config.yaml` | drop SRAM `MACROS` entry and PDN macro connections - not used in this slot |
-| `librelane/pdn_cfg.tcl` | drop SRAM-specific `define_pdn_grid` blocks |
-| `Makefile` | `AVAILABLE_SLOTS += workshop` |
+* **Standard Data Rate (SDR) Compliance:** Operates up to 12.5 MHz SCL clock speed.
 
-`git log upstream/main..main` shows the single derivation commit;
-`git diff upstream/main..main` shows the delta.
+* **Advanced I3C Capabilities:** Native support for Dynamic Address Assignment (DAA), Common Command Codes (CCCs), In-Band Interrupts (IBIs) with Mandatory Data Bytes (MDB), Pending Read Notifications (PRN), and Hot-Join (HJ) requests.
 
-## Workshop slot - pad map at a glance
+* **Zero-Wait State Host Interface:** AMBA APB3 peripheral interface enables fast register configuration and burst FIFO read/write operations.
 
-- Die: **2935 x 2935 um** (same as Juan Moya's reference).
-- **60 x analog** (`gf180mcu_fd_io__asig_5p0`)
-- **20 x bidir** (`gf180mcu_fd_io__bi_24t`)
-- **4 x DVDD** + **4 x DVSS** (`gf180mcu_ws_io__dvdd` / `__dvss`)
-- **clk_pad** (`gf180mcu_fd_io__in_s`), **rst_n_pad** (`gf180mcu_fd_io__in_c`)
-- **1 x input_pad** - Yosys zero-width-vector workaround; chipathon
-  participants can ignore it (documented in `docs/workshop-slot-spec.md`).
-- **4 x corner** (`gf180mcu_fd_io__cor`, inserted by LibreLane).
+* **Glitch-free Physical Front-End:** 3-stage digital consensus glitch filters (<50ns spike rejection) ensuring safe I2C/I3C coexistence.
 
-Pad ordering in `PAD_NORTH` and `PAD_WEST` is **reversed** relative to
-Juan Moya's standalone `workshop_padring.cfg` because LibreLane reads
-pad lists clockwise from the SW corner. Full pad-by-pad mapping in
-`docs/workshop-slot-spec.md`.
+* **Silicon Implementation Target:** Hardened on **GlobalFoundries 180nm (`gf180mcuD`)** process node meeting Configuration BV footprint constraints.
 
-## Quickstart
+---
 
-### Build the workshop slot (native, nix-shell)
+## 2. Architecture & Working of I3C Target Controller
+
+OpenTarget-I3C utilizes a modular hierarchical architecture managed by a top-level wrapper (`opentarget_i3c_top.v`), ensuring clean clock domain crossing (CDC) and robust bus handling.
+
+```text
+                                 MIPI I3C BUS
+                           (I3C_SCL, I3C_SDA - 2 Pins)
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          opentarget_i3c_top.v                               │
+│                                                                             │
+│  ┌──────────────────────┐      ┌─────────────────────────┐                  │
+│  │ i3c_phy_frontend.v   │◄────►│   i3c_protocol_fsm.v    │                  │
+│  │ (OD/PP Drivers &     │      │  (Core Protocol Engine  │                  │
+│  │  Glitch Filters)     │      │   & Address Matching)   │                  │
+│  └──────────────────────┘      └──────────┬──────────────┘                  │
+│               ▲                           │                                 │
+│               │                           ▼                                 │
+│  ┌────────────┴─────────┐      ┌─────────────────────────┐                  │
+│  │    i3c_bus_det.v     │      │   i3c_ccc_decoder.v     │                  │
+│  │ (Async START/STOP &  │      │  (Broadcast & Direct    │                  │
+│  │  Bus Timing Detect)  │      │    CCC Command Parser)  │                  │
+│  └──────────────────────┘      └──────────┬──────────────┘                  │
+│                                           │                                 │
+│                                ┌──────────┴──────────────┐                  │
+│                                │   i3c_ibi_hj_ctrl.v     │                  │
+│                                │ (In-Band Interrupt &    │                  │
+│                                │    Hot-Join Manager)    │                  │
+│                                └──────────┬──────────────┘                  │
+│                                           │                                 │
+│  ┌──────────────────────┐      ┌──────────┴──────────────┐                  │
+│  │   i3c_fifo_cdc.v     │◄────►│    i3c_apb_regs.v       │                  │
+│  │ (Dual-Clock Async    │      │ (APB3 Register Bank &   │                  │
+│  │     TX/RX FIFOs)     │      │  PID/BCR/DCR Descriptors│                  │
+│  └──────────────────────┘      └──────────┬──────────────┘                  │
+└───────────────────────────────────────────┼─────────────────────────────────┘
+                                            │
+                                            ▼
+                                     Host SoC APB3 Bus
+                                  (clk_i, rst_ni, paddr, etc.)
+
+```
+
+### Module Breakdown & Functional Descriptions
+
+1. **`i3c_phy_frontend.v`:** Interfaces directly with bidirectional I/O pads (`gf180mcu_fd_io`), dynamically switching between Open-Drain (OD) and Push-Pull (PP) signaling modes while managing internal turn-around timing ($t_{SCO}$).
+
+
+2. **`i3c_bus_det.v`:** Asynchronous bus condition detector tracking START ($S$), Repeated START ($Sr$), and STOP ($P$) conditions, alongside Bus Free, Available, and Idle timing states.
+
+
+3. **`i3c_protocol_fsm.v`:** The core state machine handling 7-bit/broadcast address matching (including 7'h7E), parity checks, T-bit handshaking, and data phase routing.
+
+
+4. **`i3c_ccc_decoder.v`:** Parses mandatory broadcast CCCs (`ENEC`, `DISEC`, `RSTDAA`, `SETMWL`, etc.) and direct CCCs (`GETPID`, `GETBCR`, `GETDCR`, `GETSTATUS`, `GETMXDS`).
+
+
+5. **`i3c_ibi_hj_ctrl.v`:** Manages target-initiated In-Band Interrupts (IBIs), formulating Mandatory Data Byte (MDB) payloads, Pending Read Notifications (PRN), and Hot-Join requests.
+
+
+6. **`i3c_apb_regs.v`:** AMBA APB3 slave interface housing configuration registers, status flags, and mandated descriptors (`PID`, `BCR`, `DCR`).
+
+
+7. **`i3c_fifo_cdc.v`:** Dual-clock asynchronous FIFOs bridging the external 12.5 MHz I3C bus domain with the internal host SoC clock domain.
+
+
+
+---
+
+## 3. Implementation of the Design in RTL
+
+All RTL source files are written in **SystemVerilog (`.sv`)** and located in the `src/` directory.
+
+### Source File Manifest
+
+* `src/i3c_apb_regs.v` — APB3 register interface & descriptors
+* `src/i3c_bus_det.v` — Bus timing and condition detector
+* `src/i3c_ccc_decoder.v` — Common Command Code decoder
+* `src/i3c_fifo_cdc.v` — Asynchronous CDC FIFO buffers
+* `src/i3c_ibi_hj_ctrl.v` — In-band interrupt and hot-join manager
+* `src/i3c_phy_frontend.v` — Physical layer driver with glitch filter
+* `src/i3c_protocol_fsm.v` — Core protocol state machine
+* `src/opentarget_i3c_top.sv` — Top-level integration wrapper
+
+### Reproducing / Compiling RTL
+
+To compile and check syntax locally using Verilator or Icarus Verilog inside your container environment:
 
 ```bash
-git clone <this-repo-url> chipathon-2026-gf180mcu-padring
-cd chipathon-2026-gf180mcu-padring
-nix-shell               # provides LibreLane 3.0.0
-make clone-pdk          # clones wafer-space/gf180mcu @ 1.8.0
-SLOT=workshop make librelane
+# Example compilation check using Icarus Verilog
+iverilog -g2012 -o opentarget_i3c src/*.sv
+
 ```
 
-Runtime on a modern laptop: **~2h 15m** for the full signoff run
-(Magic DRC + KLayout DRC + LVS + antenna + STA across 3 corners).
+---
 
-Final artifacts land in `final/`:
-- `final/gds/chip_top.gds` (~85 MB)
-- `final/metrics.csv` (signoff metrics)
-- `final/*.log` (per-stage logs)
+## 4. Verification of the Design using Cocotb Simulation & SymbiYosys Formal Verification
 
-### Inspect a built GDS (Docker, hpretl/iic-osic-tools)
+### A. Functional Simulation (`cocotb`)
 
-`scripts/run_docker_iic.sh` spawns the iic-osic-tools container with
-this repo mounted; inside the container run `klayout final/gds/chip_top.gds`
-or `magic -T .../gf180mcuD.magicrc ...`.
+The verification suite uses Python-based **cocotb** testbenches located in the `cocotb/` folder.
 
-See `docs/reproducing-native.md` and `docs/reproducing-docker.md` for
-the detailed walkthroughs.
+#### Running Simulations
 
-### Use the workshop slot for your own RTL
+1. Navigate to the simulation directory:
+```bash
+cd cocotb/
 
-Swap `src/chip_core.sv` with your design, keeping the port list
-(NUM_INPUT=1, NUM_BIDIR=20, NUM_ANALOG=60, clk, rst_n), and re-run
-`SLOT=workshop make librelane`. Padring stays fixed.
+```
 
-## Verification
 
-The repository was validated **end-to-end** against a known-good
-reference build. To re-run the pragmatic check (byte-compare the
-six tracked files against the reference tree):
+2. Execute the test runner via the provided Makefile:
+```bash
+make
+
+```
+
+
+
+#### Testbench Coverage
+
+* **APB Interface Tests (`test_apb_regs.py`):** Validates reset defaults, read/write register maps, read-only protection, error injection (`pslverr_o`), and zero-wait state `pready_o` handshaking.
+* **MAC Cluster / Protocol Tests (`test_mac_cluster.py`, `test_opentarget_top.py`, `test_spi_opentarget_top.py`):** Validates bus detector timing, broadcast/direct CCC parsing, single-retry protocol models, IBI open-drain arbitration (wins and losses), Hot-Join requests, HDR-ignore mode, and private read/write transfers.
+
+
+
+### B. Formal Verification (`symbiyosys`)
+
+Formal property checking is structured using SymbiYosys (`.sby`) configurations inside the `formal/` directory for critical control logic:
+
+* `formal/fifo_cdc.sby` — Verifies CDC FIFO pointer safety and overflow/underflow protection.
+
+
+* `formal/ibi_hj_ctrl.sby` — Formal proofs for IBI arbitration and Hot-Join state transitions.
+
+
+* `formal/protocol_fsm.sby` — Validates deadlock freedom and protocol compliance of the FSM.
+
+
+
+#### Running Formal Verification
+
+To execute a formal proof job (e.g., for the protocol FSM):
 
 ```bash
-scripts/verify_workshop_slot.sh /path/to/reference/template
-```
-
-The reference build (DRC/LVS/antenna/STA signoff on 2026-04-23 with
-LibreLane 3.0 + wafer-space PDK 1.8.0) is the source of truth for
-"clean". As long as the fork's six files byte-match that reference,
-a fresh build on a compatible host will reproduce the same result.
-
-If you do not have the reference tree, the repo itself is the ground
-truth - this fork *is* those six files.
-
-## Repository layout
+cd formal/
+sby -f protocol_fsm.sby
 
 ```
-.
-|-- README.md                       # this file
-|-- NOTICE                          # Apache-2.0 attribution
-|-- CREDITS.md                      # detailed credits
-|-- AUTHORS.md                      # copyright holders (upstream + fork)
-|-- LICENSE                         # Apache-2.0
-|-- docs/
-|   |-- workshop-slot-spec.md       # full pad-by-pad mapping
-|   |-- reproducing-native.md       # nix-shell walkthrough
-|   `-- reproducing-docker.md       # iic-osic-tools walkthrough
-|-- examples/
-|   `-- rtl2gds_chipathon_padring.ipynb   # standalone notebook
-|-- scripts/
-|   |-- run_docker_iic.sh           # iic-osic-tools launcher
-|   `-- verify_workshop_slot.sh     # pragmatic end-to-end check
-|-- librelane/
-|   |-- config.yaml                 # top-level LibreLane config (patched)
-|   |-- pdn_cfg.tcl                 # PDN generator (patched)
-|   |-- chip_top.sdc                # upstream, unchanged
-|   `-- slots/
-|       |-- slot_0p5x0p5.yaml       # upstream, unchanged
-|       |-- slot_0p5x1.yaml         # upstream, unchanged
-|       |-- slot_1x0p5.yaml         # upstream, unchanged
-|       |-- slot_1x1.yaml           # upstream, unchanged
-|       `-- slot_workshop.yaml      # new (this fork)
-|-- src/
-|   |-- chip_top.sv                 # upstream, unchanged
-|   |-- chip_core.sv                # patched (counter->bidir)
-|   `-- slot_defines.svh            # patched (SLOT_WORKSHOP)
-|-- Makefile                        # patched (AVAILABLE_SLOTS += workshop)
-`-- (upstream infra: flake.nix, gf180mcu/, ip/, cocotb/, scripts/, ...)
+
+---
+
+## 5. Synthesis & Physical Design & Signoff using Librelane
+
+The physical implementation follows an automated RTL-to-GDSII flow powered by **LibreLane / OpenLane 2** targeting the **GlobalFoundries 180nm (`gf180mcu`)** open-source PDK.
+
+### Configuration & Constraints
+
+* **Technology Node:** `gf180mcu_fd_sc_m7` (7-metal layer standard cell library)
+
+
+* **Operating Voltage / Corner:** 5.0V Nominal (`nom_tt_025C_5v00`, `max_ss_125C_4v50`, `min_ff_n40C_5v50`)
+
+
+* **Design Configurations:** Managed via `librelane/config.yaml` for top-level padring integration and `librelane/macro/config.yaml` for standalone macro hardening.
+
+
+
+### Running the Physical Design Flow
+
+When operating inside the **IIC-OSIC-TOOLS** Docker container, execute the synthesis and hardening flow with:
+
+```bash
+# Run LibreLane flow for the macro/top
+librelane --config librelane/config.yaml
+
 ```
 
-## License
+---
 
-Apache-2.0, inherited from upstream. See `LICENSE` for the full text,
-`NOTICE` for attribution of third-party material, and `AUTHORS.md`
-for the list of copyright holders.
+## 6. Results and Reports of the Flow
+
+All finalized GDSII streams, netlists, signoff reports, and metrics are archived in the `final/` and `signoff/` directories:
+
+* **Layout Database:** `final/gds/spi_opentarget_i3c_top.gds`
+
+* **Extracted LEF View:** `final/lef/spi_opentarget_i3c_top.lef`
+
+* **Gate-Level Netlists:** `final/nl/spi_opentarget_i3c_top.nl.v` (Synthesized) & `final/pnl/spi_opentarget_i3c_top.pnl.v` (Post-Layout Powered Netlist)
+
+
+* **Timing & Power Reports:** `signoff/` containing STA reports (`2_prepnr_sta.rpt`, `signoff_timing.rpt`), IR-drop analysis (`irdrop.rpt`), Magic DRC logs (`magic_drc_report.rpt`), and Netgen LVS comparison reports (`lvs_report.rpt`).
+
+
+* **Quality Metrics:** Quantitative utilization, area, and cell count statistics logged in `final/metrics.csv` and `final/metrics.json`.
