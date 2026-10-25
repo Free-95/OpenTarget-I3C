@@ -1,0 +1,335 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: ibi_hj_ctrl_formal.sv
+Parsing formal SystemVerilog input from `ibi_hj_ctrl_formal.sv' to AST representation.
+Storing AST representation for module `$abstract\ibi_hj_ctrl_formal_props'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: i3c_ibi_hj_ctrl.sv
+Parsing SystemVerilog input from `i3c_ibi_hj_ctrl.sv' to AST representation.
+Storing AST representation for module `$abstract\i3c_ibi_hj_ctrl'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\i3c_ibi_hj_ctrl'.
+Generating RTLIL representation for module `\i3c_ibi_hj_ctrl'.
+
+3.2.1. Analyzing design hierarchy..
+Top module:  \i3c_ibi_hj_ctrl
+
+3.2.2. Analyzing design hierarchy..
+Top module:  \i3c_ibi_hj_ctrl
+Removing unused module `$abstract\i3c_ibi_hj_ctrl'.
+Removing unused module `$abstract\ibi_hj_ctrl_formal_props'.
+Removed 2 unused modules.
+
+3.3. Executing PROC pass (convert processes to netlists).
+
+3.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$i3c_ibi_hj_ctrl.sv:106$39 in module i3c_ibi_hj_ctrl.
+Removed 1 dead cases from process $proc$i3c_ibi_hj_ctrl.sv:119$25 in module i3c_ibi_hj_ctrl.
+Marked 6 switch rules as full_case in process $proc$i3c_ibi_hj_ctrl.sv:119$25 in module i3c_ibi_hj_ctrl.
+Removed a total of 1 dead cases.
+
+3.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_ni in `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+
+3.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~17 debug messages>
+
+3.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:106$39'.
+     1/4: $4\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.$result[31:0]$47
+     2/4: $3\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.$result[31:0]$46
+     3/4: $2\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.$result[31:0]$45
+     4/4: $1\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.$result[31:0]$44
+Creating decoders for process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+     1/13: $0\ibi_done_o[0:0]
+     2/13: $0\arb_lost_o[0:0]
+     3/13: $0\tx_byte_valid_o[0:0]
+     4/13: $0\payload_byte[7:0]
+     5/13: $0\mdb_byte[7:0]
+     6/13: $0\is_prn[0:0]
+     7/13: $0\has_payload[0:0]
+     8/13: $0\is_hj[0:0]
+     9/13: $0\state[1:0]
+    10/13: $0\ibi_done_src_o[1:0]
+    11/13: $0\prn_pending_o[0:0]
+    12/13: $0\ibi_active_src_o[1:0]
+    13/13: $0\src[1:0]
+
+3.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\i3c_ibi_hj_ctrl.\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$2.$result' from process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:106$39'.
+No latch inferred for signal `\i3c_ibi_hj_ctrl.\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.$result' from process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:106$39'.
+No latch inferred for signal `\i3c_ibi_hj_ctrl.\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.req' from process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:106$39'.
+No latch inferred for signal `\i3c_ibi_hj_ctrl.\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.j' from process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:106$39'.
+
+3.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\i3c_ibi_hj_ctrl.\src' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$227' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\ibi_active_src_o' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$232' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\tx_byte_valid_o' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$237' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\prn_pending_o' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$242' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\arb_lost_o' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$247' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\ibi_done_o' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$252' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\ibi_done_src_o' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$257' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\state' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$262' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\is_hj' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$267' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\has_payload' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$272' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\is_prn' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$277' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\mdb_byte' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$282' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ibi_hj_ctrl.\payload_byte' using process `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+  created $adff cell `$procdff$287' with positive edge clock and positive level reset.
+
+3.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:106$39'.
+Removing empty process `i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:106$39'.
+Found and cleaned up 13 empty switches in `\i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+Removing empty process `i3c_ibi_hj_ctrl.$proc$i3c_ibi_hj_ctrl.sv:119$25'.
+Cleaned up 17 empty switches.
+
+3.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_ibi_hj_ctrl.
+<suppressed ~34 debug messages>
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_ibi_hj_ctrl.
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_ibi_hj_ctrl..
+Removed 17 unused cells and 111 unused wires.
+<suppressed ~19 debug messages>
+
+3.7. Executing CHECK pass (checking for obvious problems).
+Checking module i3c_ibi_hj_ctrl...
+Found and reported 0 problems.
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_ibi_hj_ctrl.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_ibi_hj_ctrl'.
+Computing hashes of 126 cells of `\i3c_ibi_hj_ctrl'.
+Finding duplicate cells in `\i3c_ibi_hj_ctrl'.
+Computing hashes of 102 cells of `\i3c_ibi_hj_ctrl'.
+Finding duplicate cells in `\i3c_ibi_hj_ctrl'.
+Computing hashes of 100 cells of `\i3c_ibi_hj_ctrl'.
+Finding duplicate cells in `\i3c_ibi_hj_ctrl'.
+<suppressed ~78 debug messages>
+Removed a total of 26 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i3c_ibi_hj_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~83 debug messages>
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i3c_ibi_hj_ctrl.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_ibi_hj_ctrl'.
+Computing hashes of 100 cells of `\i3c_ibi_hj_ctrl'.
+Finding duplicate cells in `\i3c_ibi_hj_ctrl'.
+Computing hashes of 97 cells of `\i3c_ibi_hj_ctrl'.
+Finding duplicate cells in `\i3c_ibi_hj_ctrl'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_ibi_hj_ctrl..
+Removed 0 unused cells and 29 unused wires.
+<suppressed ~1 debug messages>
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_ibi_hj_ctrl.
+
+3.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i3c_ibi_hj_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~87 debug messages>
+
+3.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i3c_ibi_hj_ctrl.
+    New ctrl vector for $pmux cell $procmux$81: $auto$opt_reduce.cc:137:opt_pmux$289
+  Optimizing cells in module \i3c_ibi_hj_ctrl.
+Performed a total of 1 changes.
+
+3.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_ibi_hj_ctrl'.
+Computing hashes of 98 cells of `\i3c_ibi_hj_ctrl'.
+Finding duplicate cells in `\i3c_ibi_hj_ctrl'.
+Removed a total of 0 cells.
+
+3.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_ibi_hj_ctrl..
+
+3.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_ibi_hj_ctrl.
+
+3.8.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i3c_ibi_hj_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~86 debug messages>
+
+3.8.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i3c_ibi_hj_ctrl.
+Performed a total of 0 changes.
+
+3.8.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_ibi_hj_ctrl'.
+Computing hashes of 98 cells of `\i3c_ibi_hj_ctrl'.
+Finding duplicate cells in `\i3c_ibi_hj_ctrl'.
+Removed a total of 0 cells.
+
+3.8.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_ibi_hj_ctrl..
+
+3.8.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_ibi_hj_ctrl.
+
+3.8.20. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 28 bits (of 32) from port B of cell i3c_ibi_hj_ctrl.$mul$i3c_ibi_hj_ctrl.sv:163$36 ($mul).
+Removed top 26 bits (of 32) from port Y of cell i3c_ibi_hj_ctrl.$mul$i3c_ibi_hj_ctrl.sv:163$36 ($mul).
+Removed top 26 bits (of 32) from port A of cell i3c_ibi_hj_ctrl.$add$i3c_ibi_hj_ctrl.sv:163$37 ($add).
+Removed top 31 bits (of 32) from port B of cell i3c_ibi_hj_ctrl.$add$i3c_ibi_hj_ctrl.sv:163$37 ($add).
+Removed top 25 bits (of 32) from port Y of cell i3c_ibi_hj_ctrl.$add$i3c_ibi_hj_ctrl.sv:163$37 ($add).
+Removed top 24 bits (of 32) from port B of cell i3c_ibi_hj_ctrl.$shiftx$i3c_ibi_hj_ctrl.sv:163$38 ($shiftx).
+Removed top 30 bits (of 32) from mux cell i3c_ibi_hj_ctrl.$procmux$49 ($mux).
+Removed top 30 bits (of 32) from mux cell i3c_ibi_hj_ctrl.$procmux$52 ($mux).
+Removed top 30 bits (of 32) from mux cell i3c_ibi_hj_ctrl.$procmux$55 ($mux).
+Removed top 30 bits (of 32) from mux cell i3c_ibi_hj_ctrl.$procmux$58 ($mux).
+Removed top 1 bits (of 2) from port B of cell i3c_ibi_hj_ctrl.$procmux$164_CMP0 ($eq).
+Removed top 30 bits (of 32) from wire i3c_ibi_hj_ctrl.$3\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.$result[31:0]$46.
+Removed top 30 bits (of 32) from wire i3c_ibi_hj_ctrl.$2\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.$result[31:0]$45.
+Removed top 30 bits (of 32) from wire i3c_ibi_hj_ctrl.$1\sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$3.$result[31:0]$44.
+Removed top 25 bits (of 32) from wire i3c_ibi_hj_ctrl.$add$i3c_ibi_hj_ctrl.sv:161$33_Y.
+Removed top 26 bits (of 32) from wire i3c_ibi_hj_ctrl.$mul$i3c_ibi_hj_ctrl.sv:161$32_Y.
+Removed top 30 bits (of 32) from wire i3c_ibi_hj_ctrl.sel_ibi_src$func$i3c_ibi_hj_ctrl.sv:106$2.$result.
+Removed top 30 bits (of 32) from wire i3c_ibi_hj_ctrl.sel_w.
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_ibi_hj_ctrl..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_ibi_hj_ctrl.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_ibi_hj_ctrl'.
+Computing hashes of 98 cells of `\i3c_ibi_hj_ctrl'.
+Finding duplicate cells in `\i3c_ibi_hj_ctrl'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_ibi_hj_ctrl..
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== i3c_ibi_hj_ctrl ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      120 wires
+      394 wire bits
+       43 public wires
+      178 public wire bits
+       30 ports
+      110 port bits
+       98 cells
+        1   $add
+       13   $adff
+        1   $and
+        3   $eq
+        5   $logic_and
+        4   $logic_not
+        1   $mul
+       60   $mux
+        4   $pmux
+        2   $reduce_or
+        4   $shiftx
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module i3c_ibi_hj_ctrl...
+Found and reported 0 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `i3c_ibi_hj_ctrl'. Setting top module to i3c_ibi_hj_ctrl.
+
+4.1. Analyzing design hierarchy..
+Top module:  \i3c_ibi_hj_ctrl
+
+4.2. Analyzing design hierarchy..
+Top module:  \i3c_ibi_hj_ctrl
+Removed 0 unused modules.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 28548a86d2, time: 0.06s, user: 0.05s, system: 0.03s, MEM: 36.41 MB peak
+Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+Time spent: 16% 2x hierarchy (0 sec), 13% 4x read_verilog (0 sec), ...

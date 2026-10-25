@@ -1,0 +1,94 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module i3c_fifo_cdc.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing CLK2FFLOGIC pass (convert clocked FFs to generic $ff cells).
+
+5.1. Executing PEEPOPT pass (run peephole optimizers).
+Modifying write port 0 on memory i3c_fifo_cdc.mem: CLK=\wr_clk, A=$0$memwr$\mem$i3c_fifo_cdc.sv:92$6_ADDR[3:0]$17, D=$0$memwr$\mem$i3c_fifo_cdc.sv:92$6_DATA[7:0]$18
+Replacing i3c_fifo_cdc.$procdff$104 ($adff): CLK=\rd_clk, D=\rd_bin_next, Q=\rd_bin
+Replacing i3c_fifo_cdc.$procdff$109 ($adff): CLK=\rd_clk, D=\rd_gray_next, Q=\rd_gray
+Replacing i3c_fifo_cdc.$procdff$114 ($adff): CLK=\wr_clk, D=$0\wr_almost_full_r[0:0], Q=\wr_almost_full_r
+Replacing i3c_fifo_cdc.$procdff$119 ($adff): CLK=\wr_clk, D=$0\wr_full_r[0:0], Q=\wr_full_r
+Replacing i3c_fifo_cdc.$procdff$124 ($adff): CLK=\wr_clk, D=\rd_gray, Q=\rd_gray_sync1
+Replacing i3c_fifo_cdc.$procdff$129 ($adff): CLK=\wr_clk, D=\rd_gray_sync1, Q=\rd_gray_sync2
+Replacing i3c_fifo_cdc.$procdff$137 ($adff): CLK=\wr_clk, D=\wr_bin_next, Q=\wr_bin
+Replacing i3c_fifo_cdc.$procdff$142 ($adff): CLK=\wr_clk, D=\wr_gray_next, Q=\wr_gray
+Replacing i3c_fifo_cdc.$procdff$84 ($adff): CLK=\rd_clk, D=$0\rd_almost_empty_r[0:0], Q=\rd_almost_empty_r
+Replacing i3c_fifo_cdc.$procdff$89 ($adff): CLK=\rd_clk, D=$0\rd_empty_r[0:0], Q=\rd_empty_r
+Replacing i3c_fifo_cdc.$procdff$94 ($adff): CLK=\rd_clk, D=\wr_gray, Q=\wr_gray_sync1
+Replacing i3c_fifo_cdc.$procdff$99 ($adff): CLK=\rd_clk, D=\wr_gray_sync1, Q=\wr_gray_sync2
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_fifo_cdc..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~1 debug messages>
+
+7. Executing FORMALFF pass.
+Setting unused undefined initial value of i3c_fifo_cdc.$auto$clk2fflogic.cc:209:execute$155 ($ff) from 8'x to 8'00000000
+Setting unused undefined initial value of i3c_fifo_cdc.$auto$clk2fflogic.cc:206:execute$153 ($ff) from 4'x to 4'0000
+Setting unused undefined initial value of i3c_fifo_cdc.$auto$clk2fflogic.cc:203:execute$151 ($ff) from 8'x to 8'00000000
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_fifo_cdc..
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module i3c_fifo_cdc...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_fifo_cdc.
+<suppressed ~12 debug messages>
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_fifo_cdc'.
+Computing hashes of 149 cells of `\i3c_fifo_cdc'.
+Finding duplicate cells in `\i3c_fifo_cdc'.
+Computing hashes of 128 cells of `\i3c_fifo_cdc'.
+Finding duplicate cells in `\i3c_fifo_cdc'.
+Computing hashes of 108 cells of `\i3c_fifo_cdc'.
+Finding duplicate cells in `\i3c_fifo_cdc'.
+<suppressed ~123 debug messages>
+Removed a total of 41 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_fifo_cdc..
+Removed 4 unused cells and 49 unused wires.
+<suppressed ~9 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_fifo_cdc..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: 6ef2ac2b63, time: 0.04s, user: 0.03s, system: 0.03s, MEM: 34.24 MB peak
+Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+Time spent: 40% 4x opt_clean (0 sec), 7% 1x formalff (0 sec), ...

@@ -1,0 +1,9 @@
+# running in formal/ibi_hj_ctrl_cover/src/
+read -formal ibi_hj_ctrl_formal.sv
+read -sv i3c_ibi_hj_ctrl.sv
+prep -top i3c_ibi_hj_ctrl
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

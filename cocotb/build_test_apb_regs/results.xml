@@ -1,0 +1,18 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792923746" />
+    <testcase name="test_reset_defaults" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="108" time="0.03658866882324219" sim_time_ns="30.0" ratio_time="819.9259761246938" />
+    <testcase name="test_rw_registers" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="121" time="0.0017619132995605469" sim_time_ns="210.0" ratio_time="119188.61163734777" />
+    <testcase name="test_ro_registers" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="162" time="0.0017421245574951172" sim_time_ns="240.0" ratio_time="137762.8246886547" />
+    <testcase name="test_error_write_to_ro" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="222" time="0.001941680908203125" sim_time_ns="90.00000000000006" ratio_time="46351.591355599245" />
+    <testcase name="test_error_out_of_bounds_and_unaligned" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="237" time="0.0012562274932861328" sim_time_ns="150.0" ratio_time="119405.12431201366" />
+    <testcase name="test_pready_handshake" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="259" time="0.0005135536193847656" sim_time_ns="61.0" ratio_time="118780.19684308264" />
+    <testcase name="test_reset_mid_transaction" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="290" time="0.0010755062103271484" sim_time_ns="140.0" ratio_time="130171.26136111727" />
+    <testcase name="test_register_state_protected_across_rejected_writes" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="332" time="0.0036046504974365234" sim_time_ns="180.0000000000001" ratio_time="49935.49308816724" />
+    <testcase name="test_irq_reset_defaults" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="375" time="0.0008344650268554688" sim_time_ns="90.0" ratio_time="107853.53142857143" />
+    <testcase name="test_irq_status_set_and_w1c" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="388" time="0.0022296905517578125" sim_time_ns="280.0" ratio_time="125577.96407185629" />
+    <testcase name="test_irq_enable_masking" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="416" time="0.0041217803955078125" sim_time_ns="410.0" ratio_time="99471.57797316057" />
+    <testcase name="test_irq_event_wins_over_clear" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="455" time="0.0009038448333740234" sim_time_ns="120.0" ratio_time="132766.15141123714" />
+    <testcase name="test_irq_register_address_map" classname="test_apb_regs" file="/foss/designs/OpenTarget-I3C/cocotb/test_apb_regs.py" lineno="481" time="0.0017862319946289062" sim_time_ns="240.00000000000023" ratio_time="134361.04644954632" />
+  </testsuite>
+</testsuites>

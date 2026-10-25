@@ -1,0 +1,26 @@
+
+===========================================================================
+Clock Skew (Setup)
+============================================================================
+Writing metric clock__skew__worst_setup__corner:nom_tt_025C_5v00: 0.44545304816736037
+======================= nom_tt_025C_5v00 Corner ===================================
+
+Clock clk_i
+1.166264 source latency _4566_/CLK ^
+-1.000036 target latency _4331_/CLK ^
+0.250000 clock uncertainty
+-0.036650 CRPR
+--------------
+0.379578 setup skew
+
+Clock host_clk_i
+1.076105 source latency _3864_/CLK ^
+-0.850429 target latency _3865_/CLK ^
+0.250000 clock uncertainty
+-0.030223 CRPR
+--------------
+0.445453 setup skew
+
+Clock spi_sclk_i
+No launch/capture paths found.
+

@@ -1,0 +1,475 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: protocol_fsm_formal.sv
+Parsing formal SystemVerilog input from `protocol_fsm_formal.sv' to AST representation.
+Storing AST representation for module `$abstract\protocol_fsm_formal_props'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: i3c_protocol_fsm.sv
+Parsing SystemVerilog input from `i3c_protocol_fsm.sv' to AST representation.
+Storing AST representation for module `$abstract\i3c_protocol_fsm'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\i3c_protocol_fsm'.
+Generating RTLIL representation for module `\i3c_protocol_fsm'.
+
+3.2.1. Analyzing design hierarchy..
+Top module:  \i3c_protocol_fsm
+
+3.2.2. Analyzing design hierarchy..
+Top module:  \i3c_protocol_fsm
+Removing unused module `$abstract\i3c_protocol_fsm'.
+Removing unused module `$abstract\protocol_fsm_formal_props'.
+Removed 2 unused modules.
+
+3.3. Executing PROC pass (convert processes to netlists).
+
+3.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 37 switch rules as full_case in process $proc$i3c_protocol_fsm.sv:192$24 in module i3c_protocol_fsm.
+Marked 2 switch rules as full_case in process $proc$i3c_protocol_fsm.sv:167$21 in module i3c_protocol_fsm.
+Marked 2 switch rules as full_case in process $proc$i3c_protocol_fsm.sv:159$18 in module i3c_protocol_fsm.
+Marked 1 switch rules as full_case in process $proc$i3c_protocol_fsm.sv:87$1 in module i3c_protocol_fsm.
+Removed a total of 0 dead cases.
+
+3.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_ni in `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+Found async reset \rst_ni in `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:167$21'.
+Found async reset \rst_ni in `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:159$18'.
+Found async reset \rst_ni in `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:87$1'.
+
+3.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~65 debug messages>
+
+3.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+     1/34: $0\hdr_entry_o[0:0]
+     2/34: $0\tx_underrun_o[0:0]
+     3/34: $0\daa_commit_q[0:0]
+     4/34: $0\daa_new_addr[6:0]
+     5/34: $0\daa_par_ok[0:0]
+     6/34: $0\daa_cnt[5:0]
+     7/34: $0\load_tx_data[0:0]
+     8/34: $0\wait_tx_data[0:0]
+     9/34: $0\ibi_is_active[0:0]
+    10/34: $0\lost_arbitration[0:0]
+    11/34: $0\arbitrating_hj[0:0]
+    12/34: $0\arbitrating_ibi[0:0]
+    13/34: $0\ccc_is_cmd_phase[0:0]
+    14/34: $0\ccc_is_active[0:0]
+    15/34: $0\addr_matched[0:0]
+    16/34: $0\is_read_op[0:0]
+    17/34: $0\shift_reg[7:0]
+    18/34: $0\bit_cnt[3:0]
+    19/34: $0\state[3:0]
+    20/34: $0\ibi_fsm_byte_req_o[0:0]
+    21/34: $0\ibi_fsm_nack_o[0:0]
+    22/34: $0\ibi_fsm_ack_o[0:0]
+    23/34: $0\ibi_fsm_grant_o[0:0]
+    24/34: $0\ccc_tx_req_o[0:0]
+    25/34: $0\ccc_rnw_o[0:0]
+    26/34: $0\ccc_byte_valid_o[0:0]
+    27/34: $0\ccc_broadcast_o[0:0]
+    28/34: $0\ccc_cmd_phase_o[0:0]
+    29/34: $0\rx_valid_o[0:0]
+    30/34: $0\rx_data_o[7:0]
+    31/34: $0\tx_req_o[0:0]
+    32/34: $0\tx_mode_pp_o[0:0]
+    33/34: $0\tx_data_o[0:0]
+    34/34: $0\tx_en_o[0:0]
+Creating decoders for process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:167$21'.
+     1/3: $0\daa_done_o[0:0]
+     2/3: $0\dyn_addr_vld_o[0:0]
+     3/3: $0\dyn_addr_o[6:0]
+Creating decoders for process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:159$18'.
+     1/1: $0\daa_armed[0:0]
+Creating decoders for process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:87$1'.
+     1/1: $0\scl_dly[0:0]
+
+3.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\i3c_protocol_fsm.\tx_en_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1431' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\tx_data_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1436' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\tx_mode_pp_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1441' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\tx_req_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1446' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\rx_data_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $dff cell `$procdff$1453' with positive edge clock.
+Creating register for signal `\i3c_protocol_fsm.\rx_valid_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1458' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ccc_cmd_phase_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1463' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ccc_broadcast_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1468' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ccc_byte_valid_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1473' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ccc_rnw_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1478' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ccc_tx_req_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1483' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ibi_fsm_grant_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1488' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ibi_fsm_ack_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1493' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ibi_fsm_nack_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1498' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ibi_fsm_byte_req_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1503' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\tx_underrun_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1508' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\hdr_entry_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1513' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\state' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1518' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\bit_cnt' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1523' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\shift_reg' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1528' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\is_read_op' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1533' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\addr_matched' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1538' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ccc_is_active' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1543' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ccc_is_cmd_phase' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1548' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\arbitrating_ibi' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1553' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\arbitrating_hj' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1558' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\lost_arbitration' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1563' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\ibi_is_active' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1568' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\wait_tx_data' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1573' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\load_tx_data' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1578' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\daa_cnt' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1583' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\daa_par_ok' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1588' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\daa_new_addr' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1593' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\daa_commit_q' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+  created $adff cell `$procdff$1598' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\dyn_addr_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:167$21'.
+  created $adff cell `$procdff$1603' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\dyn_addr_vld_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:167$21'.
+  created $adff cell `$procdff$1608' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\daa_done_o' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:167$21'.
+  created $adff cell `$procdff$1613' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\daa_armed' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:159$18'.
+  created $adff cell `$procdff$1618' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_protocol_fsm.\scl_dly' using process `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:87$1'.
+  created $adff cell `$procdff$1623' with positive edge clock and positive level reset.
+
+3.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 61 empty switches in `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+Removing empty process `i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:192$24'.
+Found and cleaned up 2 empty switches in `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:167$21'.
+Removing empty process `i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:167$21'.
+Found and cleaned up 2 empty switches in `\i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:159$18'.
+Removing empty process `i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:159$18'.
+Removing empty process `i3c_protocol_fsm.$proc$i3c_protocol_fsm.sv:87$1'.
+Cleaned up 65 empty switches.
+
+3.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_protocol_fsm.
+<suppressed ~108 debug messages>
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_protocol_fsm.
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+Removed 47 unused cells and 498 unused wires.
+<suppressed ~49 debug messages>
+
+3.7. Executing CHECK pass (checking for obvious problems).
+Checking module i3c_protocol_fsm...
+Found and reported 0 problems.
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_protocol_fsm.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_protocol_fsm'.
+Computing hashes of 616 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Computing hashes of 513 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Computing hashes of 507 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+<suppressed ~327 debug messages>
+Removed a total of 109 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i3c_protocol_fsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$493: \ccc_is_active -> 1'0
+      Replacing known input bits on port A of cell $procmux$491: \ccc_is_active -> 1'1
+      Replacing known input bits on port A of cell $procmux$456: \ccc_is_cmd_phase -> 1'0
+      Replacing known input bits on port A of cell $procmux$337: \ibi_is_active -> 1'0
+      Replacing known input bits on port A of cell $procmux$335: \ibi_is_active -> 1'1
+      Replacing known input bits on port A of cell $procmux$275: \wait_tx_data -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~495 debug messages>
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i3c_protocol_fsm.
+    New ctrl vector for $pmux cell $procmux$697: { $procmux$1399_CMP $procmux$1390_CMP $procmux$1115_CMP $procmux$1365_CMP $procmux$1360_CMP $procmux$1345_CMP $procmux$1341_CMP $procmux$1332_CMP $auto$opt_reduce.cc:137:opt_pmux$1625 }
+    New ctrl vector for $pmux cell $procmux$1315: { $procmux$1399_CMP $procmux$1390_CMP $procmux$1365_CMP $procmux$1360_CMP $procmux$1345_CMP $procmux$1341_CMP $procmux$1332_CMP $auto$opt_reduce.cc:137:opt_pmux$1627 }
+  Optimizing cells in module \i3c_protocol_fsm.
+Performed a total of 4 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_protocol_fsm'.
+Computing hashes of 507 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Computing hashes of 494 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+<suppressed ~39 debug messages>
+Removed a total of 13 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+Removed 0 unused cells and 124 unused wires.
+<suppressed ~1 debug messages>
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_protocol_fsm.
+
+3.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i3c_protocol_fsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~493 debug messages>
+
+3.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i3c_protocol_fsm.
+    New ctrl vector for $pmux cell $procmux$1173: { $eq$i3c_protocol_fsm.sv:156$10_Y $procmux$1217_CMP $procmux$1189_CMP $auto$opt_reduce.cc:137:opt_pmux$1629 $procmux$1180_CMP $procmux$1174_CMP }
+    New ctrl vector for $pmux cell $procmux$618: { $procmux$1217_CMP $auto$opt_reduce.cc:137:opt_pmux$1631 $procmux$1054_CMP $procmux$1189_CMP $procmux$1136_CMP $procmux$1180_CMP $procmux$1174_CMP }
+    New ctrl vector for $pmux cell $procmux$574: { $procmux$1189_CMP $auto$opt_reduce.cc:137:opt_pmux$1633 }
+  Optimizing cells in module \i3c_protocol_fsm.
+Performed a total of 3 changes.
+
+3.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_protocol_fsm'.
+Computing hashes of 497 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Removed a total of 0 cells.
+
+3.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+
+3.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_protocol_fsm.
+
+3.8.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i3c_protocol_fsm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~489 debug messages>
+
+3.8.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i3c_protocol_fsm.
+Performed a total of 0 changes.
+
+3.8.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_protocol_fsm'.
+Computing hashes of 497 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Removed a total of 0 cells.
+
+3.8.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+
+3.8.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_protocol_fsm.
+
+3.8.20. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 29 bits (of 32) from port A of cell i3c_protocol_fsm.$sub$i3c_protocol_fsm.sv:315$37 ($sub).
+Removed top 27 bits (of 32) from port Y of cell i3c_protocol_fsm.$sub$i3c_protocol_fsm.sv:315$37 ($sub).
+Removed top 27 bits (of 32) from port B of cell i3c_protocol_fsm.$shiftx$i3c_protocol_fsm.sv:315$38 ($shiftx).
+Removed top 5 bits (of 6) from port B of cell i3c_protocol_fsm.$add$i3c_protocol_fsm.sv:599$99 ($add).
+Removed top 3 bits (of 4) from port B of cell i3c_protocol_fsm.$add$i3c_protocol_fsm.sv:612$102 ($add).
+Removed top 1 bits (of 4) from port B of cell i3c_protocol_fsm.$eq$i3c_protocol_fsm.sv:613$103 ($eq).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$634 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$636 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$640 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$642 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$664 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$667 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$670 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$673 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$677 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$679 ($mux).
+Removed top 3 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$682 ($mux).
+Removed top 1 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$726 ($mux).
+Removed top 1 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$728 ($mux).
+Removed top 1 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$732 ($mux).
+Removed top 1 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$734 ($mux).
+Removed top 1 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$765 ($mux).
+Removed top 1 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$768 ($mux).
+Removed top 1 bits (of 4) from mux cell i3c_protocol_fsm.$procmux$778 ($mux).
+Removed top 2 bits (of 4) from port B of cell i3c_protocol_fsm.$procmux$1115_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell i3c_protocol_fsm.$procmux$1342_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell i3c_protocol_fsm.$procmux$1345_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell i3c_protocol_fsm.$procmux$1360_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell i3c_protocol_fsm.$procmux$1365_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell i3c_protocol_fsm.$procmux$1390_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell i3c_protocol_fsm.$procmux$1399_CMP0 ($eq).
+Removed top 27 bits (of 32) from port B of cell i3c_protocol_fsm.$shiftx$i3c_protocol_fsm.sv:313$36 ($shiftx).
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$664_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$667_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$670_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$673_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$677_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$679_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$682_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$642_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$640_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$636_Y.
+Removed top 3 bits (of 4) from wire i3c_protocol_fsm.$procmux$634_Y.
+Removed top 1 bits (of 4) from wire i3c_protocol_fsm.$procmux$726_Y.
+Removed top 1 bits (of 4) from wire i3c_protocol_fsm.$procmux$728_Y.
+Removed top 1 bits (of 4) from wire i3c_protocol_fsm.$procmux$732_Y.
+Removed top 1 bits (of 4) from wire i3c_protocol_fsm.$procmux$734_Y.
+Removed top 1 bits (of 4) from wire i3c_protocol_fsm.$procmux$765_Y.
+Removed top 1 bits (of 4) from wire i3c_protocol_fsm.$procmux$768_Y.
+Removed top 1 bits (of 4) from wire i3c_protocol_fsm.$procmux$778_Y.
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+Removed 0 unused cells and 18 unused wires.
+<suppressed ~1 debug messages>
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_protocol_fsm.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_protocol_fsm'.
+Computing hashes of 497 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Computing hashes of 493 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Computing hashes of 491 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Computing hashes of 489 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Computing hashes of 488 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Computing hashes of 487 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Computing hashes of 486 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+<suppressed ~33 debug messages>
+Removed a total of 11 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~1 debug messages>
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== i3c_protocol_fsm ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      509 wires
+     1150 wire bits
+       66 public wires
+      269 public wire bits
+       42 ports
+      207 port bits
+      486 cells
+        2   $add
+       38   $adff
+        1   $dff
+       18   $eq
+       25   $logic_and
+        9   $logic_not
+        4   $logic_or
+      361   $mux
+        3   $not
+       15   $pmux
+        4   $reduce_or
+        1   $reduce_xor
+        3   $shiftx
+        2   $sub
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module i3c_protocol_fsm...
+Found and reported 0 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `i3c_protocol_fsm'. Setting top module to i3c_protocol_fsm.
+
+4.1. Analyzing design hierarchy..
+Top module:  \i3c_protocol_fsm
+
+4.2. Analyzing design hierarchy..
+Top module:  \i3c_protocol_fsm
+Removed 0 unused modules.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 5767213b2b, time: 0.22s, user: 0.10s, system: 0.03s, MEM: 38.77 MB peak
+Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+Time spent: 16% 6x opt_clean (0 sec), 14% 2x hierarchy (0 sec), ...

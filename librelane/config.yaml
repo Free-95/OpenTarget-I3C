@@ -1,0 +1,93 @@
+meta:
+  version: 3
+  flow: Classic
+
+# ----------------------------------------------------
+# 1. Design & Source Files
+# ----------------------------------------------------
+DESIGN_NAME: spi_opentarget_i3c_top
+VERILOG_FILES:
+  - dir::../src/spi_opentarget_i3c_top.v
+  - dir::../src/spi_opentarget_i3c_macro.sv
+  - dir::../src/spi_apb_bridge.sv
+  - dir::../src/opentarget_i3c_top.sv
+  - dir::../src/i3c_apb_regs.sv
+  - dir::../src/i3c_bus_det.sv
+  - dir::../src/i3c_ccc_decoder.sv
+  - dir::../src/i3c_ibi_hj_ctrl.sv
+  - dir::../src/i3c_protocol_fsm.sv
+  - dir::../src/i3c_fifo_cdc.sv
+  - dir::../src/i3c_phy_frontend.sv
+
+# ----------------------------------------------------
+# 2. Standard Cell Library
+# ----------------------------------------------------
+STD_CELL_LIBRARY: gf180mcu_fd_sc_mcu7t5v0
+
+# ----------------------------------------------------
+# 3. Clocking
+# ----------------------------------------------------
+CLOCK_PORT: "clk_i host_clk_i spi_sclk_i"
+CLOCK_PERIOD: 20.0
+
+CTS_CLK_BUFFERS:
+  - gf180mcu_fd_sc_mcu7t5v0__clkbuf_1
+  - gf180mcu_fd_sc_mcu7t5v0__clkbuf_2
+
+PNR_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
+SIGNOFF_SDC_FILE: dir::spi_opentarget_i3c_top.sdc
+
+# ----------------------------------------------------
+# 4. Floorplan Constraints
+# ----------------------------------------------------
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 550, 1110]
+CORE_AREA: [25, 25, 525, 1085] 
+
+# Pre-place I/O control pins using the integration DEF
+FP_DEF_TEMPLATE: dir::../padring/A63_BV.def
+
+PL_TARGET_DENSITY_PCT: 40
+GRT_ALLOW_CONGESTION: true
+
+# Restrict fanout to prevent overloaded cells
+SYNTH_MAX_FANOUT: 6
+
+# Aggressive Placement Resizer
+PL_RESIZER_MAX_WIRE_LENGTH: 200
+PL_RESIZER_MAX_SLEW_MARGIN: 30
+PL_RESIZER_MAX_CAP_MARGIN: 30
+
+# Enable Aggressive Global Routing Resizer
+GLB_RESIZER_TIMING_OPTIMIZATIONS: true
+GLB_RESIZER_MAX_WIRE_LENGTH: 200
+GLB_RESIZER_MAX_SLEW_MARGIN: 30
+GLB_RESIZER_MAX_CAP_MARGIN: 30
+
+# ----------------------------------------------------
+# 5. Power & Ground
+# ----------------------------------------------------
+VDD_NETS:
+  - VDD
+GND_NETS:
+  - VSS
+
+# Configure the core power ring
+FP_PDN_CORE_RING: true
+FP_PDN_CORE_RING_VWIDTH: 8.0
+FP_PDN_CORE_RING_HWIDTH: 8.0
+FP_PDN_CORE_RING_VSPACING: 3.0
+FP_PDN_CORE_RING_HSPACING: 3.0
+FP_PDN_CORE_RING_VOFFSET: 3.0
+FP_PDN_CORE_RING_HOFFSET: 3.0
+
+# Configure the internal power mesh
+FP_PDN_VWIDTH: 3.0
+FP_PDN_VSPACING: 2.0
+FP_PDN_VPITCH: 60.0
+FP_PDN_VOFFSET: 27.0
+ 
+FP_PDN_HWIDTH: 3.0
+FP_PDN_HSPACING: 2.0
+FP_PDN_HPITCH: 60.0
+FP_PDN_HOFFSET: 27.0

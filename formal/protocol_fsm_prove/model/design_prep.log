@@ -1,0 +1,106 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module i3c_protocol_fsm.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing i3c_protocol_fsm.$procdff$1431 ($adff): ARST=\rst_ni, D=$0\tx_en_o[0:0], Q=\tx_en_o
+Replacing i3c_protocol_fsm.$procdff$1436 ($adff): ARST=\rst_ni, D=$0\tx_data_o[0:0], Q=\tx_data_o
+Replacing i3c_protocol_fsm.$procdff$1441 ($adff): ARST=\rst_ni, D=$0\tx_mode_pp_o[0:0], Q=\tx_mode_pp_o
+Replacing i3c_protocol_fsm.$procdff$1446 ($adff): ARST=\rst_ni, D=$0\tx_req_o[0:0], Q=\tx_req_o
+Replacing i3c_protocol_fsm.$procdff$1458 ($adff): ARST=\rst_ni, D=$0\rx_valid_o[0:0], Q=\rx_valid_o
+Replacing i3c_protocol_fsm.$procdff$1463 ($adff): ARST=\rst_ni, D=$0\ccc_cmd_phase_o[0:0], Q=\ccc_cmd_phase_o
+Replacing i3c_protocol_fsm.$procdff$1468 ($adff): ARST=\rst_ni, D=$0\ccc_broadcast_o[0:0], Q=\ccc_broadcast_o
+Replacing i3c_protocol_fsm.$procdff$1473 ($adff): ARST=\rst_ni, D=$0\ccc_byte_valid_o[0:0], Q=\ccc_byte_valid_o
+Replacing i3c_protocol_fsm.$procdff$1478 ($adff): ARST=\rst_ni, D=$0\ccc_rnw_o[0:0], Q=\ccc_rnw_o
+Replacing i3c_protocol_fsm.$procdff$1483 ($adff): ARST=\rst_ni, D=$0\ccc_tx_req_o[0:0], Q=\ccc_tx_req_o
+Replacing i3c_protocol_fsm.$procdff$1488 ($adff): ARST=\rst_ni, D=$0\ibi_fsm_grant_o[0:0], Q=\ibi_fsm_grant_o
+Replacing i3c_protocol_fsm.$procdff$1493 ($adff): ARST=\rst_ni, D=$0\ibi_fsm_ack_o[0:0], Q=\ibi_fsm_ack_o
+Replacing i3c_protocol_fsm.$procdff$1498 ($adff): ARST=\rst_ni, D=$0\ibi_fsm_nack_o[0:0], Q=\ibi_fsm_nack_o
+Replacing i3c_protocol_fsm.$procdff$1503 ($adff): ARST=\rst_ni, D=$0\ibi_fsm_byte_req_o[0:0], Q=\ibi_fsm_byte_req_o
+Replacing i3c_protocol_fsm.$procdff$1508 ($adff): ARST=\rst_ni, D=$0\tx_underrun_o[0:0], Q=\tx_underrun_o
+Replacing i3c_protocol_fsm.$procdff$1513 ($adff): ARST=\rst_ni, D=$0\hdr_entry_o[0:0], Q=\hdr_entry_o
+Replacing i3c_protocol_fsm.$procdff$1518 ($adff): ARST=\rst_ni, D=$0\state[3:0], Q=\state
+Replacing i3c_protocol_fsm.$procdff$1523 ($adff): ARST=\rst_ni, D=$0\bit_cnt[3:0], Q=\bit_cnt
+Replacing i3c_protocol_fsm.$procdff$1528 ($adff): ARST=\rst_ni, D=$0\shift_reg[7:0], Q=\shift_reg
+Replacing i3c_protocol_fsm.$procdff$1533 ($adff): ARST=\rst_ni, D=$0\is_read_op[0:0], Q=\is_read_op
+Replacing i3c_protocol_fsm.$procdff$1538 ($adff): ARST=\rst_ni, D=$0\addr_matched[0:0], Q=\addr_matched
+Replacing i3c_protocol_fsm.$procdff$1543 ($adff): ARST=\rst_ni, D=$0\ccc_is_active[0:0], Q=\ccc_is_active
+Replacing i3c_protocol_fsm.$procdff$1548 ($adff): ARST=\rst_ni, D=$0\ccc_is_cmd_phase[0:0], Q=\ccc_is_cmd_phase
+Replacing i3c_protocol_fsm.$procdff$1553 ($adff): ARST=\rst_ni, D=$0\arbitrating_ibi[0:0], Q=\arbitrating_ibi
+Replacing i3c_protocol_fsm.$procdff$1558 ($adff): ARST=\rst_ni, D=$0\arbitrating_hj[0:0], Q=\arbitrating_hj
+Replacing i3c_protocol_fsm.$procdff$1563 ($adff): ARST=\rst_ni, D=$0\lost_arbitration[0:0], Q=\lost_arbitration
+Replacing i3c_protocol_fsm.$procdff$1568 ($adff): ARST=\rst_ni, D=$0\ibi_is_active[0:0], Q=\ibi_is_active
+Replacing i3c_protocol_fsm.$procdff$1573 ($adff): ARST=\rst_ni, D=$0\wait_tx_data[0:0], Q=\wait_tx_data
+Replacing i3c_protocol_fsm.$procdff$1578 ($adff): ARST=\rst_ni, D=$0\load_tx_data[0:0], Q=\load_tx_data
+Replacing i3c_protocol_fsm.$procdff$1583 ($adff): ARST=\rst_ni, D=$0\daa_cnt[5:0], Q=\daa_cnt
+Replacing i3c_protocol_fsm.$procdff$1588 ($adff): ARST=\rst_ni, D=$0\daa_par_ok[0:0], Q=\daa_par_ok
+Replacing i3c_protocol_fsm.$procdff$1593 ($adff): ARST=\rst_ni, D=$0\daa_new_addr[6:0], Q=\daa_new_addr
+Replacing i3c_protocol_fsm.$procdff$1598 ($adff): ARST=\rst_ni, D=$0\daa_commit_q[0:0], Q=\daa_commit_q
+Replacing i3c_protocol_fsm.$procdff$1603 ($adff): ARST=\rst_ni, D=$0\dyn_addr_o[6:0], Q=\dyn_addr_o
+Replacing i3c_protocol_fsm.$procdff$1608 ($adff): ARST=\rst_ni, D=$0\dyn_addr_vld_o[0:0], Q=\dyn_addr_vld_o
+Replacing i3c_protocol_fsm.$procdff$1613 ($adff): ARST=\rst_ni, D=$0\daa_done_o[0:0], Q=\daa_done_o
+Replacing i3c_protocol_fsm.$procdff$1618 ($adff): ARST=\rst_ni, D=$0\daa_armed[0:0], Q=\daa_armed
+Replacing i3c_protocol_fsm.$procdff$1623 ($adff): ARST=\rst_ni, D=\scl_i, Q=\scl_dly
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module i3c_protocol_fsm...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i3c_protocol_fsm.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i3c_protocol_fsm'.
+Computing hashes of 562 cells of `\i3c_protocol_fsm'.
+Finding duplicate cells in `\i3c_protocol_fsm'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i3c_protocol_fsm..
+Removed 0 unused cells and 38 unused wires.
+<suppressed ~1 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: d08095e873, time: 0.14s, user: 0.07s, system: 0.02s, MEM: 35.27 MB peak
+Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+Time spent: 28% 4x opt_clean (0 sec), 17% 2x write_rtlil (0 sec), ...

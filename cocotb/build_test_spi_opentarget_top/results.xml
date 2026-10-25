@@ -1,0 +1,13 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792923781" />
+    <testcase name="test_spi_register_read_write" classname="test_spi_opentarget_top" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_opentarget_top.py" lineno="212" time="0.11742401123046875" sim_time_ns="20580.0" ratio_time="175262.28055357028" />
+    <testcase name="test_i3c_private_write_via_spi_rx_fifo" classname="test_spi_opentarget_top" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_opentarget_top.py" lineno="227" time="0.3284423351287842" sim_time_ns="84660.0" ratio_time="257762.1425289292" />
+    <testcase name="test_i3c_private_read_via_spi_tx_fifo" classname="test_spi_opentarget_top" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_opentarget_top.py" lineno="266" time="0.28261876106262207" sim_time_ns="74280.00000000001" ratio_time="262827.56219266425" />
+    <testcase name="test_ibi_trigger_via_spi" classname="test_spi_opentarget_top" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_opentarget_top.py" lineno="295" time="0.4244418144226074" sim_time_ns="95040.00000000003" ratio_time="223917.6178466026" />
+    <testcase name="test_sideband_config_getmxds" classname="test_spi_opentarget_top" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_opentarget_top.py" lineno="354" time="0.25809764862060547" sim_time_ns="69480.0" ratio_time="269200.43778520887" />
+    <testcase name="test_error_pslverr_toggle" classname="test_spi_opentarget_top" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_opentarget_top.py" lineno="389" time="0.07111597061157227" sim_time_ns="10560.0" ratio_time="148489.85268973655" />
+    <testcase name="test_sideband_config_getstatus" classname="test_spi_opentarget_top" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_opentarget_top.py" lineno="407" time="0.280686616897583" sim_time_ns="82980.0" ratio_time="295632.19264664035" />
+    <testcase name="test_ibi_prn_toggle" classname="test_spi_opentarget_top" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_opentarget_top.py" lineno="449" time="0.17315149307250977" sim_time_ns="40480.0" ratio_time="233783.7189948365" />
+  </testsuite>
+</testsuites>

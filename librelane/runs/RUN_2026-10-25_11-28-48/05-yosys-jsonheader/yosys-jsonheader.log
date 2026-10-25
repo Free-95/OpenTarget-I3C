@@ -1,0 +1,1217 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64 (git sha1 6d2c445ae, g++ 13.3.0-6ubuntu2~24.04.1 -fPIC -O3)
+
+1. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-10-25_11-28-48/tmp/1ca9f19bc674469c991318de7f0a849f.bb.v
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/librelane/runs/RUN_2026-10-25_11-28-48/tmp/1ca9f19bc674469c991318de7f0a849f.bb.v' to AST representation.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addh_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addh_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addh_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addh_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__antenna'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__antenna_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi222_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi222_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi222_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi222_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_12'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_16'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_20'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_3'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_8'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__buf_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_12'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_16'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_3'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_8'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__bufz_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_12'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_16'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_20'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_3'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_8'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkbuf_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_12'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_16'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_20'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_3'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_8'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnsnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnsnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnsnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffnsnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrsnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrsnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrsnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffrsnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffsnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffsnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffsnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffsnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlya_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlya_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlya_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlya_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyb_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyb_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyb_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyb_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyc_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyc_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyc_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyc_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyd_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyd_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyd_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dlyd_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__endcap'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__endcap_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_16'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_32'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_64'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_8'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fill_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_16'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_32'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_64'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_8'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__fillcap_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__filltie'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__filltie_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__hold'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__hold_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtn_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtn_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtn_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtn_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtp_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtp_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtp_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__icgtp_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_12'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_16'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_20'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_3'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_8'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__inv_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_12'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_16'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_3'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_8'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__invz_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrsnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrsnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrsnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latrsnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latsnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latsnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latsnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__latsnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux4_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux4_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux4_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux4_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai211_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai211_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai211_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai211_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai222_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai222_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai222_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai222_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai33_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai33_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai33_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai33_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrsnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrsnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrsnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffrsnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffsnq_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffsnq_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffsnq_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__sdffsnq_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__tieh'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__tieh_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__tiel'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__tiel_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor3_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor3_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_2'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_4'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_func'.
+Successfully finished Verilog frontend.
+wtaf
+
+2. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_top.v
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_top.v' to AST representation.
+Storing AST representation for module `$abstract\spi_opentarget_i3c_top'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv' to AST representation.
+Storing AST representation for module `$abstract\spi_opentarget_i3c_macro'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv' to AST representation.
+Storing AST representation for module `$abstract\spi_apb_bridge'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/opentarget_i3c_top.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/opentarget_i3c_top.sv' to AST representation.
+Storing AST representation for module `$abstract\opentarget_i3c_top'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv' to AST representation.
+Storing AST representation for module `$abstract\i3c_apb_regs'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv' to AST representation.
+Storing AST representation for module `$abstract\i3c_bus_det'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv' to AST representation.
+Storing AST representation for module `$abstract\i3c_ccc_decoder'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv' to AST representation.
+Storing AST representation for module `$abstract\i3c_ibi_hj_ctrl'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv' to AST representation.
+Storing AST representation for module `$abstract\i3c_protocol_fsm'.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv' to AST representation.
+Storing AST representation for module `$abstract\i3c_fifo_cdc'.
+Successfully finished Verilog frontend.
+
+12. Executing Verilog-2005 frontend: /foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv
+Parsing SystemVerilog input from `/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv' to AST representation.
+Storing AST representation for module `$abstract\i3c_phy_frontend'.
+Successfully finished Verilog frontend.
+
+13. Executing HIERARCHY pass (managing design hierarchy).
+
+14. Executing AST frontend in derive mode using pre-parsed AST for module `\spi_opentarget_i3c_top'.
+Generating RTLIL representation for module `\spi_opentarget_i3c_top'.
+
+14.1. Analyzing design hierarchy..
+Top module:  \spi_opentarget_i3c_top
+
+14.2. Executing AST frontend in derive mode using pre-parsed AST for module `\spi_opentarget_i3c_macro'.
+Generating RTLIL representation for module `\spi_opentarget_i3c_macro'.
+
+14.3. Analyzing design hierarchy..
+Top module:  \spi_opentarget_i3c_top
+Used module:     \spi_opentarget_i3c_macro
+
+14.4. Executing AST frontend in derive mode using pre-parsed AST for module `\opentarget_i3c_top'.
+Generating RTLIL representation for module `\opentarget_i3c_top'.
+Parameter \APB_ADDR_WIDTH = 8
+Parameter \APB_DATA_WIDTH = 32
+
+14.5. Executing AST frontend in derive mode using pre-parsed AST for module `\spi_apb_bridge'.
+Parameter \APB_ADDR_WIDTH = 8
+Parameter \APB_DATA_WIDTH = 32
+Generating RTLIL representation for module `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge'.
+
+14.6. Analyzing design hierarchy..
+Top module:  \spi_opentarget_i3c_top
+Used module:     \spi_opentarget_i3c_macro
+Used module:         \opentarget_i3c_top
+Used module:         $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 4
+
+14.7. Executing AST frontend in derive mode using pre-parsed AST for module `\i3c_fifo_cdc'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 4
+Generating RTLIL representation for module `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc'.
+Parameter \DATA_WIDTH = 8
+Parameter \ADDR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc'.
+Parameter \NUM_IBI_SRC = 4
+
+14.8. Executing AST frontend in derive mode using pre-parsed AST for module `\i3c_ibi_hj_ctrl'.
+Parameter \NUM_IBI_SRC = 4
+Generating RTLIL representation for module `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100'.
+
+14.9. Executing AST frontend in derive mode using pre-parsed AST for module `\i3c_ccc_decoder'.
+Generating RTLIL representation for module `\i3c_ccc_decoder'.
+Parameter \I3C_BROADCAST_ADDR = 7'1111110
+
+14.10. Executing AST frontend in derive mode using pre-parsed AST for module `\i3c_protocol_fsm'.
+Parameter \I3C_BROADCAST_ADDR = 7'1111110
+Generating RTLIL representation for module `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110'.
+Parameter \CYCLES_BUS_FREE = 25
+Parameter \CYCLES_BUS_AVAIL = 50
+Parameter \CYCLES_BUS_IDLE = 10000
+Parameter \TIMER_WIDTH = 16
+
+14.11. Executing AST frontend in derive mode using pre-parsed AST for module `\i3c_bus_det'.
+Parameter \CYCLES_BUS_FREE = 25
+Parameter \CYCLES_BUS_AVAIL = 50
+Parameter \CYCLES_BUS_IDLE = 10000
+Parameter \TIMER_WIDTH = 16
+Generating RTLIL representation for module `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det'.
+Parameter \GLITCH_FILTER_STAGES = 3
+
+14.12. Executing AST frontend in derive mode using pre-parsed AST for module `\i3c_phy_frontend'.
+Parameter \GLITCH_FILTER_STAGES = 3
+Generating RTLIL representation for module `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011'.
+Parameter \APB_ADDR_WIDTH = 8
+Parameter \APB_DATA_WIDTH = 32
+Parameter \NUM_IRQ_EVT = 12
+Parameter \I3C_PID = 48'000000000001000100100010001100110100010001010101
+Parameter \I3C_BCR = 8'00000011
+Parameter \I3C_DCR = 8'01001011
+
+14.13. Executing AST frontend in derive mode using pre-parsed AST for module `\i3c_apb_regs'.
+Parameter \APB_ADDR_WIDTH = 8
+Parameter \APB_DATA_WIDTH = 32
+Parameter \NUM_IRQ_EVT = 12
+Parameter \I3C_PID = 48'000000000001000100100010001100110100010001010101
+Parameter \I3C_BCR = 8'00000011
+Parameter \I3C_DCR = 8'01001011
+Generating RTLIL representation for module `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs'.
+
+14.14. Analyzing design hierarchy..
+Top module:  \spi_opentarget_i3c_top
+Used module:     \spi_opentarget_i3c_macro
+Used module:         \opentarget_i3c_top
+Used module:             $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc
+Used module:             $paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100
+Used module:             \i3c_ccc_decoder
+Used module:             $paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110
+Used module:             $paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det
+Used module:             $paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011
+Used module:             $paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs
+Used module:         $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge
+
+14.15. Analyzing design hierarchy..
+Top module:  \spi_opentarget_i3c_top
+Used module:     \spi_opentarget_i3c_macro
+Used module:         \opentarget_i3c_top
+Used module:             $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc
+Used module:             $paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100
+Used module:             \i3c_ccc_decoder
+Used module:             $paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110
+Used module:             $paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det
+Used module:             $paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011
+Used module:             $paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs
+Used module:         $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge
+Removing unused module `$abstract\i3c_phy_frontend'.
+Removing unused module `$abstract\i3c_fifo_cdc'.
+Removing unused module `$abstract\i3c_protocol_fsm'.
+Removing unused module `$abstract\i3c_ibi_hj_ctrl'.
+Removing unused module `$abstract\i3c_ccc_decoder'.
+Removing unused module `$abstract\i3c_bus_det'.
+Removing unused module `$abstract\i3c_apb_regs'.
+Removing unused module `$abstract\opentarget_i3c_top'.
+Removing unused module `$abstract\spi_apb_bridge'.
+Removing unused module `$abstract\spi_opentarget_i3c_macro'.
+Removing unused module `$abstract\spi_opentarget_i3c_top'.
+Removed 11 unused modules.
+Renaming module spi_opentarget_i3c_top to spi_opentarget_i3c_top.
+
+15. Executing PROC pass (convert processes to netlists).
+
+15.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:92$398 in module $paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.
+Marked 3 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:51$396 in module $paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.
+Marked 3 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376 in module $paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:54$365 in module $paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.
+Marked 37 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281 in module $paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.
+Marked 2 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:167$278 in module $paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.
+Marked 2 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:159$275 in module $paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:87$258 in module $paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.
+Marked 16 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240 in module i3c_ccc_decoder.
+Marked 4 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$186 in module $paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.
+Removed 1 dead cases from process $proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172 in module $paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.
+Marked 6 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172 in module $paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:195$127 in module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:183$124 in module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:170$122 in module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:153$115 in module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:124$107 in module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:110$103 in module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:96$101 in module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:90$94 in module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:72$87 in module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Marked 5 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69 in module $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.
+Removed 1 dead cases from process $proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65 in module $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.
+Marked 2 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65 in module $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.
+Marked 2 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:101$64 in module $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:58$54 in module $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/opentarget_i3c_top.sv:149$52 in module opentarget_i3c_top.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:189$42 in module spi_opentarget_i3c_macro.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:183$39 in module spi_opentarget_i3c_macro.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:175$37 in module spi_opentarget_i3c_macro.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:157$35 in module spi_opentarget_i3c_macro.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:145$32 in module spi_opentarget_i3c_macro.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:136$25 in module spi_opentarget_i3c_macro.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:125$22 in module spi_opentarget_i3c_macro.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:114$16 in module spi_opentarget_i3c_macro.
+Marked 1 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12 in module spi_opentarget_i3c_macro.
+Marked 4 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:149$419 in module $paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.
+Marked 2 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:127$418 in module $paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.
+Marked 2 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:103$408 in module $paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.
+Marked 2 switch rules as full_case in process $proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:67$402 in module $paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.
+Removed a total of 2 dead cases.
+
+15.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 50 redundant assignments.
+Promoted 31 assignments to connections.
+
+15.4. Executing PROC_INIT pass (extract init attributes).
+
+15.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_ni in `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:51$396'.
+Found async reset \rst_ni in `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376'.
+Found async reset \rst_ni in `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:54$365'.
+Found async reset \rst_ni in `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+Found async reset \rst_ni in `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:167$278'.
+Found async reset \rst_ni in `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:159$275'.
+Found async reset \rst_ni in `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:87$258'.
+Found async reset \rst_ni in `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+Found async reset \rst_ni in `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+Found async reset \rd_rst_n in `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:195$127'.
+Found async reset \rd_rst_n in `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:183$124'.
+Found async reset \rd_rst_n in `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:170$122'.
+Found async reset \rd_rst_n in `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:153$115'.
+Found async reset \wr_rst_n in `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:124$107'.
+Found async reset \wr_rst_n in `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:110$103'.
+Found async reset \wr_rst_n in `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:96$101'.
+Found async reset \wr_rst_n in `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:72$87'.
+Found async reset \rst_ni in `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+Found async reset \rst_ni in `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+Found async reset \rst_ni in `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:58$54'.
+Found async reset \rst_ni in `\opentarget_i3c_top.$proc$/foss/designs/OpenTarget-I3C/src/opentarget_i3c_top.sv:149$52'.
+Found async reset \rst_ni in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:189$42'.
+Found async reset \rst_ni in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:183$39'.
+Found async reset \rst_ni in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:175$37'.
+Found async reset \rst_ni in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:157$35'.
+Found async reset \rst_ni in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:145$32'.
+Found async reset \rst_ni in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:136$25'.
+Found async reset \rst_ni in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:125$22'.
+Found async reset \rst_ni in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:114$16'.
+Found async reset \rst_ni in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+Found async reset \rst_ni in `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:149$419'.
+Found async reset \rst_ni in `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:103$408'.
+Found async reset \rst_ni in `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:67$402'.
+
+15.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~152 debug messages>
+
+15.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:92$398'.
+     1/5: $3\sda_pad_oe[0:0]
+     2/5: $2\sda_pad_oe[0:0]
+     3/5: $2\sda_pad_o[0:0]
+     4/5: $1\sda_pad_o[0:0]
+     5/5: $1\sda_pad_oe[0:0]
+Creating decoders for process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:51$396'.
+     1/4: $0\sda_shift[2:0]
+     2/4: $0\scl_shift[2:0]
+     3/4: $0\sda_int_o[0:0]
+     4/4: $0\scl_int_o[0:0]
+Creating decoders for process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376'.
+     1/5: $0\bus_idle_o[0:0]
+     2/5: $0\bus_avail_o[0:0]
+     3/5: $0\bus_free_o[0:0]
+     4/5: $0\bus_active[0:0]
+     5/5: $0\bus_timer[15:0]
+Creating decoders for process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:54$365'.
+     1/2: $0\sda_sync[2:0]
+     2/2: $0\scl_sync[2:0]
+Creating decoders for process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+     1/34: $0\hdr_entry_o[0:0]
+     2/34: $0\tx_underrun_o[0:0]
+     3/34: $0\daa_commit_q[0:0]
+     4/34: $0\daa_new_addr[6:0]
+     5/34: $0\daa_par_ok[0:0]
+     6/34: $0\daa_cnt[5:0]
+     7/34: $0\load_tx_data[0:0]
+     8/34: $0\wait_tx_data[0:0]
+     9/34: $0\ibi_is_active[0:0]
+    10/34: $0\lost_arbitration[0:0]
+    11/34: $0\arbitrating_hj[0:0]
+    12/34: $0\arbitrating_ibi[0:0]
+    13/34: $0\ccc_is_cmd_phase[0:0]
+    14/34: $0\ccc_is_active[0:0]
+    15/34: $0\addr_matched[0:0]
+    16/34: $0\is_read_op[0:0]
+    17/34: $0\shift_reg[7:0]
+    18/34: $0\state[3:0]
+    19/34: $0\bit_cnt[3:0]
+    20/34: $0\ibi_fsm_byte_req_o[0:0]
+    21/34: $0\ibi_fsm_nack_o[0:0]
+    22/34: $0\ibi_fsm_ack_o[0:0]
+    23/34: $0\ibi_fsm_grant_o[0:0]
+    24/34: $0\ccc_tx_req_o[0:0]
+    25/34: $0\ccc_rnw_o[0:0]
+    26/34: $0\ccc_byte_valid_o[0:0]
+    27/34: $0\ccc_broadcast_o[0:0]
+    28/34: $0\ccc_cmd_phase_o[0:0]
+    29/34: $0\rx_valid_o[0:0]
+    30/34: $0\rx_data_o[7:0]
+    31/34: $0\tx_req_o[0:0]
+    32/34: $0\tx_mode_pp_o[0:0]
+    33/34: $0\tx_data_o[0:0]
+    34/34: $0\tx_en_o[0:0]
+Creating decoders for process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:167$278'.
+     1/3: $0\daa_done_o[0:0]
+     2/3: $0\dyn_addr_vld_o[0:0]
+     3/3: $0\dyn_addr_o[6:0]
+Creating decoders for process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:159$275'.
+     1/1: $0\daa_armed[0:0]
+Creating decoders for process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:87$258'.
+     1/1: $0\scl_dly[0:0]
+Creating decoders for process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+     1/24: $0\ccc_unrecognized_o[0:0]
+     2/24: $0\retry_exhausted_o[0:0]
+     3/24: $0\tx_byte_valid_o[0:0]
+     4/24: $0\setmrl_valid_o[0:0]
+     5/24: $0\setmwl_valid_o[0:0]
+     6/24: $0\rstact_valid_o[0:0]
+     7/24: $0\entdaa_valid_o[0:0]
+     8/24: $0\rstdaa_valid_o[0:0]
+     9/24: $0\disec_valid_o[0:0]
+    10/24: $0\enec_valid_o[0:0]
+    11/24: $0\retry_seen[0:0]
+    12/24: $0\rd_byte_cnt[3:0]
+    13/24: $0\wr_byte0[7:0]
+    14/24: $0\wr_byte_cnt[1:0]
+    15/24: $0\opcode[7:0]
+    16/24: $0\state[2:0]
+    17/24: $0\ccc_active_o[0:0]
+    18/24: $0\tx_last_o[0:0]
+    19/24: $0\tx_byte_o[7:0]
+    20/24: $0\setmrl_len_o[15:0]
+    21/24: $0\setmwl_len_o[15:0]
+    22/24: $0\rstact_data_o[7:0]
+    23/24: $0\disec_mask_o[7:0]
+    24/24: $0\enec_mask_o[7:0]
+Creating decoders for process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$186'.
+     1/4: $4\sel_ibi_src$func$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$150.$result[31:0]$194
+     2/4: $3\sel_ibi_src$func$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$150.$result[31:0]$193
+     3/4: $2\sel_ibi_src$func$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$150.$result[31:0]$192
+     4/4: $1\sel_ibi_src$func$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$150.$result[31:0]$191
+Creating decoders for process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+     1/13: $0\ibi_done_o[0:0]
+     2/13: $0\arb_lost_o[0:0]
+     3/13: $0\tx_byte_valid_o[0:0]
+     4/13: $0\payload_byte[7:0]
+     5/13: $0\mdb_byte[7:0]
+     6/13: $0\is_prn[0:0]
+     7/13: $0\has_payload[0:0]
+     8/13: $0\is_hj[0:0]
+     9/13: $0\state[1:0]
+    10/13: $0\ibi_done_src_o[1:0]
+    11/13: $0\prn_pending_o[0:0]
+    12/13: $0\ibi_active_src_o[1:0]
+    13/13: $0\src[1:0]
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$140'.
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$131'.
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:195$127'.
+     1/1: $0\rd_almost_empty_r[0:0]
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:183$124'.
+     1/1: $0\rd_empty_r[0:0]
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:170$122'.
+     1/2: $0\wr_gray_sync2[4:0]
+     2/2: $0\wr_gray_sync1[4:0]
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:164$117'.
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:153$115'.
+     1/2: $0\rd_gray[4:0]
+     2/2: $0\rd_bin[4:0]
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:124$107'.
+     1/1: $0\wr_almost_full_r[0:0]
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:110$103'.
+     1/1: $0\wr_full_r[0:0]
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:96$101'.
+     1/2: $0\rd_gray_sync2[4:0]
+     2/2: $0\rd_gray_sync1[4:0]
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:90$94'.
+     1/3: $1$memwr$\mem$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:92$84_EN[7:0]$100
+     2/3: $1$memwr$\mem$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:92$84_DATA[7:0]$99
+     3/3: $1$memwr$\mem$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:92$84_ADDR[3:0]$98
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:83$89'.
+Creating decoders for process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:72$87'.
+     1/2: $0\wr_gray[4:0]
+     2/2: $0\wr_bin[4:0]
+Creating decoders for process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+     1/8: $0\apb_start[0:0]
+     2/8: $0\wdata_reg[31:0]
+     3/8: $0\addr_reg[7:0]
+     4/8: $0\cmd_write[0:0]
+     5/8: $0\byte_idx[2:0]
+     6/8: $0\bit_cnt[2:0]
+     7/8: $0\rx_byte[7:0]
+     8/8: $0\spi_miso_o[0:0]
+Creating decoders for process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+     1/8: $0\penable_o[0:0]
+     2/8: $0\apb_state[0:0]
+     3/8: $0\rdata_reg[31:0]
+     4/8: $0\last_pslverr_o[0:0]
+     5/8: $0\pwdata_o[31:0]
+     6/8: $0\pwrite_o[0:0]
+     7/8: $0\psel_o[0:0]
+     8/8: $0\paddr_o[7:0]
+Creating decoders for process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:101$64'.
+     1/2: $2\active_tx_byte[7:0]
+     2/2: $1\active_tx_byte[7:0]
+Creating decoders for process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:58$54'.
+     1/4: $0\sclk_dly[0:0]
+     2/4: $0\mosi_sync[1:0]
+     3/4: $0\sclk_sync[1:0]
+     4/4: $0\cs_sync[1:0]
+Creating decoders for process `\opentarget_i3c_top.$proc$/foss/designs/OpenTarget-I3C/src/opentarget_i3c_top.sv:149$52'.
+     1/2: $0\evt_hj_enabled[0:0]
+     2/2: $0\evt_ibi_enabled[0:0]
+Creating decoders for process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:189$42'.
+     1/1: $0\ibi_done_tog_sync[2:0]
+Creating decoders for process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:183$39'.
+     1/1: $0\ibi_done_tog_host[0:0]
+Creating decoders for process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:175$37'.
+     1/1: $0\rx_empty_sync[1:0]
+Creating decoders for process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:157$35'.
+     1/1: $0\ibi_req_sync[1:0]
+Creating decoders for process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:145$32'.
+     1/1: $0\rx_tog_sync[2:0]
+Creating decoders for process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:136$25'.
+     1/1: $0\rx_tog_clk_i[0:0]
+Creating decoders for process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:125$22'.
+     1/1: $0\tx_tog_sync[2:0]
+Creating decoders for process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:114$16'.
+     1/2: $0\tx_data_clk_i[7:0]
+     2/2: $0\tx_tog_clk_i[0:0]
+Creating decoders for process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+     1/7: $0\sys_mxds_r[7:0]
+     2/7: $0\sys_status_r[7:0]
+     3/7: $0\ibi_payload_r[15:0]
+     4/7: $0\ibi_mdb_r[7:0]
+     5/7: $0\ibi_has_payload_r[0:0]
+     6/7: $0\ibi_is_prn_r[0:0]
+     7/7: $0\ibi_req_r[0:0]
+Creating decoders for process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:149$419'.
+     1/2: $0\pslverr_o[0:0]
+     2/2: $0\pready_o[0:0]
+Creating decoders for process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:127$418'.
+     1/2: $2\prdata_o[31:0]
+     2/2: $1\prdata_o[31:0]
+Creating decoders for process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:103$408'.
+     1/3: $0\int_status[11:0]
+     2/3: $0\irq_o[0:0]
+     3/3: $0\int_enable[11:0]
+Creating decoders for process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:67$402'.
+     1/3: $0\static_addr_valid_o[0:0]
+     2/3: $0\static_addr_o[6:0]
+     3/3: $0\core_ctrl_o[31:0]
+
+15.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.\sda_pad_oe' from process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:92$398'.
+No latch inferred for signal `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.\sda_pad_o' from process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:92$398'.
+No latch inferred for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\sel_ibi_src$func$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$149.$result' from process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$186'.
+No latch inferred for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\sel_ibi_src$func$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$150.$result' from process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$186'.
+No latch inferred for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\sel_ibi_src$func$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$150.req' from process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$186'.
+No latch inferred for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\sel_ibi_src$func$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$150.j' from process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$186'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\gray2bin$func$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$81.$result' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$140'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\gray2bin$func$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$83.$result' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$140'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\gray2bin$func$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$83.g' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$140'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\gray2bin$func$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$83.i' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$140'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\gray2bin$func$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$80.$result' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$131'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\gray2bin$func$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$82.$result' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$131'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\gray2bin$func$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$82.g' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$131'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\gray2bin$func$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$82.i' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$131'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\rd_bin_next' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:164$117'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\rd_gray_next' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:164$117'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\wr_bin_next' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:83$89'.
+No latch inferred for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\wr_gray_next' from process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:83$89'.
+No latch inferred for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\active_tx_byte' from process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:101$64'.
+No latch inferred for signal `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.\prdata_o' from process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:127$418'.
+
+15.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.\scl_int_o' using process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:51$396'.
+  created $adff cell `$procdff$2756' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.\sda_int_o' using process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:51$396'.
+  created $adff cell `$procdff$2761' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.\scl_shift' using process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:51$396'.
+  created $adff cell `$procdff$2766' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.\sda_shift' using process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:51$396'.
+  created $adff cell `$procdff$2771' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.\bus_free_o' using process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376'.
+  created $adff cell `$procdff$2776' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.\bus_avail_o' using process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376'.
+  created $adff cell `$procdff$2781' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.\bus_idle_o' using process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376'.
+  created $adff cell `$procdff$2786' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.\bus_timer' using process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376'.
+  created $adff cell `$procdff$2791' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.\bus_active' using process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376'.
+  created $adff cell `$procdff$2796' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.\scl_sync' using process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:54$365'.
+  created $adff cell `$procdff$2801' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.\sda_sync' using process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:54$365'.
+  created $adff cell `$procdff$2806' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\tx_en_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2811' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\tx_data_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2816' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\tx_mode_pp_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2821' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\tx_req_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2826' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\rx_data_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $dff cell `$procdff$2833' with positive edge clock.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\rx_valid_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2838' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ccc_cmd_phase_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2843' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ccc_broadcast_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2848' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ccc_byte_valid_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2853' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ccc_rnw_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2858' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ccc_tx_req_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2863' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ibi_fsm_grant_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2868' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ibi_fsm_ack_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2873' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ibi_fsm_nack_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2878' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ibi_fsm_byte_req_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2883' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\tx_underrun_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2888' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\hdr_entry_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2893' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\bit_cnt' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2898' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\state' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2903' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\shift_reg' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2908' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\is_read_op' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2913' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\addr_matched' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2918' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ccc_is_active' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2923' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ccc_is_cmd_phase' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2928' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\arbitrating_ibi' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2933' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\arbitrating_hj' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2938' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\lost_arbitration' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2943' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\ibi_is_active' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2948' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\wait_tx_data' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2953' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\load_tx_data' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2958' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\daa_cnt' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2963' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\daa_par_ok' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2968' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\daa_new_addr' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2973' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\daa_commit_q' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+  created $adff cell `$procdff$2978' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\dyn_addr_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:167$278'.
+  created $adff cell `$procdff$2983' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\dyn_addr_vld_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:167$278'.
+  created $adff cell `$procdff$2988' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\daa_done_o' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:167$278'.
+  created $adff cell `$procdff$2993' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\daa_armed' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:159$275'.
+  created $adff cell `$procdff$2998' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.\scl_dly' using process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:87$258'.
+  created $adff cell `$procdff$3003' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\enec_valid_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3008' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\enec_mask_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3013' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\disec_valid_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3018' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\disec_mask_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3023' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\rstdaa_valid_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3028' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\entdaa_valid_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3033' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\rstact_valid_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3038' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\rstact_data_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3043' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\setmwl_valid_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3048' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\setmwl_len_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3053' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\setmrl_valid_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3058' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\setmrl_len_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3063' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\tx_byte_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3068' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\tx_byte_valid_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3073' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\tx_last_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3078' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\ccc_active_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3083' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\ccc_unrecognized_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3088' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\retry_exhausted_o' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3093' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\state' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3098' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\opcode' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3103' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\wr_byte_cnt' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3108' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\wr_byte0' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3113' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\rd_byte_cnt' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3118' with positive edge clock and positive level reset.
+Creating register for signal `\i3c_ccc_decoder.\retry_seen' using process `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+  created $adff cell `$procdff$3123' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\src' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3128' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\tx_byte_valid_o' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3133' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\ibi_active_src_o' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3138' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\prn_pending_o' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3143' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\arb_lost_o' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3148' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\ibi_done_o' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3153' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\ibi_done_src_o' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3158' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\state' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3163' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\is_hj' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3168' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\has_payload' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3173' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\is_prn' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3178' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\mdb_byte' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3183' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.\payload_byte' using process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+  created $adff cell `$procdff$3188' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\rd_almost_empty_r' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:195$127'.
+  created $adff cell `$procdff$3193' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\rd_empty_r' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:183$124'.
+  created $adff cell `$procdff$3198' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\wr_gray_sync1' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:170$122'.
+  created $adff cell `$procdff$3203' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\wr_gray_sync2' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:170$122'.
+  created $adff cell `$procdff$3208' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\rd_bin' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:153$115'.
+  created $adff cell `$procdff$3213' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\rd_gray' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:153$115'.
+  created $adff cell `$procdff$3218' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\wr_almost_full_r' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:124$107'.
+  created $adff cell `$procdff$3223' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\wr_full_r' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:110$103'.
+  created $adff cell `$procdff$3228' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\rd_gray_sync1' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:96$101'.
+  created $adff cell `$procdff$3233' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\rd_gray_sync2' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:96$101'.
+  created $adff cell `$procdff$3238' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$memwr$\mem$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:92$84_ADDR' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:90$94'.
+  created $dff cell `$procdff$3239' with positive edge clock.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$memwr$\mem$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:92$84_DATA' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:90$94'.
+  created $dff cell `$procdff$3240' with positive edge clock.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$memwr$\mem$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:92$84_EN' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:90$94'.
+  created $dff cell `$procdff$3241' with positive edge clock.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\wr_bin' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:72$87'.
+  created $adff cell `$procdff$3246' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.\wr_gray' using process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:72$87'.
+  created $adff cell `$procdff$3251' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\spi_miso_o' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+  created $adff cell `$procdff$3256' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\rx_byte' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+  created $adff cell `$procdff$3261' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\bit_cnt' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+  created $adff cell `$procdff$3266' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\byte_idx' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+  created $adff cell `$procdff$3271' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\cmd_write' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+  created $adff cell `$procdff$3276' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\addr_reg' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+  created $adff cell `$procdff$3281' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\wdata_reg' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+  created $adff cell `$procdff$3286' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\apb_start' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+  created $adff cell `$procdff$3291' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\paddr_o' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+  created $adff cell `$procdff$3296' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\psel_o' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+  created $adff cell `$procdff$3301' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\penable_o' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+  created $adff cell `$procdff$3306' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\pwrite_o' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+  created $adff cell `$procdff$3311' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\pwdata_o' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+  created $adff cell `$procdff$3316' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\last_pslverr_o' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+  created $adff cell `$procdff$3321' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\rdata_reg' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+  created $adff cell `$procdff$3326' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\apb_state' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+  created $adff cell `$procdff$3331' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\cs_sync' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:58$54'.
+  created $adff cell `$procdff$3336' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\sclk_sync' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:58$54'.
+  created $adff cell `$procdff$3341' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\mosi_sync' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:58$54'.
+  created $adff cell `$procdff$3346' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.\sclk_dly' using process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:58$54'.
+  created $adff cell `$procdff$3351' with positive edge clock and positive level reset.
+Creating register for signal `\opentarget_i3c_top.\evt_ibi_enabled' using process `\opentarget_i3c_top.$proc$/foss/designs/OpenTarget-I3C/src/opentarget_i3c_top.sv:149$52'.
+  created $adff cell `$procdff$3356' with positive edge clock and positive level reset.
+Creating register for signal `\opentarget_i3c_top.\evt_hj_enabled' using process `\opentarget_i3c_top.$proc$/foss/designs/OpenTarget-I3C/src/opentarget_i3c_top.sv:149$52'.
+  created $adff cell `$procdff$3361' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\ibi_done_tog_sync' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:189$42'.
+  created $adff cell `$procdff$3366' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\ibi_done_tog_host' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:183$39'.
+  created $adff cell `$procdff$3371' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\rx_empty_sync' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:175$37'.
+  created $adff cell `$procdff$3376' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\ibi_req_sync' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:157$35'.
+  created $adff cell `$procdff$3381' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\rx_tog_sync' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:145$32'.
+  created $adff cell `$procdff$3386' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\rx_tog_clk_i' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:136$25'.
+  created $adff cell `$procdff$3391' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\tx_tog_sync' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:125$22'.
+  created $adff cell `$procdff$3396' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\tx_tog_clk_i' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:114$16'.
+  created $adff cell `$procdff$3401' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\tx_data_clk_i' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:114$16'.
+  created $adff cell `$procdff$3406' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\ibi_req_r' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+  created $adff cell `$procdff$3411' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\ibi_is_prn_r' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+  created $adff cell `$procdff$3416' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\ibi_has_payload_r' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+  created $adff cell `$procdff$3421' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\ibi_mdb_r' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+  created $adff cell `$procdff$3426' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\ibi_payload_r' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+  created $adff cell `$procdff$3431' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\sys_status_r' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+  created $adff cell `$procdff$3436' with positive edge clock and positive level reset.
+Creating register for signal `\spi_opentarget_i3c_macro.\sys_mxds_r' using process `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+  created $adff cell `$procdff$3441' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.\pready_o' using process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:149$419'.
+  created $adff cell `$procdff$3446' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.\pslverr_o' using process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:149$419'.
+  created $adff cell `$procdff$3451' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.\irq_o' using process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:103$408'.
+  created $adff cell `$procdff$3456' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.\int_status' using process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:103$408'.
+  created $adff cell `$procdff$3461' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.\int_enable' using process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:103$408'.
+  created $adff cell `$procdff$3466' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.\core_ctrl_o' using process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:67$402'.
+  created $adff cell `$procdff$3471' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.\static_addr_o' using process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:67$402'.
+  created $adff cell `$procdff$3476' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.\static_addr_valid_o' using process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:67$402'.
+  created $adff cell `$procdff$3481' with positive edge clock and positive level reset.
+
+15.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+15.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:92$398'.
+Removing empty process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:92$398'.
+Found and cleaned up 4 empty switches in `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:51$396'.
+Removing empty process `$paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.$proc$/foss/designs/OpenTarget-I3C/src/i3c_phy_frontend.sv:51$396'.
+Found and cleaned up 4 empty switches in `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376'.
+Removing empty process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:90$376'.
+Removing empty process `$paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.$proc$/foss/designs/OpenTarget-I3C/src/i3c_bus_det.sv:54$365'.
+Found and cleaned up 61 empty switches in `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+Removing empty process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:192$281'.
+Found and cleaned up 2 empty switches in `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:167$278'.
+Removing empty process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:167$278'.
+Found and cleaned up 2 empty switches in `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:159$275'.
+Removing empty process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:159$275'.
+Removing empty process `$paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.$proc$/foss/designs/OpenTarget-I3C/src/i3c_protocol_fsm.sv:87$258'.
+Found and cleaned up 20 empty switches in `\i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+Removing empty process `i3c_ccc_decoder.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ccc_decoder.sv:138$240'.
+Found and cleaned up 4 empty switches in `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$186'.
+Removing empty process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:106$186'.
+Found and cleaned up 13 empty switches in `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+Removing empty process `$paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.$proc$/foss/designs/OpenTarget-I3C/src/i3c_ibi_hj_ctrl.sv:119$172'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:193$140'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:122$131'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:195$127'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:183$124'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:170$122'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:164$117'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:153$115'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:124$107'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:110$103'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:96$101'.
+Found and cleaned up 1 empty switch in `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:90$94'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:90$94'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:83$89'.
+Removing empty process `$paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.$proc$/foss/designs/OpenTarget-I3C/src/i3c_fifo_cdc.sv:72$87'.
+Found and cleaned up 9 empty switches in `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+Removing empty process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:167$69'.
+Found and cleaned up 4 empty switches in `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+Removing empty process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:122$65'.
+Found and cleaned up 2 empty switches in `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:101$64'.
+Removing empty process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:101$64'.
+Removing empty process `$paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.$proc$/foss/designs/OpenTarget-I3C/src/spi_apb_bridge.sv:58$54'.
+Found and cleaned up 6 empty switches in `\opentarget_i3c_top.$proc$/foss/designs/OpenTarget-I3C/src/opentarget_i3c_top.sv:149$52'.
+Removing empty process `opentarget_i3c_top.$proc$/foss/designs/OpenTarget-I3C/src/opentarget_i3c_top.sv:149$52'.
+Removing empty process `spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:189$42'.
+Found and cleaned up 1 empty switch in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:183$39'.
+Removing empty process `spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:183$39'.
+Removing empty process `spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:175$37'.
+Removing empty process `spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:157$35'.
+Removing empty process `spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:145$32'.
+Found and cleaned up 1 empty switch in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:136$25'.
+Removing empty process `spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:136$25'.
+Removing empty process `spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:125$22'.
+Found and cleaned up 1 empty switch in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:114$16'.
+Removing empty process `spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:114$16'.
+Found and cleaned up 4 empty switches in `\spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+Removing empty process `spi_opentarget_i3c_macro.$proc$/foss/designs/OpenTarget-I3C/src/spi_opentarget_i3c_macro.sv:73$12'.
+Found and cleaned up 4 empty switches in `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:149$419'.
+Removing empty process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:149$419'.
+Found and cleaned up 2 empty switches in `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:127$418'.
+Removing empty process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:127$418'.
+Found and cleaned up 2 empty switches in `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:103$408'.
+Removing empty process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:103$408'.
+Found and cleaned up 2 empty switches in `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:67$402'.
+Removing empty process `$paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.$proc$/foss/designs/OpenTarget-I3C/src/i3c_apb_regs.sv:67$402'.
+Cleaned up 152 empty switches.
+
+15.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module spi_opentarget_i3c_top.
+Optimizing module $paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.
+<suppressed ~12 debug messages>
+Optimizing module $paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.
+<suppressed ~20 debug messages>
+Optimizing module $paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.
+<suppressed ~108 debug messages>
+Optimizing module i3c_ccc_decoder.
+<suppressed ~74 debug messages>
+Optimizing module $paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.
+<suppressed ~34 debug messages>
+Optimizing module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+<suppressed ~26 debug messages>
+Optimizing module $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.
+<suppressed ~66 debug messages>
+Optimizing module opentarget_i3c_top.
+<suppressed ~4 debug messages>
+Optimizing module spi_opentarget_i3c_macro.
+<suppressed ~32 debug messages>
+Optimizing module $paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.
+<suppressed ~21 debug messages>
+
+16. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\i3c_phy_frontend\GLITCH_FILTER_STAGES=s32'00000000000000000000000000000011.
+Deleting now unused module $paramod$55840a6fcbd8b02d5e97672b9a7c5f642b1a253e\i3c_bus_det.
+Deleting now unused module $paramod\i3c_protocol_fsm\I3C_BROADCAST_ADDR=7'1111110.
+Deleting now unused module i3c_ccc_decoder.
+Deleting now unused module $paramod\i3c_ibi_hj_ctrl\NUM_IBI_SRC=s32'00000000000000000000000000000100.
+Deleting now unused module $paramod$823999466288c90fc66a121a247ad477cc27bb8d\i3c_fifo_cdc.
+Deleting now unused module $paramod$dae8cd0db399b3c636d19ef10b501d950e7a3664\spi_apb_bridge.
+Deleting now unused module opentarget_i3c_top.
+Deleting now unused module spi_opentarget_i3c_macro.
+Deleting now unused module $paramod$97473be3b69f70d018d65437b3746e0ed81be7b3\i3c_apb_regs.
+<suppressed ~11 debug messages>
+
+17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \spi_opentarget_i3c_top..
+Removed 431 unused cells and 1755 unused wires.
+<suppressed ~709 debug messages>

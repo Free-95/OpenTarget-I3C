@@ -1,0 +1,18 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792923774" />
+    <testcase name="test_reset_defaults" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="146" time="0.01937556266784668" sim_time_ns="60.0" ratio_time="3096.6842629849752" />
+    <testcase name="test_single_write_read_roundtrip" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="159" time="0.2471480369567871" sim_time_ns="98080.0" ratio_time="396847.17389500816" />
+    <testcase name="test_multiple_sequential_registers" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="176" time="1.5022060871124268" sim_time_ns="588060.0" ratio_time="391464.26382173813" />
+    <testcase name="test_read_reflects_preloaded_slave_value" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="200" time="0.12566733360290527" sim_time_ns="49060.0" ratio_time="390395.806081349" />
+    <testcase name="test_pready_wait_states" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="215" time="0.25272440910339355" sim_time_ns="98060.0" ratio_time="388011.59075964877" />
+    <testcase name="test_pslverr_propagation" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="232" time="0.2542715072631836" sim_time_ns="98100.0" ratio_time="385808.07207180175" />
+    <testcase name="test_incomplete_write_frame_never_issues_apb_transaction" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="253" time="0.16463732719421387" sim_time_ns="58260.0" ratio_time="353868.71855174" />
+    <testcase name="test_incomplete_write_frame_aborted_during_data_phase" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="271" time="0.19835853576660156" sim_time_ns="74240.0" ratio_time="374271.76860870986" />
+    <testcase name="test_incomplete_read_frame_already_issued_apb_read" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="290" time="0.16999101638793945" sim_time_ns="66240.0" ratio_time="389667.6507235685" />
+    <testcase name="test_back_to_back_frames_no_gap" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="312" time="1.1576933860778809" sim_time_ns="490060.0" ratio_time="423307.2468870721" />
+    <testcase name="test_idle_bus_never_issues_transaction" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="328" time="0.011529207229614258" sim_time_ns="2060.0" ratio_time="178676.63916289265" />
+    <testcase name="test_reset_mid_frame" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="347" time="0.18652582168579102" sim_time_ns="65660.0" ratio_time="352015.6051670233" />
+    <testcase name="test_slower_and_faster_sclk_rates" classname="test_spi_apb_bridge" file="/foss/designs/OpenTarget-I3C/cocotb/test_spi_apb_bridge.py" lineno="376" time="0.5930056571960449" sim_time_ns="245060.0" ratio_time="413250.69504182535" />
+  </testsuite>
+</testsuites>

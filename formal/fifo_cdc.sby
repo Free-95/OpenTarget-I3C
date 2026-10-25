@@ -1,0 +1,23 @@
+[options]
+mode prove
+multiclock on
+# Sweeps up to 25 clock cycles deep (plenty of time to cross domains and fill/empty a 16-deep FIFO)
+depth 25
+
+[engines]
+# Use the SMT BMC engine with yices 
+smtbmc yices
+
+[script]
+# SBY flattens copied files into its working directory, 
+# so we only use the raw filenames here
+read -formal fifo_cdc_formal.sv
+read -sv i3c_fifo_cdc.sv
+
+# Prepare the top module
+prep -top i3c_fifo_cdc
+
+[files]
+# SymbiYosys will copy these files into its working directory
+formal/fifo_cdc_formal.sv
+src/i3c_fifo_cdc.sv

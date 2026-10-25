@@ -1,0 +1,21 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792923749" />
+    <testcase name="test_reset_defaults" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="75" time="0.031062841415405273" sim_time_ns="40.0" ratio_time="1287.7122045944723" />
+    <testcase name="test_reset_mid_filter_transition" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="90" time="0.0015633106231689453" sim_time_ns="140.0" ratio_time="89553.5397285344" />
+    <testcase name="test_scl_clean_high_to_low_to_high" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="115" time="0.001016378402709961" sim_time_ns="260.0" ratio_time="255810.23692235514" />
+    <testcase name="test_sda_clean_high_to_low_to_high" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="127" time="0.00093841552734375" sim_time_ns="260.00000000000006" ratio_time="277062.7642276423" />
+    <testcase name="test_transition_threshold_exact" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="139" time="0.002171039581298828" sim_time_ns="419.9999999999999" ratio_time="193455.70832418182" />
+    <testcase name="test_scl_glitch_rejected" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="158" time="0.0034787654876708984" sim_time_ns="580.0" ratio_time="166725.81180179561" />
+    <testcase name="test_sda_glitch_rejected" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="182" time="0.0014908313751220703" sim_time_ns="280.0" ratio_time="187814.66815928355" />
+    <testcase name="test_glitch_reject_from_low_baseline" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="195" time="0.0021293163299560547" sim_time_ns="380.0" ratio_time="178461.03683798006" />
+    <testcase name="test_scl_sda_filtered_independently" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="218" time="0.0010828971862792969" sim_time_ns="220.0" ratio_time="203158.71422280933" />
+    <testcase name="test_output_drive_truth_table" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="243" time="0.001096963882446289" sim_time_ns="68.0" ratio_time="61989.278852423384" />
+    <testcase name="test_idle_always_high_z" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="285" time="0.0007970333099365234" sim_time_ns="64.0" ratio_time="80297.7732575531" />
+    <testcase name="test_open_drain_drive_and_release" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="300" time="0.001247406005859375" sim_time_ns="62.0" ratio_time="49703.14373088685" />
+    <testcase name="test_push_pull_drive_both_levels" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="318" time="0.0007796287536621094" sim_time_ns="62.0" ratio_time="79525.02996941896" />
+    <testcase name="test_dynamic_od_pp_mode_switch" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="337" time="0.000759124755859375" sim_time_ns="62.0" ratio_time="81673.00502512563" />
+    <testcase name="test_tx_en_deassert_releases_immediately" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="357" time="0.00047206878662109375" sim_time_ns="62.0" ratio_time="131336.79191919192" />
+    <testcase name="test_input_filter_independent_of_output_drive" classname="test_phy_frontend" file="/foss/designs/OpenTarget-I3C/cocotb/test_phy_frontend.py" lineno="379" time="0.0007441043853759766" sim_time_ns="160.0" ratio_time="215023.59500160205" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,30 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1792923751" />
+    <testcase name="test_bus_detector_timing" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="213" time="0.052575111389160156" sim_time_ns="3680.0" ratio_time="69995.09659163054" />
+    <testcase name="test_ccc_broadcast" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="232" time="0.11513185501098633" sim_time_ns="43560.0" ratio_time="378348.807077271" />
+    <testcase name="test_ccc_direct_retry_model" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="257" time="0.25096750259399414" sim_time_ns="104740.0" ratio_time="417344.87101879664" />
+    <testcase name="test_ccc_direct_get_registers" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="306" time="0.42931604385375977" sim_time_ns="177600.00000000003" ratio_time="413681.25543544063" />
+    <testcase name="test_ccc_getpid" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="345" time="0.2812666893005371" sim_time_ns="126560.0" ratio_time="449964.4103421326" />
+    <testcase name="test_hj_arbitration_loss" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="380" time="0.036069393157958984" sim_time_ns="15720.0" ratio_time="435826.5727165766" />
+    <testcase name="test_no_response_on_address_mismatch" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="407" time="0.038683414459228516" sim_time_ns="16640.0" ratio_time="430158.51192604005" />
+    <testcase name="test_ibi_arbitration_won" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="426" time="0.08101677894592285" sim_time_ns="39660.0" ratio_time="489528.22509115416" />
+    <testcase name="test_ibi_arbitration_loss" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="463" time="0.040860652923583984" sim_time_ns="12660.0" ratio_time="309833.5218400999" />
+    <testcase name="test_prn_sticky_flag" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="484" time="0.05745840072631836" sim_time_ns="26220.0" ratio_time="456330.13917127944" />
+    <testcase name="test_hot_join_request" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="520" time="0.03514385223388672" sim_time_ns="15720.0" ratio_time="447304.4074787658" />
+    <testcase name="test_hdr_ignore" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="552" time="0.06164813041687012" sim_time_ns="28640.0" ratio_time="464572.0771470892" />
+    <testcase name="test_standard_private_read_write" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="571" time="0.13213562965393066" sim_time_ns="60240.0" ratio_time="455895.2052354944" />
+    <testcase name="test_ibi_multi_source_priority" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="612" time="0.0782930850982666" sim_time_ns="26160.0" ratio_time="334129.1247773193" />
+    <testcase name="test_ccc_rstdaa" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="649" time="0.0689857006072998" sim_time_ns="30060.0" ratio_time="435742.4761272797" />
+    <testcase name="test_ccc_setmwl_setmrl_broadcast" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="666" time="0.24234628677368164" sim_time_ns="114060.0" ratio_time="470648.8451647558" />
+    <testcase name="test_ccc_setmwl_direct" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="706" time="0.16832518577575684" sim_time_ns="72560.0" ratio_time="431070.3693306157" />
+    <testcase name="test_ccc_rstact" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="733" time="0.10605406761169434" sim_time_ns="43560.0" ratio_time="410733.89244710817" />
+    <testcase name="test_ccc_unrecognized_opcode" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="754" time="0.12987089157104492" sim_time_ns="60060.0" ratio_time="462459.28763139824" />
+    <testcase name="test_entdaa_single_target" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="835" time="0.36948299407958984" sim_time_ns="169220.00000000012" ratio_time="457991.30869754904" />
+    <testcase name="test_entdaa_lose_then_win" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="872" time="0.4734025001525879" sim_time_ns="217140.0" ratio_time="458679.4533827157" />
+    <testcase name="test_entdaa_bad_parity" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="904" time="0.4801325798034668" sim_time_ns="217220.0" ratio_time="452416.70558768354" />
+    <testcase name="test_entdaa_ignored_when_assigned" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="929" time="0.11773681640625" sim_time_ns="45700.0" ratio_time="388153.86210471747" />
+    <testcase name="test_rstdaa_clears_da_then_reassign" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="948" time="0.6113839149475098" sim_time_ns="277300.0" ratio_time="453561.1638127698" />
+    <testcase name="test_7e_read_without_entdaa_is_still_hdr" classname="test_mac_cluster" file="/foss/designs/OpenTarget-I3C/cocotb/test_mac_cluster.py" lineno="972" time="0.05017209053039551" sim_time_ns="16640.0" ratio_time="331658.4942761967" />
+  </testsuite>
+</testsuites>
