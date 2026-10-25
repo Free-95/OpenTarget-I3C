@@ -1,6 +1,6 @@
 # OpenTarget-I3C: A Plug-and-Play MIPI I3C Target Controller
 
-**IEEE SSCS Chipathon 2026 — Track A: Foundational Building Blocks**
+**IEEE SSCS Chipathon 2026 - Track A: Foundational Building Blocks**
 
 **Team Technocrats:** Tejas Patel (Free-95), Krishang Talsania (talsania)
 
@@ -137,7 +137,7 @@ Each event source below produces a single-cycle pulse in the `clk_i` domain. A p
 >`irq_o` previously followed `core_status[0]` directly. It is now gated by `INT_ENABLE`, which resets to `0`. Host software must write `INT_ENABLE` (`0x34`) to unmask the events it cares about, and write `INT_STATUS` (`0x30`) to acknowledge them. In the SPI-wrapped macro these registers are reachable at the same addresses.
 
 >[!NOTE]
->Due to the physical pin/pad constraints for the tapeout in Chipathon, the designed I3C Controller — though being a serial-communication protocol — is wrapped with an SPI bridge at the APB3 interface for reducing the pin count. This I3C IP has two interfaces - one to physical IO pads (serial) and other to the host SoC (parallel), as the IP will be taped out alone without any host SoC the parallel APB3 interface with numerous pins has to be connected to a Serial Protocol bridge. This modification is just for the tapeout, it is not required while integrating into an SoC.
+>Due to the physical pin/pad constraints for the tapeout in Chipathon, the designed I3C Controller though being a serial-communication protocol - is wrapped with an SPI bridge at the APB3 interface for reducing the pin count. This I3C IP has two interfaces - one to physical IO pads (serial) and other to the host SoC (parallel), as the IP will be taped out alone without any host SoC the parallel APB3 interface with numerous pins has to be connected to a Serial Protocol bridge. This modification is just for the tapeout, it is not required while integrating into an SoC.
 
 ---
 
@@ -182,11 +182,11 @@ make <testbench-name>  # Run a specific testbench
 
 Formal property checking is structured using SymbiYosys (`.sby`) configurations inside the `formal/` directory for critical control logic:
 
-* `formal/fifo_cdc.sby` — Verifies CDC FIFO pointer safety and overflow/underflow protection.
+* `formal/fifo_cdc.sby` - Verifies CDC FIFO pointer safety and overflow/underflow protection.
 
-* `formal/ibi_hj_ctrl.sby` — Formally proves IBI arbitration and Hot-Join state transitions.
+* `formal/ibi_hj_ctrl.sby` - Formally proves IBI arbitration and Hot-Join state transitions.
 
-* `formal/protocol_fsm.sby` — Validates deadlock freedom and protocol compliance of the FSM.
+* `formal/protocol_fsm.sby` - Validates deadlock freedom and protocol compliance of the FSM.
 
 
 Execute a formal proof job using below commands (e.g., for the protocol FSM):
@@ -234,6 +234,23 @@ Though the execution of complete flow includes DRC, LVS and Antenna Rule checks,
 The above snapshot shows the successful execution of complete flow without any violations. All finalized signoff reports and metrics are archived in the `signoff/` directory.
 
 The integration-ready Layout Database file for Chipathon is present in `integration/` directory along with the final powered netlist required for LVS check. The quality metrics - utilization, area, and cell count statistics are logged in `metrics.csv` and `metrics.json` files in `final/` directory along with `build_signoff.log` (log of complete librelane run).
+
+### Summary of Key Metrics (nominal typical corner, `nom_tt_025C_5v00`)
+
+| Metric | Result |
+|---|---|
+| Die / core area | 610,500 µm² / 526,734 µm² (550 × 1110 µm die) |
+| Standard-cell instances (excl. fill, tap, endcap) | 7,142 (125,552 µm²) |
+| Core utilization | 23.8 % |
+| Sequential cells (flip-flops) | 767 |
+| Setup worst slack (all corners) / hold worst slack (all corners) | +3.23 ns / +0.10 ns |
+| Setup / hold violations | 0 / 0 |
+| Max slew, max cap, max fanout violations | 0 / 0 / 0 |
+| Total power | 55.8 mW |
+| Worst IR drop | 0.33 mV |
+| Route DRC errors / Magic DRC errors | 0 / 0 |
+| Antenna violating nets / pins | 0 / 0 |
+| LVS | Circuits match uniquely (3,220 devices, 3,225 nets) |
 
 ### Glimpses of the final layout GDS
 1. **Placement of standard cells**
